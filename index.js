@@ -1,9 +1,9 @@
 (function (root, factory) {
-    if (typeof root.LocationPlugin == "undefined") {
+    if (typeof root.LocationPlugin === "undefined") {
         root.LocationPlugin = factory(root);
     }
 })(typeof window !== "undefined" ? window : this, function (window) {
-    "use strict";
+    
 
     const MAPS = "map";
     const MODAL = "model";
@@ -13,12 +13,12 @@
         "CSS": "css"
     }
 
-    var defaults = {
+    const defaults = {
         global: true,
         popup: false,
     };
 
-    var assetList = {
+    const assetList = {
         [MAPS]: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDcupH1pAzOULz35i00ADvn1sndjRa4m_A&libraries=places",
         [MODAL]: [
             "/themes/beta/css/elements/plugins/location/style.css",
@@ -26,10 +26,10 @@
         ],
     };
 
-    var extend = () => {
-        var merged = {};
-        Array.prototype.forEach.call(arguments, function (obj) {
-            for (var key in obj) {
+    const extend = () => {
+        const merged = {};
+        Array.prototype.forEach.call(arguments, (obj) => {
+            for (const key in obj) {
                 if (!obj.hasOwnProperty(key)) return;
                 merged[key] = obj[key];
             }
@@ -37,21 +37,21 @@
         return merged;
     };
 
-    var emitEvent = (type, elem, detail) => {
+    const emitEvent = (type, elem, detail) => {
         // Create a new event
-        var event = new CustomEvent(type, {
+        const event = new CustomEvent(type, {
             bubbles: true,
             cancelable: true,
-            detail: detail,
+            detail,
         });
 
         // Dispatch the event
         elem.dispatchEvent(event);
     };
 
-    var loadGoogleMapsJs = async () => {
-        if (typeof google == "undefined" || typeof google.maps == "undefined") {
-            //load maps script dynamically
+    const loadGoogleMapsJs = async () => {
+        if (typeof google === "undefined" || typeof google.maps === "undefined") {
+            // load maps script dynamically
             await loadAssets(MAP);
         }
     };
@@ -59,7 +59,7 @@
     var loadAssets = async (type) => {
         switch (type) {
             case MODAL:
-                assetList[MODAL].css.forEach(function (style) {
+                assetList[MODAL].css.forEach( async (style) => {
                    await loadResource(style);
                 });
                 break;
@@ -71,10 +71,10 @@
     };
 
     var loadResource = async (type, url) => {
-        let assets_url = window.assets_url || '';
-        let assets_version = window.assets_version || 1;
+        const assets_url = window.assets_url || '';
+        const assets_version = window.assets_version || 1;
         if (window.minify === 1) {
-            url = assets_url + "?f="+url+"&v="+assets_version;
+            url = `${assets_url  }?f=${url}&v=${assets_version}`;
         } else {
             url = assets_url + url;
         }
@@ -90,7 +90,7 @@
         }
     }
 
-    var constructor = (selector, options) => {};
+    const constructor = (selector, options) => {};
 
     return constructor;
 });
