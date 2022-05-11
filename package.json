@@ -1,0 +1,49 @@
+{
+    "name": "location",
+    "version": "1.0.0",
+    "description": "This provided google location plugin for droom.in",
+    "main": "index.js",
+    "scripts": {
+        "prettier-format": "prettier  '*.js' --write",
+        "prettier-watch": "onchange '*.js' -- prettier --write {{changed}}",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "verbose": true,
+    "engines": {
+        "npm": ">=6.14.17",
+        "node": ">=14.19.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hitendrarao/location.git"
+    },
+    "keywords": [
+        "Google",
+        "Maps",
+        "Places",
+        "API",
+        "ES6",
+        "Javascript",
+        "Plugin"
+    ],
+    "author": "hitendra.rao@droom.in",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hitendrarao/location/issues"
+    },
+    "homepage": "https://github.com/hitendrarao/location#readme",
+    "devDependencies": {
+        "@babel/core": "^7.17.10",
+        "@babel/eslint-parser": "^7.17.0",
+        "eslint": "^8.15.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "onchange": "^7.1.0",
+        "prettier": "^2.6.2"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not IE 10"
+    ]
+}
