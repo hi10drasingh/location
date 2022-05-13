@@ -1,3 +1,6 @@
+import LoadResource from "./utils"
+import RESOURCE from "./constants"
+
 const Modal = () => {
     const ID = "locationModal"
 
@@ -9,6 +12,14 @@ const Modal = () => {
     ]
 
     const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
+
+    const loadDependencies = () => {
+        CSS.forEach(async style => {
+            await LoadResource(RESOURCE.CSS, style).catch(err => {
+                console.error(err) // eslint-disable-line no-console
+            })
+        })
+    }
 
     const fetchHTML = () => {
         fetch(URL, {
@@ -30,10 +41,16 @@ const Modal = () => {
                 event.preventDefault()
 
                 if (!isLoaded()) {
+                    loadDependencies()
+
                     fetchHTML()
                 }
             })
         }
+    }
+
+    return {
+        register
     }
 }
 
