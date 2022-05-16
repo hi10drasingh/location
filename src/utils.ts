@@ -1,6 +1,14 @@
 import RESOURCE from "./constants"
 
-const parseURL = url => {
+declare global {
+    interface Window {
+        assets_url: string
+        assets_version: string
+        minify: number
+    }
+}
+
+const parseURL = (url: string) => {
     let parsedURL = url
 
     const assetsURL = window.assets_url || ""
@@ -16,7 +24,7 @@ const parseURL = url => {
     return parsedURL
 }
 
-const getResource = (type, url) => {
+const getResource = (type: string, url: string) => {
     let resource
     switch (type) {
         case RESOURCE.CSS:
@@ -25,21 +33,18 @@ const getResource = (type, url) => {
             resource.href = url
             break
 
-        case RESOURCE.JS:
+        default:
             resource = document.createElement("script")
             resource.type = "text/javascript"
             resource.src = url
             resource.async = true
-            break
-
-        default:
             break
     }
 
     return resource
 }
 
-const LoadResource = (type, url) => {
+const LoadResource = (type: string, url: string) => {
     const promise = new Promise((resolve, reject) => {
         const parsedURL = parseURL(url)
 
@@ -52,7 +57,7 @@ const LoadResource = (type, url) => {
         })
 
         resource.addEventListener("error", () => {
-            reject(new Error(`${resource.src} failed to load.`))
+            reject(new Error(`${url} failed to load.`))
         })
     })
 
@@ -62,8 +67,14 @@ const LoadResource = (type, url) => {
 export const LS = () => {
     const ls = window.localStorage
 
-    const exist = key => {
-        const cache = JSON.parse(ls.getItem(key))
+    const exist = (key: string) => {
+        const value = ls.getItem(key)
+        if (!value) {
+            return false
+        }
+
+        const cache = JSON.parse(value)
+
         const now = new Date().getTime()
 
         if (cache) {
@@ -81,8 +92,13 @@ export const LS = () => {
         return false
     }
 
-    const get = key => {
-        const cache = JSON.parse(ls.getItem(key))
+    const get = (key: string) => {
+        const value = ls.getItem(key)
+        if (!value) {
+            return null
+        }
+
+        const cache = JSON.parse(value)
         if (exist(key)) {
             return cache.value
         }
@@ -90,7 +106,7 @@ export const LS = () => {
         return null
     }
 
-    const set = (key, val, minutes) => {
+    const set = (key: string, val: any, minutes: number) => {
         const data = {
             value: val,
             time: new Date().getTime(),
@@ -107,19 +123,28 @@ export const LS = () => {
 }
 
 export const Cookies = () => {
-    const get = key => {
+    const get = (key: string) => {
         const nameEQ = `${key}=`
         const ca = document.cookie.split(";")
-        for (let i = 0; i < ca.length; i += 1) {
-            let c = ca[i]
-            while (c.charAt(0) === " ") c = c.substring(1, c.length)
-            if (c.indexOf(nameEQ) === 0)
-                return c.substring(nameEQ.length, c.length)
-        }
-        return null
+
+        let cookieValue
+
+        ca.forEach(value => {
+            let c = value
+
+            while (c.charAt(0) === " ") {
+                c = c.substring(1, c.length)
+            }
+
+            if (c.indexOf(nameEQ) === 0) {
+                cookieValue = c.substring(nameEQ.length, c.length)
+            }
+        })
+
+        return cookieValue
     }
 
-    const set = (key, value, timeInDays) => {
+    const set = (key: string, value: string, timeInDays: number) => {
         let expires = ""
 
         const date = new Date()
