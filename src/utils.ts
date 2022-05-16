@@ -52,7 +52,7 @@ const LoadResource = (type, url) => {
         })
 
         resource.addEventListener("error", () => {
-            reject(new Error(`${this.src} failed to load.`))
+            reject(new Error(`${resource.src} failed to load.`))
         })
     })
 
