@@ -1,5 +1,5 @@
-import LoadResource from "./utils"
-import RESOURCE from "./constants"
+import { LoadResource, RESOURCE } from "./utils"
+import IResponse from "./response"
 
 const Modal = () => {
     const ID = "locationModal"
@@ -26,14 +26,16 @@ const Modal = () => {
             headers: {
                 "X-Requested-With": "XMLHttpRequest"
             }
-        }).then(res => {
-            if (res.code === "success") {
-                document.body.appendChild(res.data)
-            }
         })
+            .then(response => response.json())
+            .then((res: IResponse) => {
+                if (res.code === "success") {
+                    document.body.appendChild(res.data)
+                }
+            })
     }
 
-    const register = selector => {
+    const register = (selector: string) => {
         const ele = document.querySelector(selector)
 
         if (ele) {

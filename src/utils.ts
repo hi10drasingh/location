@@ -1,11 +1,6 @@
-import RESOURCE from "./constants"
-
-declare global {
-    interface Window {
-        assets_url: string
-        assets_version: string
-        minify: number
-    }
+export const RESOURCE = {
+    JS: "js",
+    CSS: "css"
 }
 
 const parseURL = (url: string) => {
@@ -44,7 +39,7 @@ const getResource = (type: string, url: string) => {
     return resource
 }
 
-const LoadResource = (type: string, url: string) => {
+export const LoadResource = (type: string, url: string) => {
     const promise = new Promise((resolve, reject) => {
         const parsedURL = parseURL(url)
 
@@ -63,102 +58,3 @@ const LoadResource = (type: string, url: string) => {
 
     return promise
 }
-
-export const LS = () => {
-    const ls = window.localStorage
-
-    const exist = (key: string) => {
-        const value = ls.getItem(key)
-        if (!value) {
-            return false
-        }
-
-        const cache = JSON.parse(value)
-
-        const now = new Date().getTime()
-
-        if (cache) {
-            if (cache.value && cache.expireIn && cache.time) {
-                let diff = (now - cache.time) / 1000
-                diff /= 60
-                const minutes = Math.abs(Math.round(diff))
-                if (minutes < cache.expireIn) {
-                    return true
-                }
-            }
-            ls.getItem(key)
-        }
-
-        return false
-    }
-
-    const get = (key: string) => {
-        const value = ls.getItem(key)
-        if (!value) {
-            return null
-        }
-
-        const cache = JSON.parse(value)
-        if (exist(key)) {
-            return cache.value
-        }
-
-        return null
-    }
-
-    const set = (key: string, val: any, minutes: number) => {
-        const data = {
-            value: val,
-            time: new Date().getTime(),
-            expireIn: minutes
-        }
-
-        ls.setItem(key, JSON.stringify(data))
-    }
-
-    return {
-        get,
-        set
-    }
-}
-
-export const Cookies = () => {
-    const get = (key: string) => {
-        const nameEQ = `${key}=`
-        const ca = document.cookie.split(";")
-
-        let cookieValue
-
-        ca.forEach(value => {
-            let c = value
-
-            while (c.charAt(0) === " ") {
-                c = c.substring(1, c.length)
-            }
-
-            if (c.indexOf(nameEQ) === 0) {
-                cookieValue = c.substring(nameEQ.length, c.length)
-            }
-        })
-
-        return cookieValue
-    }
-
-    const set = (key: string, value: string, timeInDays: number) => {
-        let expires = ""
-
-        const date = new Date()
-
-        date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
-        expires = `; expires=${date.toUTCString()}`
-
-        document.cookie = `${key}=${btoa(value)}${expires}; path=/`
-    }
-
-    return {
-        get,
-        set
-    }
-}
-
-export default LoadResource

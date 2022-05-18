@@ -1,13 +1,18 @@
-import { LS, Cookies } from "./utils"
+import { Types, GetStore } from "./storage"
+import { PlaceData } from "./location"
+
+interface IPopularCityStateMapping {
+    [key: string]: string
+}
 
 const Cache = () => {
     const cookieKey = "dul"
 
     const lsKey = "location_data"
 
-    const cacheTimeDays = 365
+    const timeInDays = 365
 
-    const defaultLSData = {
+    const defaultLSData: PlaceData = {
         lat: null,
         lng: null,
         city: "",
@@ -18,7 +23,7 @@ const Cache = () => {
         address: null
     }
 
-    const popularCityStateMapping = {
+    const popularCityStateMapping: IPopularCityStateMapping = {
         delhi: "delhi",
         mumbai: "maharashtra",
         pune: "maharashtra",
@@ -32,34 +37,46 @@ const Cache = () => {
         surat: "gujarat"
     }
 
+    const LS = GetStore(Types.LS)
+
+    const Cookies = GetStore(Types.Cookies)
+
+    const getState = (city: string): Nullable<string> => {
+        if (!city) return null
+
+        return popularCityStateMapping[city] || null
+    }
+
     const getCookieData = () => {
         const data = Cookies.get(cookieKey)
 
         return data ? atob(data) : data
     }
 
+    const getLSData = (): PlaceData => {
+        const data = LS.get(lsKey)
+
+        return data ? JSON.parse(data) : defaultLSData
+    }
+
     const handleMisMatch = () => {
         const cookieData = getCookieData()
 
-        const lsData = LS.get(lsKey)
+        const lsData = getLSData()
 
         switch (true) {
-            case !cookieData && lsData?.city:
-                Cookies.set(cookieKey, btoa(lsData.city), cacheTimeDays)
+            case !cookieData && lsData.city:
+                Cookies.set(cookieKey, btoa(lsData.city), timeInDays)
                 break
 
-            case !lsData?.city && cookieData:
-            case cookieData && lsData?.city && cookieData !== lsData.city:
-                LS.set(lsKey, {
+            case !lsData.city && cookieData:
+            case cookieData && lsData.city && cookieData !== lsData.city:
+                let value = {
+                    ...defaultLSData,
                     city: cookieData,
-                    state: popularCityStateMapping?.[cookieData]
-                        ? popularCityStateMapping?.[cookieData]
-                        : null,
-                    ...defaultLSData
-                })
-                break
-
-            default:
+                    state: cookieData ? getState(cookieData) : null
+                }
+                LS.set(lsKey, JSON.stringify(value), timeInDays)
                 break
         }
     }
@@ -73,14 +90,14 @@ const Cache = () => {
         }
     }
 
-    const setData = data => {
+    const setData = (data: PlaceData) => {
         const cookieData = getCookieData()
 
         if (data.city === cookieData) {
-            Cookies.set(cookieKey, btoa(data.city), cacheTimeDays)
+            Cookies.set(cookieKey, btoa(data.city), timeInDays)
         }
 
-        LS.set(lsKey, data, cacheTimeDays * 24 * 60)
+        LS.set(lsKey, JSON.stringify(data), timeInDays)
     }
 
     return {

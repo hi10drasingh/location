@@ -1,4 +1,8 @@
-import { Cookies } from "./utils"
+import { Types, GetStore } from "./storage"
+import IResponse from "./response"
+import { PlaceData } from "./location"
+
+const Cookies = GetStore(Types.Cookies)
 
 const User = () => {
     const URL = "/user/location"
@@ -8,18 +12,24 @@ const User = () => {
             headers: {
                 "X-Requested-With": "XMLHttpRequest"
             }
-        }).then(res => (res.data ? res.data : null))
+        })
+            .then(response => response.json())
+            .then((res: IResponse) => (res.data ? res.data : null))
 
         return response
     }
 
-    const setUserLocation = async data => {
+    const setUserLocation = async (data: PlaceData) => {
+        const csrfToken = Cookies.get("XSRF-TOKEN")
+
         fetch(URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "X-Requested-With": "XMLHttpRequest",
-                "X-XSRF-TOKEN": decodeURIComponent(Cookies.get("XSRF-TOKEN"))
+                ...(csrfToken && {
+                    "X-XSRF-TOKEN": decodeURIComponent(csrfToken)
+                })
             },
             body: JSON.stringify(data)
         })

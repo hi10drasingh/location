@@ -1,5 +1,4 @@
-import LoadResource from "./utils"
-import RESOURCE from "./constants"
+import { LoadResource, RESOURCE } from "./utils"
 
 const GoogleMap = () => {
     const JS =
@@ -33,16 +32,21 @@ const GoogleMap = () => {
     const isLoaded = () => Boolean(document.querySelector(suggestionsSelector))
 
     const applySuggestionAttributes = () => {
-        const suggestions = document.body.querySelector(suggestionsSelector)
+        const suggestions =
+            document.body.querySelector<HTMLElement>(suggestionsSelector)
 
-        suggestions.addAttribute("height", suggestions.offsetHeight)
-        suggestions.addAttribute("reverse", false)
+        if (!suggestions) return
+
+        suggestions.setAttribute("height", suggestions.offsetHeight.toString())
+        suggestions.setAttribute("reverse", "false")
 
         return suggestions
     }
 
     const applySuggestionEvents = () => {
         const suggestions = applySuggestionAttributes()
+
+        if (!suggestions) return
 
         const autocompleteItems = suggestions.querySelectorAll(".pac-item")
 
@@ -55,20 +59,19 @@ const GoogleMap = () => {
                 event.preventDefault()
             })
 
-            item.addEventListener("click", event => {
+            item.addEventListener("click", () => {
                 suggestions.style.display = "none"
                 geocoder.geocode(
                     {
-                        placeId:
-                            event.currentTarget.getAttribute("data-placeId")
+                        placeId: item.getAttribute("data-placeId")
                     },
-                    (results, status) => {
+                    (results: Array<Object>, status: string) => {
                         if (status === "OK") {
                             if (results[0]) {
-                                self.setLocationData(
-                                    self.getDataFromMapResult(results[0]),
-                                    suggestions.inputEle
-                                )
+                                // self.setLocationData(
+                                //     self.getDataFromMapResult(results[0]),
+                                //     suggestions.inputEle
+                                // )
                             } else {
                                 /* eslint-disable-line no-console */ console.log(
                                     "No results found from current location cordinates"
@@ -88,11 +91,14 @@ const GoogleMap = () => {
     const reverseSuggestions = () => {
         const suggestions = document.body.querySelector(suggestionsSelector)
 
+        if (!suggestions) return
+
         let itemCount = suggestions.childNodes.length
 
         // appending list in reverse order // appendChild will replace child nodes
         while (itemCount) {
-            suggestions.appendChild(suggestions.childNodes[itemCount])
+            let child = suggestions.childNodes[itemCount]
+            if (child) suggestions.appendChild(child)
             itemCount -= 1
         }
     }
@@ -107,7 +113,7 @@ const GoogleMap = () => {
         applySuggestionEvents()
     }
 
-    const showFromGeoLocation = allowAccessMsg => {
+    const showFromGeoLocation = (allowAccessMsg: Boolean) => {
         if (
             typeof navigator.geolocation !== "undefined" &&
             navigator.geolocation
@@ -126,14 +132,14 @@ const GoogleMap = () => {
                             {
                                 location: currentLatLng
                             },
-                            (results, status) => {
+                            (results: Array<Object>, status: string) => {
                                 if (status === "OK") {
                                     if (results[0]) {
-                                        self.setLocationData(
-                                            self.getDataFromMapResult(
-                                                results[0]
-                                            )
-                                        )
+                                        // self.setLocationData(
+                                        //     self.getDataFromMapResult(
+                                        //         results[0]
+                                        //     )
+                                        // )
                                     } else {
                                         console.log(
                                             "No results found from current location cordinates"
@@ -144,21 +150,17 @@ const GoogleMap = () => {
                                         `Geocoder failed due to: ${status}`
                                     )
                                 }
-
-                                if (showModalOnFail && !placeData.city) {
-                                    self.showModal()
-                                }
                             }
                         )
                     }
                 },
-                error => {
+                () => {
                     if (allowAccessMsg) {
-                        DroomApp.show_msg(
-                            "Please allow access to your location from browser settings.",
-                            "info",
-                            5000
-                        )
+                        // DroomApp.show_msg(
+                        //     "Please allow access to your location from browser settings.",
+                        //     "info",
+                        //     5000
+                        // )
                     }
                 }
             )
