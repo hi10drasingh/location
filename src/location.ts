@@ -1,6 +1,4 @@
-const Location = () => {}
-
-export type PlaceData = {
+export interface IPlaceData {
     lat: Nullable<number>
     lng: Nullable<number>
     city: string
@@ -10,5 +8,7 @@ export type PlaceData = {
     country: string
     address: Nullable<string>
 }
+
+const Location = () => {}
 
 export default Location

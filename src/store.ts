@@ -1,5 +1,5 @@
 import { Types, GetStore } from "./storage"
-import { PlaceData } from "./location"
+import { IPlaceData } from "./location"
 
 interface IPopularCityStateMapping {
     [key: string]: string
@@ -12,7 +12,7 @@ const Cache = () => {
 
     const timeInDays = 365
 
-    const defaultLSData: PlaceData = {
+    const defaultLSData: IPlaceData = {
         lat: null,
         lng: null,
         city: "",
@@ -53,7 +53,7 @@ const Cache = () => {
         return data ? atob(data) : data
     }
 
-    const getLSData = (): PlaceData => {
+    const getLSData = (): IPlaceData => {
         const data = LS.get(lsKey)
 
         return data ? JSON.parse(data) : defaultLSData
@@ -90,7 +90,7 @@ const Cache = () => {
         }
     }
 
-    const setData = (data: PlaceData) => {
+    const setData = (data: IPlaceData) => {
         const cookieData = getCookieData()
 
         if (data.city === cookieData) {

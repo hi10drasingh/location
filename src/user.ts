@@ -1,6 +1,6 @@
 import { Types, GetStore } from "./storage"
 import IResponse from "./response"
-import { PlaceData } from "./location"
+import { IPlaceData } from "./location"
 
 const Cookies = GetStore(Types.Cookies)
 
@@ -19,7 +19,7 @@ const User = () => {
         return response
     }
 
-    const setUserLocation = async (data: PlaceData) => {
+    const setUserLocation = async (data: IPlaceData) => {
         const csrfToken = Cookies.get("XSRF-TOKEN")
 
         fetch(URL, {
