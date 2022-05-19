@@ -9,6 +9,22 @@ export interface IPlaceData {
     address: Nullable<string>
 }
 
-const Location = () => {}
+const globalAttrName = "locglobal"
 
-export default Location
+const inputListner = event => {}
+
+const applyEvents = (ele: HTMLInputElement, isGlobal: boolean) => {
+    ele.addEventListener("input", inputListner())
+}
+
+const bind = (ele: HTMLInputElement, isGlobal: boolean) => {
+    applyEvents(ele)
+
+    if (isGlobal) {
+        ele.setAttribute(globalAttrName, globalAttrName)
+    }
+}
+
+export default {
+    bind
+}

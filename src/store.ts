@@ -1,109 +1,101 @@
-import { Types, GetStore } from "./storage"
+import { LS, Cookies } from "./storage"
 import { IPlaceData } from "./location"
 
 interface IPopularCityStateMapping {
     [key: string]: string
 }
 
-const Cache = () => {
-    const cookieKey = "dul"
+const cookieKey = "dul"
 
-    const lsKey = "location_data"
+const lsKey = "location_data"
 
-    const timeInDays = 365
+const timeInDays = 365
 
-    const defaultLSData: IPlaceData = {
-        lat: null,
-        lng: null,
-        city: "",
-        state: null,
-        pincode: null,
-        place_id: null,
-        country: "india",
-        address: null
-    }
+const defaultLSData: IPlaceData = {
+    lat: null,
+    lng: null,
+    city: "",
+    state: null,
+    pincode: null,
+    place_id: null,
+    country: "india",
+    address: null
+}
 
-    const popularCityStateMapping: IPopularCityStateMapping = {
-        delhi: "delhi",
-        mumbai: "maharashtra",
-        pune: "maharashtra",
-        bangalore: "karnataka",
-        hyderabad: "telangana",
-        gurgoan: "haryana",
-        gurugram: "haryana",
-        kolkata: "west bengal",
-        chennai: "tamil nadu",
-        jaipur: "rajasthan",
-        surat: "gujarat"
-    }
+const popularCityStateMapping: IPopularCityStateMapping = {
+    delhi: "delhi",
+    mumbai: "maharashtra",
+    pune: "maharashtra",
+    bangalore: "karnataka",
+    hyderabad: "telangana",
+    gurgoan: "haryana",
+    gurugram: "haryana",
+    kolkata: "west bengal",
+    chennai: "tamil nadu",
+    jaipur: "rajasthan",
+    surat: "gujarat"
+}
 
-    const LS = GetStore(Types.LS)
+const getState = (city: string): Nullable<string> => {
+    if (!city) return null
 
-    const Cookies = GetStore(Types.Cookies)
+    return popularCityStateMapping[city] || null
+}
 
-    const getState = (city: string): Nullable<string> => {
-        if (!city) return null
+const getCookieData = () => {
+    const data = Cookies.get(cookieKey)
 
-        return popularCityStateMapping[city] || null
-    }
+    return data ? atob(data) : data
+}
 
-    const getCookieData = () => {
-        const data = Cookies.get(cookieKey)
+const getLSData = (): IPlaceData => {
+    const data = LS.get(lsKey)
 
-        return data ? atob(data) : data
-    }
+    return data ? JSON.parse(data) : defaultLSData
+}
 
-    const getLSData = (): IPlaceData => {
-        const data = LS.get(lsKey)
+const handleMisMatch = () => {
+    const cookieData = getCookieData()
 
-        return data ? JSON.parse(data) : defaultLSData
-    }
+    const lsData = getLSData()
 
-    const handleMisMatch = () => {
-        const cookieData = getCookieData()
+    switch (true) {
+        case !cookieData && lsData.city:
+            Cookies.set(cookieKey, btoa(lsData.city), timeInDays)
+            break
 
-        const lsData = getLSData()
-
-        switch (true) {
-            case !cookieData && lsData.city:
-                Cookies.set(cookieKey, btoa(lsData.city), timeInDays)
-                break
-
-            case !lsData.city && cookieData:
-            case cookieData && lsData.city && cookieData !== lsData.city:
-                let value = {
-                    ...defaultLSData,
-                    city: cookieData,
-                    state: cookieData ? getState(cookieData) : null
-                }
-                LS.set(lsKey, JSON.stringify(value), timeInDays)
-                break
-        }
-    }
-
-    const getData = () => {
-        handleMisMatch()
-
-        return {
-            cookieData: getCookieData(),
-            lsData: LS.get(lsKey)
-        }
-    }
-
-    const setData = (data: IPlaceData) => {
-        const cookieData = getCookieData()
-
-        if (data.city === cookieData) {
-            Cookies.set(cookieKey, btoa(data.city), timeInDays)
-        }
-
-        LS.set(lsKey, JSON.stringify(data), timeInDays)
-    }
-
-    return {
-        getData,
-        setData
+        case !lsData.city && cookieData:
+        case cookieData && lsData.city && cookieData !== lsData.city:
+            let value = {
+                ...defaultLSData,
+                city: cookieData,
+                state: cookieData ? getState(cookieData) : null
+            }
+            LS.set(lsKey, JSON.stringify(value), timeInDays)
+            break
     }
 }
 
-export default Cache
+const getData = () => {
+    handleMisMatch()
+
+    return {
+        cookieData: getCookieData(),
+        lsData: LS.get(lsKey)
+    }
+}
+
+const setData = (data: IPlaceData) => {
+    const cookieData = getCookieData()
+
+    if (data.city === cookieData) {
+        Cookies.set(cookieKey, btoa(data.city), timeInDays)
+    }
+
+    LS.set(lsKey, JSON.stringify(data), timeInDays)
+}
+
+export default {
+    getData,
+    setData
+}

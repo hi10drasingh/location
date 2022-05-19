@@ -1,8 +1,6 @@
-import { Types, GetStore } from "./storage"
+import { Cookies } from "./storage"
 import IResponse from "./response"
 import { IPlaceData } from "./location"
-
-const Cookies = GetStore(Types.Cookies)
 
 const User = () => {
     const URL = "/user/location"

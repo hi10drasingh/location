@@ -39,8 +39,28 @@ const getResource = (type: string, url: string) => {
     return resource
 }
 
+const existingResource = (type: string, url: string) => {
+    let selector
+    switch (type) {
+        case RESOURCE.JS:
+            selector = `script[src="${url}"]`
+            break
+
+        case RESOURCE.CSS:
+            selector = `link[href="${url}"]`
+            break
+
+        default:
+            throw new Error("Please provide a valid resource type")
+    }
+
+    return document.querySelector(selector)
+}
+
 export const LoadResource = (type: string, url: string) => {
     const promise = new Promise((resolve, reject) => {
+        if (!url) reject(new Error("Please provide a valid url"))
+
         const parsedURL = parseURL(url)
 
         const resource = getResource(type, parsedURL)
