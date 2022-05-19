@@ -1,4 +1,9 @@
-export default interface IStore {
-    get(key: string): string | null
-    set(key: string, val: string, timeInDays: number): void
+type Get = (key: string) => Nullable<string>
+type Set = (key: string, val: string, timeInDays: number) => void
+
+interface IStore {
+    get: Get
+    set: Set
 }
+
+export type { Get, Set, IStore }

@@ -1,4 +1,9 @@
-import { LS, Cookies } from "./storage"
+import {
+    LocalStoreGet,
+    LocalStoreSet,
+    CookieStoreGet,
+    CookieStoreSet
+} from "./storage"
 import { IPlaceData } from "./location"
 
 interface IPopularCityStateMapping {
@@ -43,13 +48,13 @@ const getState = (city: string): Nullable<string> => {
 }
 
 const getCookieData = () => {
-    const data = Cookies.get(cookieKey)
+    const data = CookieStoreGet(cookieKey)
 
     return data ? atob(data) : data
 }
 
 const getLSData = (): IPlaceData => {
-    const data = LS.get(lsKey)
+    const data = LocalStoreGet(lsKey)
 
     return data ? JSON.parse(data) : defaultLSData
 }
@@ -61,7 +66,7 @@ const handleMisMatch = () => {
 
     switch (true) {
         case !cookieData && lsData.city:
-            Cookies.set(cookieKey, btoa(lsData.city), timeInDays)
+            CookieStoreSet(cookieKey, btoa(lsData.city), timeInDays)
             break
 
         case !lsData.city && cookieData:
@@ -71,7 +76,7 @@ const handleMisMatch = () => {
                 city: cookieData,
                 state: cookieData ? getState(cookieData) : null
             }
-            LS.set(lsKey, JSON.stringify(value), timeInDays)
+            LocalStoreSet(lsKey, JSON.stringify(value), timeInDays)
             break
     }
 }
@@ -81,7 +86,7 @@ const getData = () => {
 
     return {
         cookieData: getCookieData(),
-        lsData: LS.get(lsKey)
+        lsData: LocalStoreGet(lsKey)
     }
 }
 
@@ -89,10 +94,10 @@ const setData = (data: IPlaceData) => {
     const cookieData = getCookieData()
 
     if (data.city === cookieData) {
-        Cookies.set(cookieKey, btoa(data.city), timeInDays)
+        CookieStoreSet(cookieKey, btoa(data.city), timeInDays)
     }
 
-    LS.set(lsKey, JSON.stringify(data), timeInDays)
+    LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
 }
 
 export default {

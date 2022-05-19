@@ -50,8 +50,12 @@ const html = `
     </div>
 `
 
+let suggestions: HTMLElement
+
 const load = () => {
     document.body.insertAdjacentHTML("beforeend", html)
+
+    suggestions = <HTMLElement>document.body.querySelector(suggestionsSelector)
 
     applyEvents()
 }
@@ -114,10 +118,6 @@ const applyEvents = () => {
 }
 
 const reverse = () => {
-    const suggestions = document.body.querySelector(suggestionsSelector)
-
-    if (!suggestions) return
-
     let itemCount = suggestions.childNodes.length
 
     // appending list in reverse order // appendChild will replace child nodes
@@ -128,6 +128,12 @@ const reverse = () => {
     }
 }
 
-export default {
-    load
+const show = () => {
+    suggestions.style.display = "block"
 }
+
+const hide = () => {
+    suggestions.style.display = "none"
+}
+
+export { load, show, hide }

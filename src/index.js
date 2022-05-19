@@ -1,6 +1,5 @@
 const LocPlugin = (root, factory) => {
     if (typeof root.LocationPlugin === "undefined") {
-        return { LocationPlugin: factory(root), ...root }
     }
 
     return root

@@ -1,6 +1,6 @@
-import IStore from "./interface"
+import { IStoreGet, IStoreSet } from "."
 
-const get = (key: string): any => {
+const get: IStoreGet = (key: string): any => {
     const nameEQ = `${key}=`
     const ca = document.cookie.split(";")
 
@@ -21,7 +21,11 @@ const get = (key: string): any => {
     return cookieValue
 }
 
-const set = (key: string, value: string, timeInDays: number): void => {
+const set: IStoreSet = (
+    key: string,
+    value: string,
+    timeInDays: number
+): void => {
     let expires = ""
 
     const date = new Date()
@@ -34,9 +38,4 @@ const set = (key: string, value: string, timeInDays: number): void => {
     document.cookie = `${key}=${btoa(value)}${expires}; path=/`
 }
 
-const Cookies: IStore = {
-    get,
-    set
-}
-
-export default Cookies
+export { get, set }

@@ -1,4 +1,4 @@
-import IStore from "./interface"
+import { IStoreGet, IStoreSet } from "."
 
 const ls = window.localStorage
 
@@ -27,7 +27,7 @@ const exist = (key: string) => {
     return false
 }
 
-const get = (key: string): any => {
+const get: IStoreGet = (key: string): any => {
     const value = ls.getItem(key)
     if (!value) {
         return null
@@ -41,7 +41,7 @@ const get = (key: string): any => {
     return null
 }
 
-const set = (key: string, val: string, timeInDays: number): void => {
+const set: IStoreSet = (key: string, val: string, timeInDays: number): void => {
     const data = {
         value: val,
         time: new Date().getTime(),
@@ -51,9 +51,4 @@ const set = (key: string, val: string, timeInDays: number): void => {
     ls.setItem(key, JSON.stringify(data))
 }
 
-const LS: IStore = {
-    get,
-    set
-}
-
-export default LS
+export { get, set }
