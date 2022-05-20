@@ -1,5 +1,8 @@
 export { load as LoadMap, geolocate as GeoLocate } from "./map"
-export { load as LoadAutoComplete } from "./autocomplete"
+export {
+    load as LoadAutoComplete,
+    getPlacePredictions as GetAutoCompletePrediction
+} from "./autocomplete"
 export {
     hide as HideSuggestion,
     show as ShowSuggestion,

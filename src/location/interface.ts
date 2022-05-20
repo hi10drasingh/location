@@ -1,4 +1,5 @@
 export default interface IPlaceData {
+    [key: string]: Nullable<number> | string | Nullable<string>
     lat: Nullable<number>
     lng: Nullable<number>
     city: string
