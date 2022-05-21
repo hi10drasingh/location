@@ -1,15 +1,12 @@
-import { IStoreGet, IStoreSet } from "."
+import { IStoreGet, IStoreSet } from "./interface"
 
 const ls = window.localStorage
 
 const exist = (key: string) => {
     const value = ls.getItem(key)
-    if (!value) {
-        return false
-    }
+    if (!value) return false
 
     const cache = JSON.parse(value)
-
     const now = new Date().getTime()
 
     if (cache) {
@@ -23,11 +20,10 @@ const exist = (key: string) => {
         }
         ls.getItem(key)
     }
-
     return false
 }
 
-const get: IStoreGet = (key: string): any => {
+const get: IStoreGet = (key: string): Nullable<string> => {
     const value = ls.getItem(key)
     if (!value) {
         return null

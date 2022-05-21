@@ -16,7 +16,7 @@ const load = async () => {
     await LoadAutoComplete()
 }
 
-const geolocate = (allowAccessMsg: Boolean) => {
+const geolocate = (allowAccessMsg: boolean) => {
     if (typeof navigator.geolocation !== "undefined" && navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             currentPosition => {

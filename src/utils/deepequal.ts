@@ -1,30 +1,25 @@
-const isObject = (object: any) => {
-    return object != null && typeof object === "object"
-}
+type Obj = { [key: string]: object }
 
-const DeepEqual = (
-    object1: { [key: string]: any },
-    object2: { [key: string]: any }
-) => {
-    const keys1 = Object.keys(object1)
-    const keys2 = Object.keys(object2)
+const isObject = (object: Obj) => object != null && typeof object === "object"
 
-    if (keys1.length !== keys2.length) {
-        return false
-    }
+const DeepEqual = (obj1: Obj, obj2: Obj) => {
+    const keys1 = Object.keys(obj1)
+    const keys2 = Object.keys(obj2)
 
-    for (const key of keys1) {
-        const val1 = object1[key]
-        const val2 = object2[key]
+    if (keys1.length !== keys2.length) return false
 
-        const areObjects = isObject(val1) && isObject(val2)
+    return keys1.every(key => {
+        const val1 = obj1[key]
+        const val2 = obj2[key]
+
+        const areObjects = isObject(<Obj>val1) && isObject(<Obj>val2)
 
         if (!areObjects && val1 !== val2) return false
 
-        if (areObjects && !DeepEqual(val1, val2)) return false
-    }
+        if (areObjects && !DeepEqual(<Obj>val1, <Obj>val2)) return false
 
-    return true
+        return true
+    })
 }
 
 export default DeepEqual

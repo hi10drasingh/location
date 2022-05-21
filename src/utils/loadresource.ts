@@ -1,5 +1,6 @@
 const RESOURCE = {
-    CSS: "css"
+    CSS: "css",
+    JS: "js"
 }
 
 const parseURL = (url: string) => {
@@ -38,8 +39,8 @@ const getResource = (type: string, url: string) => {
     return resource
 }
 
-const LoadResource = (type: string, url: string) => {
-    const promise = new Promise((resolve, reject) => {
+const LoadResource = (type: string, url: string) =>
+    new Promise((resolve, reject) => {
         if (!url) reject(new Error("Please provide a valid url"))
 
         const parsedURL = parseURL(url)
@@ -56,8 +57,5 @@ const LoadResource = (type: string, url: string) => {
             reject(new Error(`${url} failed to load.`))
         })
     })
-
-    return promise
-}
 
 export { RESOURCE, LoadResource }

@@ -146,7 +146,7 @@ const reverseOrder = () => {
 
     // appending list in reverse order // appendChild will replace child nodes
     while (itemCount) {
-        let child = suggestions.childNodes[itemCount]
+        const child = suggestions.childNodes[itemCount]
         if (child) suggestions.appendChild(child)
         itemCount -= 1
     }
@@ -155,7 +155,7 @@ const reverseOrder = () => {
 const updatePosition = () => {
     if (suggestions.style.display === "none") return
 
-    let suggestionsHeight = suggestions.getAttribute("height")
+    const suggestionsHeight = suggestions.getAttribute("height")
 
     if (!suggestionsHeight) return
 
@@ -164,17 +164,24 @@ const updatePosition = () => {
     let showReverse = false
 
     const inputPosition = suggestions.currentInput.getBoundingClientRect()
-    suggestions.style.left =
-        (inputPosition.left + window.pageXOffset).toString() + "px"
+    suggestions.style.left = `${(
+        inputPosition.left + window.pageXOffset
+    ).toString()}px`
 
     // enough space in buttom
     if (inputPosition.bottom + height < window.innerHeight) {
-        suggestions.style.top =
-            (inputPosition.bottom + window.pageYOffset - 1).toString() + "px"
+        suggestions.style.top = `${(
+            inputPosition.bottom +
+            window.pageYOffset -
+            1
+        ).toString()}px`
     } else {
         showReverse = true
-        suggestions.style.top =
-            (inputPosition.top + window.pageYOffset - height).toString() + "px"
+        suggestions.style.top = `${(
+            inputPosition.top +
+            window.pageYOffset -
+            height
+        ).toString()}px`
     }
 
     // checking if we need to reverse it
@@ -234,10 +241,10 @@ const updateData = (
 
     predictions.forEach((prediction, index) => {
         if (!suggestions.childNodes[index]) return
-        let item = <HTMLElement>suggestions.childNodes[index]
-        let formatting = prediction.structured_formatting
+        const item = <HTMLElement>suggestions.childNodes[index]
+        const formatting = prediction.structured_formatting
 
-        //pac-item
+        // pac-item
         item.setAttribute("data-placeId", prediction.place_id)
 
         const mainTextEle = <HTMLElement>item.querySelector(".pac-item-query")

@@ -1,10 +1,10 @@
-import { IStoreGet, IStoreSet } from "."
+import { IStoreGet, IStoreSet } from "./interface"
 
-const get: IStoreGet = (key: string): any => {
+const get: IStoreGet = (key: string): Nullable<string> => {
     const nameEQ = `${key}=`
     const ca = document.cookie.split(";")
 
-    let cookieValue
+    let cookieValue: Nullable<string> = null
 
     ca.forEach(value => {
         let c = value
@@ -30,12 +30,12 @@ const set: IStoreSet = (
 
     const date = new Date()
 
-    value = JSON.stringify(value)
+    const jsonValue = JSON.stringify(value)
 
     date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
     expires = `; expires=${date.toUTCString()}`
 
-    document.cookie = `${key}=${btoa(value)}${expires}; path=/`
+    document.cookie = `${key}=${btoa(jsonValue)}${expires}; path=/`
 }
 
 export { get, set }

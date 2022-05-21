@@ -1,7 +1,6 @@
 import { CookieStoreGet } from "../utils/storage"
-import { IResponse } from "../interface"
+import { IResponse, IPlaceData } from "../interface"
 import { LocationChangeEvent } from "../location"
-import { IPlaceData } from "../interface"
 
 const URL = "/user/location"
 
@@ -11,7 +10,7 @@ const getUserLocation = async () => {
             "X-Requested-With": "XMLHttpRequest"
         }
     })
-        .then(response => response.json())
+        .then(res => res.json())
         .then((res: IResponse) => (res.data ? res.data : null))
 
     return response

@@ -6,4 +6,4 @@ interface IStore {
     set: Set
 }
 
-export type { Get, Set, IStore }
+export type { Get as IStoreGet, Set as IStoreSet, IStore }

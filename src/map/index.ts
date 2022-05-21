@@ -3,8 +3,7 @@ export {
     load as LoadAutoComplete,
     getPlacePredictions as GetAutoCompletePrediction,
     type IPrediction,
-    type StructuredFormatting,
-    type MatchedSubstring
+    type StructuredFormatting
 } from "./autocomplete"
 export {
     hide as HideSuggestion,
