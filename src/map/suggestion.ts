@@ -1,21 +1,12 @@
+import { IPrediction, StructuredFormatting, MatchedSubstring } from "."
+
 interface Suggestions extends HTMLElement {
     currentInput: HTMLInputElement
 }
 
-type StructuredFormatting = {
-    main_text: string
-    main_text_matched_substrings: Array<{ length: number; offset: number }>
-    secondary_text: string
-    secondary_text_matched_substrings: Array<{ length: number; offset: number }>
-}
-
-type Prediction = {
-    place_id: string
-    structured_formatting: StructuredFormatting
-}
-
-interface Predictions {
-    predictions: Prediction[]
+enum MatchType {
+    Main = "main_text",
+    Secondary = "secondary_text"
 }
 
 const suggestionsSelector = ".pac-container.location-suggestions"
@@ -204,8 +195,39 @@ const hide = () => {
     suggestions.style.display = "none"
 }
 
+const updateMatch = (
+    type: MatchType,
+    element: HTMLElement,
+    formatting: StructuredFormatting
+) => {
+    const matchElement = <HTMLElement>element.querySelector(".pac-matched")
+
+    const matchElementSubstrArray = <MatchedSubstring[]>(
+        formatting[`${type}_matched_substrings`]
+    )
+
+    const matchElementSubstr = <MatchedSubstring>matchElementSubstrArray[0]
+
+    const matchText = <string>formatting[type]
+
+    const lastChild = <HTMLElement>matchElement.lastChild
+
+    if (formatting.main_text_matched_substrings) {
+        matchElement.style.display = "block"
+        matchElement.innerText = matchText.substring(
+            matchElementSubstr.offset,
+            matchElementSubstr.offset + matchElementSubstr.length
+        )
+
+        lastChild.nodeValue = matchText.substring(0, matchElementSubstr.length)
+    } else {
+        matchElement.style.display = "none"
+        lastChild.nodeValue = formatting.main_text
+    }
+}
+
 const updateData = (
-    predictions: Array<Object>,
+    predictions: IPrediction[],
     inputElement: HTMLInputElement
 ) => {
     suggestions.currentInput = inputElement
@@ -218,42 +240,16 @@ const updateData = (
         //pac-item
         item.setAttribute("data-placeId", prediction.place_id)
 
-        let mainTextEle = item.querySelector(".pac-item-query")
-        if (formatting?.main_text_matched_substrings) {
-            mainTextEle.querySelector(".pac-matched").style.display = ""
-            mainTextEle.querySelector(".pac-matched").innerText =
-                formatting.main_text.substr(
-                    formatting.main_text_matched_substrings[0].offset,
-                    formatting.main_text_matched_substrings[0].length
-                )
+        const mainTextEle = <HTMLElement>item.querySelector(".pac-item-query")
+        updateMatch(MatchType.Main, mainTextEle, formatting)
 
-            mainTextEle.lastChild.nodeValue = formatting.main_text.substr(
-                formatting.main_text_matched_substrings[0].length
-            )
-        } else {
-            mainTextEle.querySelector(".pac-matched").style.display = "none"
-            mainTextEle.lastChild.nodeValue = formatting.main_text
-        }
-
-        let secondaryTextEle = item.querySelector(".pac-secondary")
-        if (formatting?.secondary_text_matched_substrings) {
-            secondaryTextEle.querySelector(".pac-matched").style.display = ""
-            secondaryTextEle.querySelector(".pac-matched").innerText =
-                formatting.secondary_text.substr(
-                    formatting.secondary_text_matched_substrings[0].offset,
-                    formatting.secondary_text_matched_substrings[0].length
-                )
-
-            secondaryTextEle.lastChild.nodeValue =
-                formatting.secondary_text.substr(
-                    formatting.secondary_text_matched_substrings[0].length
-                )
-        } else {
-            secondaryTextEle.querySelector(".pac-matched").style.display =
-                "none"
-            secondaryTextEle.lastChild.nodeValue = formatting.secondary_text
-        }
+        const secondaryTextEle = <HTMLElement>(
+            item.querySelector(".pac-secondary")
+        )
+        updateMatch(MatchType.Secondary, secondaryTextEle, formatting)
     })
+
+    updatePosition()
 }
 
-export { load, show, hide }
+export { load, show, hide, updateData }

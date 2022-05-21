@@ -17,5 +17,8 @@ module.exports = {
         project: "./tsconfig.json",
         ecmaVersion: "latest"
     },
-    rules: {}
+    ignorePatterns: [".eslintrc.js"],
+    rules: {
+        "max-lines-per-function": ["error", 20]
+    }
 }

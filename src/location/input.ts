@@ -1,5 +1,9 @@
 import { Debounce } from "../utils"
-import { HideSuggestion, GetAutoCompletePrediction } from "../map"
+import {
+    HideSuggestion,
+    GetAutoCompletePrediction,
+    UpdateSuggestion
+} from "../map"
 import { IPlaceData } from "."
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
@@ -59,8 +63,8 @@ const inputListener = (event: Event) => {
                 componentRestrictions: {
                     country: "in"
                 }
-            }
-            self.displaySuggestions.bind(this)
+            },
+            UpdateSuggestion
         )
     }
 }
