@@ -1,5 +1,6 @@
 import { Debounce } from "../utils"
-import { HideSuggestion } from "../map"
+import { HideSuggestion, GetAutoCompletePrediction } from "../map"
+import { IPlaceData } from "."
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -13,47 +14,87 @@ interface CustomHTMLInputElement extends HTMLInputElement {
 
 const attributeSlug = "locationplugin"
 
-const globalAttrName = `${attributeSlug}-global`
+const typeAttrName = "type"
+
+const pluginType = {
+    GLOBAL: "global",
+    LOCAL: "local"
+}
+
+const dataAttrNames = {
+    lat: "lat",
+    lng: "lng",
+    city: "city",
+    state: "state",
+    country: "country",
+    address: "address",
+    pincode: "pincode",
+    placeId: "place_id"
+}
+
+const ucwords = (string: string) => {
+    return string.replace(/\b[a-z]/g, letter => {
+        return letter.toUpperCase()
+    })
+}
 
 const applyAttributes = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     ele.setAttribute(attributeSlug, attributeSlug)
-    if (isGlobal) ele.setAttribute(globalAttrName, globalAttrName)
+
+    if (isGlobal) {
+        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.GLOBAL)
+    } else {
+        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.LOCAL)
+    }
 }
 
 const inputListener = (event: Event) => {
     const element = <CustomHTMLInputElement>event.currentTarget
-    let autocompleteService =
-        new window.google.maps.places.AutocompleteService()
-    let value = element.value
+    const value = element.value
     HideSuggestion()
     if (value.length > 2) {
-        autocompleteService.getPlacePredictions(
+        GetAutoCompletePrediction(
             {
                 input: value,
                 componentRestrictions: {
                     country: "in"
                 }
             }
-            // self.displaySuggestions.bind(this)
+            self.displaySuggestions.bind(this)
         )
     }
 }
 
 const blurListener = (event: Event) => {
     const element = <CustomHTMLInputElement>event.currentTarget
-    let selectedCity = element.getAttribute("city")
+    let selectedCity = element.getAttribute(dataAttrNames.city)
 
     if (!selectedCity || selectedCity != element.value.toLowerCase()) {
         element.value = ""
     } else {
-        element.value = element.value.replace(/\b[a-z]/g, function (letter) {
-            return letter.toUpperCase()
-        })
+        element.value = ucwords(element.value)
     }
+}
+
+const changeInputAttributes = (
+    element: CustomHTMLInputElement,
+    placeData: IPlaceData
+) => {
+    element.value = ucwords(placeData.city)
+
+    Object.values(dataAttrNames).forEach(key => {
+        const value = placeData[key]
+        if (!value) return
+        element.setAttribute(`${attributeSlug}-${key}`, value.toString())
+    })
 }
 
 const locationChangedListener = (event: Event) => {
     const element = <CustomHTMLInputElement>event.currentTarget
+
+    const placeData = <IPlaceData>(<CustomEvent>event).detail
+
+    changeInputAttributes(element, placeData)
 }
 
 const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
