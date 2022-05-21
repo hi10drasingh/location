@@ -1,5 +1,5 @@
 import { LoadResource, RESOURCE } from "./utils"
-import IResponse from "./response"
+import { IResponse } from "./interface"
 
 const ID = "locationModal"
 

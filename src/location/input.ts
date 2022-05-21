@@ -4,7 +4,8 @@ import {
     GetAutoCompletePrediction,
     UpdateSuggestion
 } from "../map"
-import { IPlaceData } from "."
+import { LocationChangeEvent, LocationAttributeSlug } from "."
+import { IPlaceData } from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -15,8 +16,6 @@ type listener = {
 interface CustomHTMLInputElement extends HTMLInputElement {
     listeners: listener[]
 }
-
-const attributeSlug = "locationplugin"
 
 const typeAttrName = "type"
 
@@ -43,12 +42,18 @@ const ucwords = (string: string) => {
 }
 
 const applyAttributes = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
-    ele.setAttribute(attributeSlug, attributeSlug)
+    ele.setAttribute(LocationAttributeSlug, LocationAttributeSlug)
 
     if (isGlobal) {
-        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.GLOBAL)
+        ele.setAttribute(
+            `${LocationAttributeSlug}-${typeAttrName}`,
+            pluginType.GLOBAL
+        )
     } else {
-        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.LOCAL)
+        ele.setAttribute(
+            `${LocationAttributeSlug}-${typeAttrName}`,
+            pluginType.LOCAL
+        )
     }
 }
 
@@ -89,7 +94,10 @@ const changeInputAttributes = (
     Object.values(dataAttrNames).forEach(key => {
         const value = placeData[key]
         if (!value) return
-        element.setAttribute(`${attributeSlug}-${key}`, value.toString())
+        element.setAttribute(
+            `${LocationAttributeSlug}-${key}`,
+            value.toString()
+        )
     })
 }
 
@@ -113,8 +121,7 @@ const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
 
     //if location is global
     if (isGlobal) {
-        ele.addEventListener("locationchanged", locationChangedListener)
-        ele.listeners.push({ locationchanged: locationChangedListener })
+        ele.addEventListener(LocationChangeEvent, locationChangedListener)
     }
 }
 
@@ -124,4 +131,10 @@ const bind = (element: HTMLInputElement, isGlobal: boolean) => {
     applyEvents(customInput, isGlobal)
 }
 
-export { bind }
+const getAll = () => {
+    return document.querySelectorAll(
+        `input[${applyAttributes}="${applyAttributes}"]`
+    ) as NodeListOf<CustomHTMLInputElement>
+}
+
+export { bind, getAll }
