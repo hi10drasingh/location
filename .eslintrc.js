@@ -14,6 +14,8 @@ module.exports = {
         "airbnb-typescript/base",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/strict",
         "eslint:recommended",
         "prettier" // Make sure this is the last
     ],
@@ -23,6 +25,7 @@ module.exports = {
     },
     ignorePatterns: [".eslintrc.js"],
     rules: {
-        "max-lines-per-function": ["error", 20]
+        "max-lines-per-function": ["error", 30],
+        "@typescript-eslint/consistent-type-assertions": "error"
     }
 }

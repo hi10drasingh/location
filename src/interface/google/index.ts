@@ -30,4 +30,4 @@ interface Map {
     }
 }
 
-export default Map
+export type { Map, IResult, IPrediction }

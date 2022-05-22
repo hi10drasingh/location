@@ -1,4 +1,4 @@
-import { IPrediction, StructuredFormatting, MatchedSubstring } from "."
+import { Map, IPrediction } from "../interface"
 
 interface Suggestions extends HTMLElement {
     currentInput: HTMLInputElement
@@ -66,34 +66,19 @@ const heightAttr = "height"
 
 let suggestions: Suggestions
 
-const load = () => {
-    document.body.insertAdjacentHTML("beforeend", html)
-
-    suggestions = <Suggestions>document.body.querySelector(suggestionsSelector)
-
-    applyEvents()
-}
-
 const applyAttributes = () => {
-    const suggestions =
-        document.body.querySelector<HTMLElement>(suggestionsSelector)
-
     if (!suggestions) return
 
     suggestions.setAttribute(heightAttr, suggestions.offsetHeight.toString())
     suggestions.setAttribute(isReverseAttr, "false")
-
-    return suggestions
 }
 
 const applyEvents = () => {
-    const suggestions = applyAttributes()
-
     if (!suggestions) return
 
     const child = suggestions.querySelectorAll(".pac-item")
 
-    const geocoder = new window.google.maps.Geocoder()
+    const geocoder = new window.google.maps.Geocoder() as Map["Geocoder"]
 
     child.forEach(item => {
         // to prevent closeing of suggestion box when clickin on suggestion list
@@ -108,7 +93,7 @@ const applyEvents = () => {
                 {
                     placeId: item.getAttribute("data-placeId")
                 },
-                (results: Array<Object>, status: string) => {
+                (results: Object[], status: string) => {
                     if (status === "OK") {
                         if (results[0]) {
                             // self.setLocationData(
@@ -133,6 +118,15 @@ const applyEvents = () => {
     window.addEventListener("scroll", updatePosition, true)
 
     window.addEventListener("scroll", updatePosition)
+}
+
+const load = () => {
+    document.body.insertAdjacentHTML("beforeend", html)
+
+    suggestions = document.body.querySelector(suggestionsSelector)!
+
+    applyAttributes()
+    applyEvents()
 }
 
 const isOrderReverse = () => {
@@ -205,19 +199,16 @@ const hide = () => {
 const updateMatch = (
     type: MatchType,
     element: HTMLElement,
-    formatting: StructuredFormatting
+    formatting: IPrediction["structured_formatting"]
 ) => {
-    const matchElement = <HTMLElement>element.querySelector(".pac-matched")
+    const matchElement = element.querySelector(".pac-matched")!
 
-    const matchElementSubstrArray = <MatchedSubstring[]>(
-        formatting[`${type}_matched_substrings`]
-    )
+    const matchElementSubstrArray = formatting[`${type}_matched_substrings`]!
 
-    const matchElementSubstr = <MatchedSubstring>matchElementSubstrArray[0]
+    const matchElementSubstr = matchElementSubstrArray[0]!
 
-    const matchText = <string>formatting[type]
-
-    const lastChild = <HTMLElement>matchElement.lastChild
+    const matchText = formatting[type]!
+    const lastChild = matchElement.lastChild as HTMLElement
 
     if (formatting.main_text_matched_substrings) {
         matchElement.style.display = "block"
@@ -247,12 +238,10 @@ const updateData = (
         // pac-item
         item.setAttribute("data-placeId", prediction.place_id)
 
-        const mainTextEle = <HTMLElement>item.querySelector(".pac-item-query")
+        const mainTextEle = item.querySelector(".pac-item-query")!
         updateMatch(MatchType.Main, mainTextEle, formatting)
 
-        const secondaryTextEle = <HTMLElement>(
-            item.querySelector(".pac-secondary")
-        )
+        const secondaryTextEle = item.querySelector(".pac-secondary")!
         updateMatch(MatchType.Secondary, secondaryTextEle, formatting)
     })
 
