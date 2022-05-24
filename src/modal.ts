@@ -13,11 +13,18 @@ const CSS = [
 const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
 
 const loadDependencies = () => {
-    CSS.forEach(async style => {
-        await LoadResource(RESOURCE.CSS, style).catch(err => {
-            console.error(err) // eslint-disable-line no-console
+    const requests = CSS.map(style =>
+        LoadResource(RESOURCE.CSS, style).catch(err => {
+            console.error(err) /* eslint-disable-line no-console */
         })
-    })
+    )
+
+    Promise.all(requests)
+        .catch(err => {
+            console.error(err) /* eslint-disable-line no-console */
+        })
+        .then(() => console.log("done") /* eslint-disable-line no-console */)
+        .catch(err => console.log(err) /* eslint-disable-line no-console */)
 }
 
 const fetchHTML = () => {
@@ -26,12 +33,16 @@ const fetchHTML = () => {
             "X-Requested-With": "XMLHttpRequest"
         }
     })
-        .then(response => response.json())
+        .catch(err => console.log(err) /* eslint-disable-line no-console */)
+        .then(response => {
+            if (response) response.json()
+        })
         .then((res: IResponse) => {
             if (res.code === "success") {
                 document.body.appendChild(res.data)
             }
         })
+        .catch(err => console.log(err) /* eslint-disable-line no-console */)
 }
 
 const register = (selector: string) => {

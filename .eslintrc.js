@@ -15,7 +15,6 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@typescript-eslint/strict",
         "eslint:recommended",
         "prettier" // Make sure this is the last
     ],
@@ -23,7 +22,7 @@ module.exports = {
         project: "./tsconfig.json",
         ecmaVersion: "latest"
     },
-    ignorePatterns: [".eslintrc.js"],
+    ignorePatterns: [],
     rules: {
         "max-lines-per-function": ["error", 30],
         "@typescript-eslint/consistent-type-assertions": "error"
