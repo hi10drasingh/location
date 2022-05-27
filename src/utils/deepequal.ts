@@ -1,4 +1,4 @@
-type Obj = { [key: string]: object }
+type Obj = { [key: string]: unknown }
 
 const isObject = (object: Obj) => object != null && typeof object === "object"
 
@@ -12,11 +12,11 @@ const DeepEqual = (obj1: Obj, obj2: Obj) => {
         const val1 = obj1[key]
         const val2 = obj2[key]
 
-        const areObjects = isObject(<Obj>val1) && isObject(<Obj>val2)
+        const areObjects = isObject(val1 as Obj) && isObject(val2 as Obj)
 
         if (!areObjects && val1 !== val2) return false
 
-        if (areObjects && !DeepEqual(<Obj>val1, <Obj>val2)) return false
+        if (areObjects && !DeepEqual(val1 as Obj, val2 as Obj)) return false
 
         return true
     })

@@ -1,5 +1,5 @@
 const Debounce = (
-    func: (...args: string[]) => void,
+    func: (...args: unknown[]) => void,
     wait: number,
     ...funcArgs: string[]
 ) => {

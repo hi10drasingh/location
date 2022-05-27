@@ -1,4 +1,5 @@
 import { ErrorHandler } from "../utils"
+import {triggerChange} from
 
 interface Suggestions extends HTMLElement {
     currentInput: HTMLInputElement
@@ -199,7 +200,7 @@ const updateMatch = (
 ) => {
     const match = element.querySelector(".pac-matched") as HTMLElement
 
-    const matchSubstrArray = formatting?.[`${type}_matched_substrings`]
+    const matchSubstrArray = formatting[`${type}_matched_substrings`]
 
     const matchSubstr = matchSubstrArray[0]
 
