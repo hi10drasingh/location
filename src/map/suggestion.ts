@@ -1,4 +1,4 @@
-import { Map, IPrediction } from "../interface"
+import { ErrorHandler } from "../utils"
 
 interface Suggestions extends HTMLElement {
     currentInput: HTMLInputElement
@@ -64,69 +64,42 @@ const html = `
 const isReverseAttr = "is-reverse"
 const heightAttr = "height"
 
-let suggestions: Suggestions
+let suggestions: Suggestions | HTMLElement
+let geocoder: google.maps.Geocoder
 
 const applyAttributes = () => {
-    if (!suggestions) return
-
     suggestions.setAttribute(heightAttr, suggestions.offsetHeight.toString())
     suggestions.setAttribute(isReverseAttr, "false")
 }
 
-const applyEvents = () => {
-    if (!suggestions) return
-
-    const child = suggestions.querySelectorAll(".pac-item")
-
-    const geocoder = new window.google.maps.Geocoder() as Map["Geocoder"]
-
-    child.forEach(item => {
-        // to prevent closeing of suggestion box when clickin on suggestion list
-        // as blur is fired before click event , whereas mousedown is fired as same time as blur.focusout
-        item.addEventListener("mousedown", event => {
-            event.preventDefault()
-        })
-
-        item.addEventListener("click", () => {
-            suggestions.style.display = "none"
-            geocoder.geocode(
-                {
-                    placeId: item.getAttribute("data-placeId")
-                },
-                (results: Object[], status: string) => {
-                    if (status === "OK") {
-                        if (results[0]) {
-                            // self.setLocationData(
-                            //     self.getDataFromMapResult(results[0]),
-                            //     suggestions.inputEle
-                            // )
-                        } else {
-                            /* eslint-disable-line no-console */ console.log(
-                                "No results found from current location cordinates"
-                            )
-                        }
-                    } else {
-                        /* eslint-disable-line no-console */ console.log(
-                            `Geocode was not successful for the following reason: ${status}`
-                        )
-                    }
-                }
-            )
-        })
+const childElementEvents = (child: HTMLElement) => {
+    // to prevent closeing of suggestion box when clickin on suggestion list
+    child.addEventListener("mousedown", event => {
+        event.preventDefault()
     })
 
-    window.addEventListener("scroll", updatePosition, true)
-
-    window.addEventListener("scroll", updatePosition)
-}
-
-const load = () => {
-    document.body.insertAdjacentHTML("beforeend", html)
-
-    suggestions = document.body.querySelector(suggestionsSelector)!
-
-    applyAttributes()
-    applyEvents()
+    child.addEventListener("click", () => {
+        suggestions.style.display = "none"
+        geocoder
+            .geocode({
+                placeId: child.getAttribute("data-placeId")
+            })
+            .then(
+                results => {
+                    if (results) {
+                    } else {
+                        ErrorHandler.warn(
+                            "No results found from current location cordinates"
+                        )
+                    }
+                },
+                (rejectReason: string) =>
+                    ErrorHandler.warn(
+                        `Geocode was not successful for the following reason: ${rejectReason}`
+                    )
+            )
+            .catch((err: Error) => ErrorHandler.error(err))
+    })
 }
 
 const isOrderReverse = () => {
@@ -137,7 +110,6 @@ const isOrderReverse = () => {
 
 const reverseOrder = () => {
     let itemCount = suggestions.childNodes.length
-
     // appending list in reverse order // appendChild will replace child nodes
     while (itemCount) {
         const child = suggestions.childNodes[itemCount]
@@ -146,38 +118,7 @@ const reverseOrder = () => {
     }
 }
 
-const updatePosition = () => {
-    if (suggestions.style.display === "none") return
-
-    const suggestionsHeight = suggestions.getAttribute("height")
-
-    if (!suggestionsHeight) return
-
-    const height = parseInt(suggestionsHeight)
-
-    let showReverse = false
-
-    const inputPosition = suggestions.currentInput.getBoundingClientRect()
-    suggestions.style.left = `${(
-        inputPosition.left + window.pageXOffset
-    ).toString()}px`
-
-    // enough space in buttom
-    if (inputPosition.bottom + height < window.innerHeight) {
-        suggestions.style.top = `${(
-            inputPosition.bottom +
-            window.pageYOffset -
-            1
-        ).toString()}px`
-    } else {
-        showReverse = true
-        suggestions.style.top = `${(
-            inputPosition.top +
-            window.pageYOffset -
-            height
-        ).toString()}px`
-    }
-
+const updateDisplyOrder = (showReverse: boolean) => {
     // checking if we need to reverse it
     if (showReverse) {
         if (!isOrderReverse()) reverseOrder()
@@ -186,6 +127,61 @@ const updatePosition = () => {
         if (isOrderReverse()) reverseOrder()
         suggestions.setAttribute(isReverseAttr, "false")
     }
+}
+
+const updateSuggestions = () => {
+    if (suggestions.style.display === "none") return
+
+    let showReverse = false
+    const height = parseInt(suggestions.getAttribute("height") as string, 10)
+    const inputPos = suggestions.currentInput.getBoundingClientRect()
+
+    suggestions.style.left = `${(
+        inputPos.left + window.pageXOffset
+    ).toString()}px`
+
+    // enough space in buttom
+    if (inputPos.bottom + height < window.innerHeight) {
+        suggestions.style.top = `${(
+            inputPos.bottom +
+            window.pageYOffset -
+            1
+        ).toString()}px`
+    } else {
+        showReverse = true
+        suggestions.style.top = `${(
+            inputPos.top +
+            window.pageYOffset -
+            height
+        ).toString()}px`
+    }
+
+    updateDisplyOrder(showReverse)
+}
+
+const applyEvents = () => {
+    if (!suggestions) return
+
+    const child = suggestions.querySelectorAll(".pac-item")
+
+    child.forEach(item => childElementEvents(item as HTMLElement))
+
+    window.addEventListener("scroll", updateSuggestions, true)
+
+    window.addEventListener("scroll", updateSuggestions)
+}
+
+const load = () => {
+    document.body.insertAdjacentHTML("beforeend", html)
+
+    suggestions = document.body.querySelector(
+        suggestionsSelector
+    ) as HTMLElement
+
+    geocoder = new window.google.maps.Geocoder()
+
+    applyAttributes()
+    applyEvents()
 }
 
 const show = () => {
@@ -199,32 +195,32 @@ const hide = () => {
 const updateMatch = (
     type: MatchType,
     element: HTMLElement,
-    formatting: IPrediction["structured_formatting"]
+    formatting: google.maps.places.StructuredFormatting
 ) => {
-    const matchElement = element.querySelector(".pac-matched")!
+    const match = element.querySelector(".pac-matched") as HTMLElement
 
-    const matchElementSubstrArray = formatting[`${type}_matched_substrings`]!
+    const matchSubstrArray = formatting?.[`${type}_matched_substrings`]
 
-    const matchElementSubstr = matchElementSubstrArray[0]!
+    const matchSubstr = matchSubstrArray[0]
 
-    const matchText = formatting[type]!
-    const lastChild = matchElement.lastChild as HTMLElement
+    const matchText = formatting[type]
+    const lastChild = match.lastChild as HTMLElement
 
-    if (formatting.main_text_matched_substrings) {
-        matchElement.style.display = "block"
-        matchElement.innerText = matchText.substring(
-            matchElementSubstr.offset,
-            matchElementSubstr.offset + matchElementSubstr.length
+    if (matchSubstr) {
+        match.style.display = "block"
+        match.innerText = matchText.substring(
+            matchSubstr.offset,
+            matchSubstr.offset + matchSubstr.length
         )
 
-        lastChild.nodeValue = matchText.substring(0, matchElementSubstr.length)
+        lastChild.nodeValue = matchText.substring(0, matchSubstr.length)
     } else {
-        matchElement.style.display = "none"
+        match.style.display = "none"
         lastChild.nodeValue = formatting.main_text
     }
 }
 
-const updateData = (
+const updateListData = (
     predictions: IPrediction[],
     inputElement: HTMLInputElement
 ) => {
@@ -232,20 +228,22 @@ const updateData = (
 
     predictions.forEach((prediction, index) => {
         if (!suggestions.childNodes[index]) return
-        const item = <HTMLElement>suggestions.childNodes[index]
+        const item = suggestions.childNodes[index] as HTMLElement
         const formatting = prediction.structured_formatting
 
         // pac-item
         item.setAttribute("data-placeId", prediction.place_id)
 
-        const mainTextEle = item.querySelector(".pac-item-query")!
+        const mainTextEle = item.querySelector(".pac-item-query") as HTMLElement
         updateMatch(MatchType.Main, mainTextEle, formatting)
 
-        const secondaryTextEle = item.querySelector(".pac-secondary")!
+        const secondaryTextEle = item.querySelector(
+            ".pac-secondary"
+        ) as HTMLElement
         updateMatch(MatchType.Secondary, secondaryTextEle, formatting)
     })
 
-    updatePosition()
+    updateSuggestions()
 }
 
-export { load, show, hide, updateData }
+export { load, show, hide, updateListData }

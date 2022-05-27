@@ -7,7 +7,9 @@ module.exports = {
         es2021: true
     },
     globals: {
-        Nullable: "readonly"
+        Nullable: "readonly",
+        DroomResponse: "readonly",
+        google: "readonly"
     },
     extends: [
         "airbnb-base",

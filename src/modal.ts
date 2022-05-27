@@ -1,5 +1,8 @@
-import { LoadResource, RESOURCE } from "./utils"
-import { IResponse } from "./interface"
+import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "./utils"
+
+interface ModalResonse extends DroomResponse {
+    data: string
+}
 
 const ID = "locationModal"
 
@@ -28,21 +31,17 @@ const loadDependencies = () => {
 }
 
 const fetchHTML = () => {
-    fetch(URL, {
+    HTTPClient<ModalResonse>(URL, {
         headers: {
             "X-Requested-With": "XMLHttpRequest"
         }
     })
-        .catch(err => console.log(err) /* eslint-disable-line no-console */)
-        .then(response => {
-            if (response) response.json()
-        })
-        .then((res: IResponse) => {
+        .then((res: ModalResonse) => {
             if (res.code === "success") {
-                document.body.appendChild(res.data)
+                document.body.insertAdjacentHTML("beforeend", res.data)
             }
         })
-        .catch(err => console.log(err) /* eslint-disable-line no-console */)
+        .catch((err: Error) => ErrorHandler.error(err))
 }
 
 const register = (selector: string) => {
