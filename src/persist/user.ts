@@ -1,25 +1,27 @@
-import { CookieStoreGet } from "../utils/storage"
-import { IResponse, IPlaceData } from "../interface"
+import { CookieStoreGet, ErrorHandler, HTTPClient } from "../utils"
+import { IPlaceData } from "../interface"
 import { LocationChangeEvent } from "../location"
+
+interface UserLocationResponse extends DroomResponse {
+    data: Nullable<IPlaceData>
+}
 
 const URL = "/user/location"
 
 const getUserLocation = async () => {
-    const response = await fetch(URL, {
+    const response = await HTTPClient<UserLocationResponse>(URL, {
         headers: {
             "X-Requested-With": "XMLHttpRequest"
         }
-    })
-        .then(res => res.json())
-        .then((res: IResponse) => (res.data ? res.data : null))
+    }).then((res: UserLocationResponse) => (res.data ? res.data : null))
 
     return response
 }
 
-const setUserLocation = async (data: IPlaceData) => {
+const setUserLocation = (data: IPlaceData) => {
     const csrfToken = CookieStoreGet("XSRF-TOKEN")
 
-    fetch(URL, {
+    HTTPClient(URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -29,13 +31,15 @@ const setUserLocation = async (data: IPlaceData) => {
             })
         },
         body: JSON.stringify(data)
-    })
+    }).catch((err: Error) => ErrorHandler.error(err))
 }
 
 const handleLocationChange = (event: Event) => {
-    const customInput = <CustomEvent>event
+    const customInput = event as CustomEvent
 
-    setUserLocation(<IPlaceData>customInput.detail)
+    const placeData = customInput.detail as IPlaceData
+
+    setUserLocation(placeData)
 }
 
 const load = () => {

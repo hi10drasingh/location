@@ -40,7 +40,7 @@ const getResource = (type: string, url: string) => {
 }
 
 const LoadResource = (type: string, url: string) =>
-    new Promise((resolve, reject) => {
+    new Promise<HTMLLinkElement | HTMLScriptElement>((resolve, reject) => {
         if (!url) reject(new Error("Please provide a valid url"))
 
         const parsedURL = parseURL(url)

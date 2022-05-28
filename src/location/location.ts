@@ -1,33 +1,9 @@
-import { GetAllInput } from "."
+import { getAll as GetAllInput } from "./input"
 import { DeepEqual } from "../utils"
 import { IPlaceData } from "../interface"
-
-const attributeSlug = "locationplugin"
-
-const changeEventName = "locationchanged"
-
-const defaultPlaceData: IPlaceData = {
-    lat: null,
-    lng: null,
-    city: "",
-    state: null,
-    pincode: null,
-    place_id: null,
-    country: "india",
-    address: null
-}
+import { attributeSlug, changeEventName, defaultPlaceData } from "./constant"
 
 let placeData: IPlaceData
-
-const triggerChange = (newPlaceData: IPlaceData) => {
-    if (!newPlaceData) return
-
-    if (placeData && DeepEqual(newPlaceData, placeData)) return
-
-    placeData = newPlaceData
-
-    emitEvent(placeData)
-}
 
 const emitEvent = (details: IPlaceData) => {
     const event = new CustomEvent(changeEventName, {
@@ -42,6 +18,16 @@ const emitEvent = (details: IPlaceData) => {
 
     // Emitting to window
     window.dispatchEvent(event)
+}
+
+const triggerChange = (newPlaceData: IPlaceData) => {
+    if (!newPlaceData) return
+
+    if (placeData && DeepEqual(newPlaceData, placeData)) return
+
+    placeData = newPlaceData
+
+    emitEvent(placeData)
 }
 
 export {

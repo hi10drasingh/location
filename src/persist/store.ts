@@ -3,7 +3,7 @@ import {
     LocalStoreSet,
     CookieStoreGet,
     CookieStoreSet
-} from "../utils/storage"
+} from "../utils"
 import { LocationChangeEvent, LocationDefaultData } from "../location"
 import { IPlaceData } from "../interface"
 
@@ -44,9 +44,9 @@ const getCookieData = () => {
 }
 
 const getLSData = () => {
-    const data = LocalStoreGet(lsKey)
+    const data = LocalStoreGet(lsKey) as string
 
-    return data ? JSON.parse(data) : data
+    return JSON.parse(data) as IPlaceData
 }
 
 const getData = () => {
@@ -72,9 +72,11 @@ const setData = (data: IPlaceData) => {
 }
 
 const handleLocationChange = (event: Event) => {
-    const customInput = <CustomEvent>event
+    const customInput = event as CustomEvent
 
-    setData(<IPlaceData>customInput.detail)
+    const palceData = customInput.detail as IPlaceData
+
+    setData(palceData)
 }
 
 const load = () => {

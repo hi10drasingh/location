@@ -1,5 +1,8 @@
-import { LoadResource, RESOURCE } from "./utils"
-import { IResponse } from "./interface"
+import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "./utils"
+
+interface ModalResonse extends DroomResponse {
+    data: string
+}
 
 const ID = "locationModal"
 
@@ -13,25 +16,32 @@ const CSS = [
 const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
 
 const loadDependencies = () => {
-    CSS.forEach(async style => {
-        await LoadResource(RESOURCE.CSS, style).catch(err => {
-            console.error(err) // eslint-disable-line no-console
+    const requests = CSS.map(style =>
+        LoadResource(RESOURCE.CSS, style).catch(err => {
+            console.error(err) /* eslint-disable-line no-console */
         })
-    })
+    )
+
+    Promise.all(requests)
+        .catch(err => {
+            console.error(err) /* eslint-disable-line no-console */
+        })
+        .then(() => console.log("done") /* eslint-disable-line no-console */)
+        .catch(err => console.log(err) /* eslint-disable-line no-console */)
 }
 
 const fetchHTML = () => {
-    fetch(URL, {
+    HTTPClient<ModalResonse>(URL, {
         headers: {
             "X-Requested-With": "XMLHttpRequest"
         }
     })
-        .then(response => response.json())
-        .then((res: IResponse) => {
+        .then((res: ModalResonse) => {
             if (res.code === "success") {
-                document.body.appendChild(res.data)
+                document.body.insertAdjacentHTML("beforeend", res.data)
             }
         })
+        .catch((err: Error) => ErrorHandler.error(err))
 }
 
 const register = (selector: string) => {

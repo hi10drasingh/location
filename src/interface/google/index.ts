@@ -17,7 +17,7 @@ type GetPlacePredictionsFunction = (
     b: (predictions: IPrediction[], element: HTMLInputElement) => void
 ) => void
 
-type Geocoder = (a: IBound, b: (a: IResult, b: Status) => void) => void
+type Geocode = (a: IBound, b: (a: IResult, b: Status) => void) => void
 
 interface Map {
     places: {
@@ -26,7 +26,7 @@ interface Map {
         }
     }
     Geocoder: () => {
-        geocode: Geocoder
+        geocode: Geocode
     }
 }
 

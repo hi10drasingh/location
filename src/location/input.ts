@@ -4,7 +4,10 @@ import {
     GetAutoCompletePrediction,
     UpdateSuggestion
 } from "../map"
-import { LocationChangeEvent, LocationAttributeSlug } from "."
+import {
+    attributeSlug,
+    changeEventName as LocationChangeEvent
+} from "./constant"
 import { IPlaceData } from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
@@ -39,23 +42,17 @@ const ucwords = (string: string) =>
     string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
 const applyAttributes = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
-    ele.setAttribute(LocationAttributeSlug, LocationAttributeSlug)
+    ele.setAttribute(attributeSlug, attributeSlug)
 
     if (isGlobal) {
-        ele.setAttribute(
-            `${LocationAttributeSlug}-${typeAttrName}`,
-            pluginType.GLOBAL
-        )
+        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.GLOBAL)
     } else {
-        ele.setAttribute(
-            `${LocationAttributeSlug}-${typeAttrName}`,
-            pluginType.LOCAL
-        )
+        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.LOCAL)
     }
 }
 
 const inputListener = (event: Event) => {
-    const element = <CustomHTMLInputElement>event.currentTarget
+    const element = event.currentTarget as CustomHTMLInputElement
     const { value } = element
     HideSuggestion()
     if (value.length > 2) {
@@ -72,7 +69,7 @@ const inputListener = (event: Event) => {
 }
 
 const blurListener = (event: Event) => {
-    const element = <CustomHTMLInputElement>event.currentTarget
+    const element = event.currentTarget as CustomHTMLInputElement
     const selectedCity = element.getAttribute(dataAttrNames.city)
 
     if (!selectedCity || selectedCity !== element.value.toLowerCase()) {
@@ -92,17 +89,14 @@ const changeInputAttributes = (
     Object.values(dataAttrNames).forEach(key => {
         const value = placeData[key]
         if (!value) return
-        element.setAttribute(
-            `${LocationAttributeSlug}-${key}`,
-            value.toString()
-        )
+        element.setAttribute(`${attributeSlug}-${key}`, value.toString())
     })
 }
 
 const locationChangedListener = (event: Event) => {
-    const element = <CustomHTMLInputElement>event.currentTarget
+    const element = event.currentTarget as CustomHTMLInputElement
 
-    const placeData = <IPlaceData>(<CustomEvent>event).detail
+    const placeData = (event as CustomEvent).detail as IPlaceData
 
     changeInputAttributes(element, placeData)
 }
@@ -125,14 +119,12 @@ const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
 }
 
 const bind = (element: HTMLInputElement, isGlobal: boolean) => {
-    const customInput = <CustomHTMLInputElement>element
+    const customInput = element as CustomHTMLInputElement
     applyAttributes(customInput, isGlobal)
     applyEvents(customInput, isGlobal)
 }
 
 const getAll = () =>
-    document.querySelectorAll(
-        `input[${applyAttributes}="${applyAttributes}"]`
-    ) as NodeListOf<CustomHTMLInputElement>
+    document.querySelectorAll(`input[${attributeSlug}="${attributeSlug}"]`)
 
-export { bind, getAll }
+export { bind, getAll, attributeSlug }
