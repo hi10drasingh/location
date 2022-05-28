@@ -31,7 +31,7 @@ const setUserLocation = (data: IPlaceData) => {
             })
         },
         body: JSON.stringify(data)
-    }).catch((err: Error) => ErrorHandler.error(err))
+    }).catch((err: string) => ErrorHandler.error(err))
 }
 
 const handleLocationChange = (event: Event) => {

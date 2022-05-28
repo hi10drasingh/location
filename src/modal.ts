@@ -41,7 +41,7 @@ const fetchHTML = () => {
                 document.body.insertAdjacentHTML("beforeend", res.data)
             }
         })
-        .catch((err: Error) => ErrorHandler.error(err))
+        .catch((err: string) => ErrorHandler.error(err))
 }
 
 const register = (selector: string) => {

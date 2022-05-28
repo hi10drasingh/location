@@ -1,66 +1,65 @@
 import { LoadResource, RESOURCE } from "../utils"
-import { LoadAutoComplete } from "."
+import { IPlaceData } from "../interface"
+import { LocationDefaultData } from "../location"
+
+type Result = google.maps.GeocoderResult | google.maps.places.PlaceResult
 
 const JS =
     "https://maps.googleapis.com/maps/api/js?key=AIzaSyDcupH1pAzOULz35i00ADvn1sndjRa4m_A&libraries=places"
 
-let geocoder: any
+const load = async () => LoadResource(RESOURCE.JS, JS)
 
-const load = async () => {
-    await LoadResource(RESOURCE.JS, JS).catch(err => {
-        console.error(err) // eslint-disable-line no-console
+const processAddressComponent = (
+    addressComponent: google.maps.GeocoderAddressComponent[],
+    placeData: IPlaceData
+) => {
+    let [locality, subLocalityExist] = ["", false]
+    const data = { ...placeData }
+
+    addressComponent.forEach(component => {
+        if (component.types.includes("sublocality")) subLocalityExist = true
+
+        if (component.types[0] === "locality") {
+            locality = component.long_name.toLowerCase()
+        }
+        if (component.types[0] === "administrative_area_level_2") {
+            data.city = component.long_name.toLowerCase()
+        }
+        if (component.types[0] === "administrative_area_level_1") {
+            data.state = component.long_name.toLowerCase()
+        }
+        if (component.types[0] === "postal_code") {
+            data.pincode = component.long_name
+        }
     })
 
-    geocoder = new window.google.maps.Geocoder()
-
-    await LoadAutoComplete()
-}
-
-const geolocate = (allowAccessMsg: boolean) => {
-    if (typeof navigator.geolocation !== "undefined" && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            currentPosition => {
-                const currentLatLng = {
-                    lat: currentPosition.coords.latitude,
-                    lng: currentPosition.coords.longitude
-                }
-
-                if (currentLatLng) {
-                    geocoder.geocode(
-                        {
-                            location: currentLatLng
-                        },
-                        (results: Array<Object>, status: string) => {
-                            if (status === "OK") {
-                                if (results[0]) {
-                                    // self.setLocationData(
-                                    //     self.getDataFromMapResult(
-                                    //         results[0]
-                                    //     )
-                                    // )
-                                } else {
-                                    console.log(
-                                        "No results found from current location cordinates"
-                                    )
-                                }
-                            } else {
-                                console.log(`Geocoder failed due to: ${status}`)
-                            }
-                        }
-                    )
-                }
-            },
-            () => {
-                if (allowAccessMsg) {
-                    // DroomApp.show_msg(
-                    //     "Please allow access to your location from browser settings.",
-                    //     "info",
-                    //     5000
-                    // )
-                }
-            }
-        )
+    return {
+        ...data,
+        ...((subLocalityExist || !data.city) && { city: locality })
     }
 }
 
-export { load, geolocate }
+const processResult = (result: Result): IPlaceData => {
+    const placeData = { ...LocationDefaultData }
+
+    if (result?.geometry?.location) {
+        placeData.lat = result.geometry.location.lat()
+        placeData.lng = result.geometry.location.lng()
+    }
+
+    if (result?.place_id) {
+        placeData.place_id = result.place_id
+    }
+
+    if (result?.formatted_address) {
+        placeData.address = result.formatted_address
+    }
+
+    if (result?.address_components) {
+        return processAddressComponent(result.address_components, placeData)
+    }
+
+    return placeData
+}
+
+export { load, processResult }
