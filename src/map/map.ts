@@ -1,6 +1,6 @@
 import { LoadResource, RESOURCE } from "../utils"
 import { IPlaceData } from "../interface"
-import { LocationDefaultData } from "../location"
+import { LocationDefaultData } from "../constant"
 
 type Result = google.maps.GeocoderResult | google.maps.places.PlaceResult
 

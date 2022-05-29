@@ -1,15 +1,9 @@
 import errorHandler from "src/utils/errorHandler"
-import { Debounce } from "../utils"
-import {
-    HideSuggestion,
-    GetAutoCompletePredictions,
-    UpdateSuggestion
-} from "../map"
-import {
-    attributeSlug,
-    changeEventName as LocationChangeEvent
-} from "./constant"
-import { IPlaceData } from "../interface"
+import { Debounce } from "./utils"
+import { HideSuggestion, UpdateSuggestion } from "./suggestion"
+import { GetAutoCompletePredictions } from "./map"
+import { LocationAttributeSlug, LocationChangeEvent } from "./constant"
+import { IPlaceData } from "./interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -45,12 +39,18 @@ const ucwords = (string: string) =>
     string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
 const applyAttributes = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
-    ele.setAttribute(attributeSlug, attributeSlug)
+    ele.setAttribute(LocationAttributeSlug, LocationAttributeSlug)
 
     if (isGlobal) {
-        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.GLOBAL)
+        ele.setAttribute(
+            `${LocationAttributeSlug}-${typeAttrName}`,
+            pluginType.GLOBAL
+        )
     } else {
-        ele.setAttribute(`${attributeSlug}-${typeAttrName}`, pluginType.LOCAL)
+        ele.setAttribute(
+            `${LocationAttributeSlug}-${typeAttrName}`,
+            pluginType.LOCAL
+        )
     }
 }
 
@@ -97,7 +97,10 @@ const changeInputAttributes = (
     Object.values(dataAttrNames).forEach(key => {
         const value = placeData[key]
         if (!value) return
-        element.setAttribute(`${attributeSlug}-${key}`, value.toString())
+        element.setAttribute(
+            `${LocationAttributeSlug}-${key}`,
+            value.toString()
+        )
     })
 }
 
@@ -133,7 +136,20 @@ const bind = (element: HTMLInputElement, isGlobal: boolean) => {
     applyEvents(customInput, isGlobal)
 }
 
-const getAll = () =>
-    document.querySelectorAll(`input[${attributeSlug}="${attributeSlug}"]`)
+const unbind = (element: CustomHTMLInputElement) => {
+    element.listeners.forEach((val: Listener) => {
+        Object.entries(val).forEach(([eventName, cb]) => {
+            element.removeEventListener(eventName, cb)
+        })
+    })
 
-export { bind, getAll, attributeSlug }
+    if (element.hasAttribute(LocationAttributeSlug)) {
+        element.removeAttribute(LocationAttributeSlug)
+    }
+
+    if (element.hasAttribute(`${LocationAttributeSlug}-${typeAttrName}`)) {
+        element.removeAttribute(`${LocationAttributeSlug}-${typeAttrName}`)
+    }
+}
+
+export { bind as BindInput, unbind as UnbindInput }

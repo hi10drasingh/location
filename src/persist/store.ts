@@ -4,7 +4,7 @@ import {
     CookieStoreGet,
     CookieStoreSet
 } from "../utils"
-import { LocationChangeEvent, LocationDefaultData } from "../location"
+import { LocationChangeEvent, LocationDefaultData } from "../constant"
 import { IPlaceData } from "../interface"
 
 interface IPopularCityStateMapping {
@@ -49,7 +49,7 @@ const getLSData = () => {
     return JSON.parse(data) as IPlaceData
 }
 
-const getData = () => {
+const getData = (): IPlaceData => {
     const cookieData = getCookieData()
 
     const lsData = getLSData()

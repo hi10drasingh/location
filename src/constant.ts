@@ -1,4 +1,4 @@
-import { IPlaceData } from "../interface"
+import { IPlaceData } from "./interface"
 
 const attributeSlug = "locationplugin"
 
@@ -15,4 +15,8 @@ const defaultPlaceData: IPlaceData = {
     address: null
 }
 
-export { changeEventName, defaultPlaceData, attributeSlug }
+export {
+    changeEventName as LocationChangeEvent,
+    defaultPlaceData as LocationDefaultData,
+    attributeSlug as LocationAttributeSlug
+}

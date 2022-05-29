@@ -1,5 +1,5 @@
 import { processResult } from "./map"
-import { TriggerLocationChange } from "../location"
+import TriggerLocationChange from "../location"
 
 const GEOLOCATION_NOT_AVAILABLE_MSG =
     "Geolocation is not available for this browser"

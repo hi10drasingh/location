@@ -3,12 +3,6 @@ import {
     load as LoadAutoComplete,
     GetPredictions as GetAutoCompletePredictions
 } from "./autocomplete"
-import {
-    hide as HideSuggestion,
-    show as ShowSuggestion,
-    load as LoadSuggestion,
-    updateListData as UpdateSuggestion
-} from "./suggestion"
 import { GetCurrentLocation } from "./geocode"
 
 const load = () =>
@@ -17,7 +11,6 @@ const load = () =>
             .then(() =>
                 LoadAutoComplete()
                     .then(() => {
-                        LoadSuggestion()
                         resolve()
                     })
                     .catch(err => reject(err))
@@ -27,9 +20,6 @@ const load = () =>
 
 export {
     GetCurrentLocation,
-    ShowSuggestion,
-    HideSuggestion,
     load as LoadGoogleMaps,
-    GetAutoCompletePredictions,
-    UpdateSuggestion
+    GetAutoCompletePredictions
 }

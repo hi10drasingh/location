@@ -1,12 +1,18 @@
 import { IStoreGet, IStoreSet } from "./interface"
 
+interface LSData {
+    value: string
+    time: number
+    expireIn: number
+}
+
 const ls = window.localStorage
 
 const exist = (key: string) => {
     const value = ls.getItem(key)
     if (!value) return false
 
-    const cache = JSON.parse(value)
+    const cache = JSON.parse(value) as LSData
     const now = new Date().getTime()
 
     if (cache) {
@@ -29,7 +35,7 @@ const get: IStoreGet = (key: string): Nullable<string> => {
         return null
     }
 
-    const cache = JSON.parse(value)
+    const cache = JSON.parse(value) as LSData
     if (exist(key)) {
         return cache.value
     }

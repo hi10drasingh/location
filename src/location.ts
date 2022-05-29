@@ -1,18 +1,23 @@
-import { getAll as GetAllInput } from "./input"
-import { DeepEqual } from "../utils"
-import { IPlaceData } from "../interface"
-import { attributeSlug, changeEventName, defaultPlaceData } from "./constant"
+import { DeepEqual } from "./utils"
+import { IPlaceData } from "./interface"
+import { LocationChangeEvent, LocationAttributeSlug } from "./constant"
 
 let placeData: IPlaceData
 
+const GetAllInput = (): NodeListOf<HTMLInputElement> =>
+    document.querySelectorAll(
+        `input[${LocationAttributeSlug}="${LocationAttributeSlug}"]`
+    )
+
 const emitEvent = (details: IPlaceData) => {
-    const event = new CustomEvent(changeEventName, {
+    const event = new CustomEvent(LocationChangeEvent, {
         bubbles: false,
         detail: details
     })
 
     // Emit event to all plugin inputs
-    GetAllInput().forEach(input => {
+    const inputs = GetAllInput()
+    inputs.forEach(input => {
         input.dispatchEvent(event)
     })
 
@@ -30,10 +35,4 @@ const triggerChange = (newPlaceData: IPlaceData) => {
     emitEvent(placeData)
 }
 
-export {
-    changeEventName,
-    attributeSlug,
-    defaultPlaceData,
-    triggerChange,
-    type IPlaceData
-}
+export default triggerChange

@@ -1,6 +1,6 @@
-import { ErrorHandler } from "../utils"
-import { GetPlaceFromGeocode } from "./geocode"
-import { TriggerLocationChange } from "../location"
+import { ErrorHandler } from "./utils"
+import { GetPlaceFromGeocode } from "./map/geocode"
+import TriggerLocationChange from "./location"
 
 enum MatchType {
     Main = "main_text",
@@ -160,11 +160,7 @@ const updatePosition = () => {
     // enough space in buttom
     if (inputPos.bottom + height > window.innerHeight) {
         showReverse = true
-        suggestions.style.top = `${(
-            inputPos.top +
-            window.pageYOffset -
-            height
-        ).toString()}px`
+        suggestions.style.top = `${(window.pageYOffset - height).toString()}px`
     }
     updateOrder(showReverse)
 }
@@ -243,4 +239,9 @@ const updateListData = (
     updatePosition()
 }
 
-export { load, show, hide, updateListData }
+export {
+    hide as HideSuggestion,
+    show as ShowSuggestion,
+    load as LoadSuggestion,
+    updateListData as UpdateSuggestion
+}
