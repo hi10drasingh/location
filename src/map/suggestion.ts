@@ -61,6 +61,8 @@ const html = `
 
 const isReverseAttr = "is-reverse"
 const heightAttr = "height"
+const currentInputAttr = "current-input"
+const placeIDAttr = "place-id"
 
 const getElement = () => {
     const suggestions = document.querySelector(
@@ -95,12 +97,12 @@ const childElementEvents = (child: HTMLElement) => {
     child.addEventListener("click", () => {
         hide()
         GetPlaceFromGeocode({
-            placeId: child.getAttribute("data-placeId")
+            placeId: child.getAttribute(placeIDAttr)
         })
             .then(placeData => {
                 TriggerLocationChange(placeData)
             })
-            .catch((err: string) => ErrorHandler.error(err))
+            .catch(err => ErrorHandler.error(err))
     })
 }
 
@@ -124,7 +126,7 @@ const reverseOrder = () => {
     }
 }
 
-const updateDisplyOrder = (showReverse: boolean) => {
+const updateOrder = (showReverse: boolean) => {
     const suggestions = getElement()
     // checking if we need to reverse it
     if (showReverse) {
@@ -136,25 +138,25 @@ const updateDisplyOrder = (showReverse: boolean) => {
     }
 }
 
-const updateSuggestions = (input: HTMLInputElement) => {
+const updatePosition = () => {
     const suggestions = getElement()
-
-    if (suggestions.style.display === "none") return
 
     let showReverse = false
     const height = parseInt(suggestions.getAttribute("height") as string, 10)
-    const inputPos = input.getBoundingClientRect()
+    const inputPos = (
+        JSON.parse(
+            suggestions.getAttribute(currentInputAttr) as string
+        ) as HTMLInputElement
+    ).getBoundingClientRect()
 
     suggestions.style.left = `${(
         inputPos.left + window.pageXOffset
     ).toString()}px`
-
     suggestions.style.top = `${(
         inputPos.bottom +
         window.pageYOffset -
         1
     ).toString()}px`
-
     // enough space in buttom
     if (inputPos.bottom + height > window.innerHeight) {
         showReverse = true
@@ -164,7 +166,7 @@ const updateSuggestions = (input: HTMLInputElement) => {
             height
         ).toString()}px`
     }
-    updateDisplyOrder(showReverse)
+    updateOrder(showReverse)
 }
 
 const applyEvents = () => {
@@ -174,9 +176,9 @@ const applyEvents = () => {
 
     child.forEach(item => childElementEvents(item as HTMLElement))
 
-    window.addEventListener("scroll", updateSuggestions, true)
+    window.addEventListener("scroll", updatePosition, true)
 
-    window.addEventListener("scroll", updateSuggestions)
+    window.addEventListener("scroll", updatePosition)
 }
 
 const load = () => {
@@ -185,23 +187,22 @@ const load = () => {
     applyEvents()
 }
 
-const updateMatch = (
+const updateMatchedSubstr = (
     type: MatchType,
     element: HTMLElement,
     formatting: google.maps.places.StructuredFormatting
 ) => {
     const match = element.querySelector(".pac-matched") as HTMLElement
 
-    const matchSubstrArray = formatting[
-        `${type}_matched_substrings`
-    ] as google.maps.places.StructuredFormatting["main_text_matched_substrings"]
-
-    const matchSubstr = matchSubstrArray[0]
-
     const matchText = formatting[type]
     const lastChild = match.lastChild as HTMLElement
 
-    if (matchSubstr) {
+    if (type === MatchType.Main) {
+        const matchSubstrArray =
+            formatting[`${MatchType.Main}_matched_substrings`]
+        const matchSubstr =
+            matchSubstrArray[0] as google.maps.places.PredictionSubstring
+
         match.style.display = "block"
         match.innerText = matchText.substring(
             matchSubstr.offset,
@@ -211,15 +212,16 @@ const updateMatch = (
         lastChild.nodeValue = matchText.substring(0, matchSubstr.length)
     } else {
         match.style.display = "none"
-        lastChild.nodeValue = formatting.main_text
+        lastChild.nodeValue = formatting.secondary_text
     }
 }
 
 const updateListData = (
-    predictions: IPrediction[],
+    predictions: google.maps.places.AutocompletePrediction[],
     inputElement: HTMLInputElement
 ) => {
-    suggestions.currentInput = inputElement
+    const suggestions = getElement()
+    suggestions.setAttribute(currentInputAttr, JSON.stringify(inputElement))
 
     predictions.forEach((prediction, index) => {
         if (!suggestions.childNodes[index]) return
@@ -227,18 +229,18 @@ const updateListData = (
         const formatting = prediction.structured_formatting
 
         // pac-item
-        item.setAttribute("data-placeId", prediction.place_id)
+        item.setAttribute(placeIDAttr, prediction.place_id)
 
         const mainTextEle = item.querySelector(".pac-item-query") as HTMLElement
-        updateMatch(MatchType.Main, mainTextEle, formatting)
+        updateMatchedSubstr(MatchType.Main, mainTextEle, formatting)
 
         const secondaryTextEle = item.querySelector(
             ".pac-secondary"
         ) as HTMLElement
-        updateMatch(MatchType.Secondary, secondaryTextEle, formatting)
+        updateMatchedSubstr(MatchType.Secondary, secondaryTextEle, formatting)
     })
 
-    updateSuggestions()
+    updatePosition()
 }
 
 export { load, show, hide, updateListData }

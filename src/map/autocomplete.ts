@@ -4,4 +4,10 @@ const style = "/themes/beta/css/elements/plugins/location/suggestions.css"
 
 const load = () => LoadResource(RESOURCE.CSS, style)
 
-export { load, style }
+const GetPredictions = (request: google.maps.places.AutocompletionRequest) => {
+    const autoCompleteService = new google.maps.places.AutocompleteService()
+
+    return autoCompleteService.getPlacePredictions(request)
+}
+
+export { load, GetPredictions }

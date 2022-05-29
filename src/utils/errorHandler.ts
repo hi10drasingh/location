@@ -1,4 +1,4 @@
-const error = (err: string): void => {
+const error = (err: unknown): void => {
     console.error(err) /* eslint-disable-line no-console */
 }
 

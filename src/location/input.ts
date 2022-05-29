@@ -1,7 +1,8 @@
+import errorHandler from "src/utils/errorHandler"
 import { Debounce } from "../utils"
 import {
     HideSuggestion,
-    GetAutoCompletePrediction,
+    GetAutoCompletePredictions,
     UpdateSuggestion
 } from "../map"
 import {
@@ -38,6 +39,8 @@ const dataAttrNames = {
     placeId: "place_id"
 }
 
+const PREDICTIONS_NOT_FOUND = "Predictions not found for given input value."
+
 const ucwords = (string: string) =>
     string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
@@ -56,15 +59,20 @@ const inputListener = (event: Event) => {
     const { value } = element
     HideSuggestion()
     if (value.length > 2) {
-        GetAutoCompletePrediction(
-            {
-                input: value,
-                componentRestrictions: {
-                    country: "in"
+        GetAutoCompletePredictions({
+            input: value,
+            componentRestrictions: {
+                country: "in"
+            }
+        })
+            .then(data => {
+                if (data?.predictions?.length) {
+                    UpdateSuggestion(data.predictions, element)
+                } else {
+                    errorHandler.info(PREDICTIONS_NOT_FOUND)
                 }
-            },
-            UpdateSuggestion
-        )
+            })
+            .catch(err => errorHandler.error(err))
     }
 }
 
@@ -103,7 +111,8 @@ const locationChangedListener = (event: Event) => {
 
 const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     // INPUT EVENT
-    const inputHandler = Debounce(inputListener, DEBOUCE_TIMEOUT)
+    const inputHandler = (event: Event) =>
+        Debounce(inputListener, DEBOUCE_TIMEOUT, [event])
     ele.addEventListener("input", inputHandler)
     ele.listeners.push({ input: inputHandler })
 

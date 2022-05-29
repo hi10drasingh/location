@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const Debounce = (
-    func: (...args: unknown[]) => void,
+    func: (...args: any[]) => void,
     wait: number,
-    ...funcArgs: string[]
+    ...funcArgs: any[]
 ) => {
     let timeout: Nullable<number>
 
     return () => {
-        const args = funcArgs
         const callNow = !timeout
 
         if (timeout) clearTimeout(timeout)
@@ -15,7 +15,7 @@ const Debounce = (
             timeout = null
         }, wait)
 
-        if (callNow) func.apply(this, args)
+        if (callNow) func.apply(this, funcArgs)
     }
 }
 

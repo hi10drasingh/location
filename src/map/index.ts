@@ -1,9 +1,13 @@
 import { load as LoadMap } from "./map"
-import { load as LoadAutoComplete } from "./autocomplete"
+import {
+    load as LoadAutoComplete,
+    GetPredictions as GetAutoCompletePredictions
+} from "./autocomplete"
 import {
     hide as HideSuggestion,
     show as ShowSuggestion,
-    load as LoadSuggestion
+    load as LoadSuggestion,
+    updateListData as UpdateSuggestion
 } from "./suggestion"
 import { GetCurrentLocation } from "./geocode"
 
@@ -25,5 +29,7 @@ export {
     GetCurrentLocation,
     ShowSuggestion,
     HideSuggestion,
-    load as LoadGoogleMaps
+    load as LoadGoogleMaps,
+    GetAutoCompletePredictions,
+    UpdateSuggestion
 }
