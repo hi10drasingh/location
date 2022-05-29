@@ -17,17 +17,13 @@ const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
 
 const loadDependencies = () => {
     const requests = CSS.map(style =>
-        LoadResource(RESOURCE.CSS, style).catch(err => {
-            console.error(err) /* eslint-disable-line no-console */
-        })
+        LoadResource(RESOURCE.CSS, style).catch(err => ErrorHandler.error(err))
     )
 
     Promise.all(requests)
-        .catch(err => {
-            console.error(err) /* eslint-disable-line no-console */
-        })
-        .then(() => console.log("done") /* eslint-disable-line no-console */)
-        .catch(err => console.log(err) /* eslint-disable-line no-console */)
+        .catch(err => ErrorHandler.error(err))
+        .then(() => ErrorHandler.log("done"))
+        .catch(err => ErrorHandler.log(err))
 }
 
 const fetchHTML = () => {
