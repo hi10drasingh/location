@@ -79,7 +79,7 @@ const handleLocationChange = (event: Event) => {
     setData(palceData)
 }
 
-const load = () => {
+const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 

@@ -65,7 +65,7 @@ const inputListener = (event: Event) => {
                 country: "in"
             }
         })
-            .then(data => {
+            .then((data: google.maps.places.AutocompleteResponse) => {
                 if (data?.predictions?.length) {
                     UpdateSuggestion(data.predictions, element)
                 } else {
@@ -130,13 +130,13 @@ const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     }
 }
 
-const bind = (element: HTMLInputElement, isGlobal: boolean) => {
+const bind = (element: HTMLInputElement, isGlobal: boolean): void => {
     const customInput = element as CustomHTMLInputElement
     applyAttributes(customInput, isGlobal)
     applyEvents(customInput, isGlobal)
 }
 
-const unbind = (element: CustomHTMLInputElement) => {
+const unbind = (element: CustomHTMLInputElement): void => {
     element.listeners.forEach((val: Listener) => {
         Object.entries(val).forEach(([eventName, cb]) => {
             element.removeEventListener(eventName, cb)

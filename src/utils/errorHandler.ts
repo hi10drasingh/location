@@ -2,11 +2,11 @@ const error = (err: unknown): void => {
     console.error(err) /* eslint-disable-line no-console */
 }
 
-const info = (msg: string): void => {
+const info = (msg: unknown): void => {
     console.info(msg) /* eslint-disable-line no-console */
 }
 
-const warn = (msg: string): void => {
+const warn = (msg: unknown): void => {
     console.warn(msg) /* eslint-disable-line no-console */
 }
 

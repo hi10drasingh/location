@@ -25,7 +25,7 @@ const emitEvent = (details: IPlaceData) => {
     window.dispatchEvent(event)
 }
 
-const triggerChange = (newPlaceData: IPlaceData) => {
+const triggerChange = (newPlaceData: IPlaceData): void => {
     if (!newPlaceData) return
 
     if (placeData && DeepEqual(newPlaceData, placeData)) return

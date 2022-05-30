@@ -1,6 +1,7 @@
 import { ErrorHandler } from "./utils"
 import { GetPlaceFromGeocode } from "./map/geocode"
 import TriggerLocationChange from "./location"
+import { IPlaceData } from "./interface"
 
 enum MatchType {
     Main = "main_text",
@@ -72,12 +73,12 @@ const getElement = () => {
     return suggestions
 }
 
-const show = () => {
+const show = (): void => {
     const suggestions = getElement()
     suggestions.style.display = "block"
 }
 
-const hide = () => {
+const hide = (): void => {
     const suggestions = getElement()
     suggestions.style.display = "none"
 }
@@ -99,7 +100,7 @@ const childElementEvents = (child: HTMLElement) => {
         GetPlaceFromGeocode({
             placeId: child.getAttribute(placeIDAttr)
         })
-            .then(placeData => {
+            .then((placeData: IPlaceData) => {
                 TriggerLocationChange(placeData)
             })
             .catch(err => ErrorHandler.error(err))
@@ -177,7 +178,7 @@ const applyEvents = () => {
     window.addEventListener("scroll", updatePosition)
 }
 
-const load = () => {
+const load = (): void => {
     document.body.insertAdjacentHTML("beforeend", html)
     applyAttributes()
     applyEvents()
@@ -215,7 +216,7 @@ const updateMatchedSubstr = (
 const updateListData = (
     predictions: google.maps.places.AutocompletePrediction[],
     inputElement: HTMLInputElement
-) => {
+): void => {
     const suggestions = getElement()
     suggestions.setAttribute(currentInputAttr, JSON.stringify(inputElement))
 
