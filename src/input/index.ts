@@ -2,7 +2,12 @@ import { Debounce, ErrorHandler } from "../utils"
 import { HideSuggestion, UpdateSuggestion } from "../suggestion"
 import { GetAutoCompletePredictions } from "../map"
 import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
-import IPlaceData, { type CustomHTMLInputElement, Listener } from "../interface"
+import IPlaceData, {
+    type CustomHTMLInputElement,
+    Listener,
+    BindInputFunc,
+    UnbindInputFunc
+} from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -121,13 +126,16 @@ const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     }
 }
 
-const bind = (element: HTMLInputElement, isGlobal: boolean): void => {
+const bind: BindInputFunc = (
+    element: HTMLInputElement,
+    isGlobal: boolean
+): void => {
     const customInput = element as CustomHTMLInputElement
     applyAttributes(customInput, isGlobal)
     applyEvents(customInput, isGlobal)
 }
 
-const unbind = (element: CustomHTMLInputElement): void => {
+const unbind: UnbindInputFunc = (element: CustomHTMLInputElement): void => {
     element.listeners.forEach((val: Listener) => {
         Object.entries(val).forEach(([eventName, cb]) => {
             element.removeEventListener(eventName, cb)

@@ -1,8 +1,8 @@
 import { CustomHTMLInputElement } from "./input"
 
 interface Plugin {
-    bindInput: (ele: HTMLInputElement, isGlobal: boolean) => void
-    unbindInput: (ele: CustomHTMLInputElement) => void
+    bindInput: (ele: HTMLInputElement, isGlobal: boolean) => Promise<void>
+    unbindInput: (ele: CustomHTMLInputElement) => Promise<void>
 }
 
 type FactoryFunc = () => Plugin

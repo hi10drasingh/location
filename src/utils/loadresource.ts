@@ -10,6 +10,10 @@ const parseURL = (url: string) => {
 
     const assetsVersion = window.assets_version || 1
 
+    if (/https|http/.test(parsedURL) || parsedURL.substring(0, 2) === "//") {
+        return parsedURL
+    }
+
     if (window.minify === 1) {
         parsedURL = `${assetsURL}?f=${parsedURL}&v=${assetsVersion}`
     } else {
