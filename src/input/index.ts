@@ -1,9 +1,9 @@
 import errorHandler from "src/utils/errorHandler"
-import { Debounce } from "./utils"
-import { HideSuggestion, UpdateSuggestion } from "./suggestion"
-import { GetAutoCompletePredictions } from "./map"
-import { LocationAttributeSlug, LocationChangeEvent } from "./constant"
-import { IPlaceData } from "./interface"
+import { Debounce } from "../utils"
+import { HideSuggestion, UpdateSuggestion } from "../suggestion"
+import { GetAutoCompletePredictions } from "../map"
+import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
+import IPlaceData from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -115,7 +115,7 @@ const locationChangedListener = (event: Event) => {
 const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     // INPUT EVENT
     const inputHandler = (event: Event) =>
-        Debounce(inputListener, DEBOUCE_TIMEOUT, [event])
+        Debounce(inputListener, DEBOUCE_TIMEOUT)(event)
     ele.addEventListener("input", inputHandler)
     ele.listeners.push({ input: inputHandler })
 

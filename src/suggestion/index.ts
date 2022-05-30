@@ -1,7 +1,7 @@
-import { ErrorHandler } from "./utils"
-import { GetPlaceFromGeocode } from "./map/geocode"
-import TriggerLocationChange from "./location"
-import { IPlaceData } from "./interface"
+import { ErrorHandler } from "../utils"
+import { GetPlaceFromGeocode } from "../map/geocode"
+import TriggerLocationChange from "../location"
+import IPlaceData from "../interface"
 
 enum MatchType {
     Main = "main_text",

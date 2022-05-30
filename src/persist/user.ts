@@ -1,5 +1,5 @@
 import { CookieStoreGet, ErrorHandler, HTTPClient } from "../utils"
-import { IPlaceData } from "../interface"
+import IPlaceData from "../interface"
 import { LocationChangeEvent } from "../constant"
 
 interface UserLocationResponse extends DroomResponse {
@@ -42,7 +42,7 @@ const handleLocationChange = (event: Event) => {
     setUserLocation(placeData)
 }
 
-const load = () => {
+const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 

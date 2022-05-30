@@ -1,4 +1,4 @@
-import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "./utils"
+import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "../utils"
 
 interface ModalResonse extends DroomResponse {
     data: string

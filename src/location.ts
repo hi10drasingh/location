@@ -1,5 +1,5 @@
 import { DeepEqual } from "./utils"
-import { IPlaceData } from "./interface"
+import IPlaceData from "./interface"
 import { LocationChangeEvent, LocationAttributeSlug } from "./constant"
 
 let placeData: IPlaceData

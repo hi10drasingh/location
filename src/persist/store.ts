@@ -5,7 +5,7 @@ import {
     CookieStoreSet
 } from "../utils"
 import { LocationChangeEvent, LocationDefaultData } from "../constant"
-import { IPlaceData } from "../interface"
+import IPlaceData from "../interface"
 
 interface IPopularCityStateMapping {
     [key: string]: string

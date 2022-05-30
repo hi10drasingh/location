@@ -1,8 +1,5 @@
 import { load as LoadMap } from "./map"
-import {
-    load as LoadAutoComplete,
-    GetPredictions as GetAutoCompletePredictions
-} from "./autocomplete"
+import { LoadAutoComplete, GetAutoCompletePredictions } from "./autocomplete"
 import { GetCurrentLocation } from "./geocode"
 
 const load = () =>
@@ -10,9 +7,7 @@ const load = () =>
         LoadMap()
             .then(() =>
                 LoadAutoComplete()
-                    .then(() => {
-                        resolve()
-                    })
+                    .then(() => resolve())
                     .catch(err => reject(err))
             )
             .catch(err => reject(err))

@@ -10,4 +10,7 @@ const GetPredictions = (request: google.maps.places.AutocompletionRequest) => {
     return autoCompleteService.getPlacePredictions(request)
 }
 
-export { load, GetPredictions }
+export {
+    load as LoadAutoComplete,
+    GetPredictions as GetAutoCompletePredictions
+}
