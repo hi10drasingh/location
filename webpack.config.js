@@ -2,7 +2,7 @@
 
 const path = require("path");
 
-const isProduction = process.env.NODE_ENV == "production";
+const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
   entry: "./src/index.ts",
@@ -11,7 +11,7 @@ const config = {
   },
   devServer: {
     open: true,
-    host: "localhost",
+    host: "localhost"
   },
   plugins: [
     // Add your plugins here

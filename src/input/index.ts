@@ -1,5 +1,4 @@
-import errorHandler from "src/utils/errorHandler"
-import { Debounce } from "../utils"
+import { Debounce, ErrorHandler } from "../utils"
 import { HideSuggestion, UpdateSuggestion } from "../suggestion"
 import { GetAutoCompletePredictions } from "../map"
 import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
@@ -61,10 +60,10 @@ const inputListener = (event: Event) => {
                 if (data?.predictions?.length) {
                     UpdateSuggestion(data.predictions, element)
                 } else {
-                    errorHandler.info(PREDICTIONS_NOT_FOUND)
+                    ErrorHandler.info(PREDICTIONS_NOT_FOUND)
                 }
             })
-            .catch(err => errorHandler.error(err))
+            .catch(err => ErrorHandler.error(err))
     }
 }
 
