@@ -1,4 +1,4 @@
-import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "./utils"
+import { LoadResource, RESOURCE, HTTPClient, ErrorHandler } from "../utils"
 
 interface ModalResonse extends DroomResponse {
     data: string
@@ -40,7 +40,7 @@ const fetchHTML = () => {
         .catch(err => ErrorHandler.error(err))
 }
 
-const register = (selector: string) => {
+const register = (selector: string): void => {
     const ele = document.querySelector(selector)
 
     if (ele) {

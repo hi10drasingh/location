@@ -1,6 +1,6 @@
 import { CookieStoreGet, ErrorHandler, HTTPClient } from "../utils"
-import { IPlaceData } from "../interface"
-import { LocationChangeEvent } from "../location"
+import IPlaceData from "../interface"
+import { LocationChangeEvent } from "../constant"
 
 interface UserLocationResponse extends DroomResponse {
     data: Nullable<IPlaceData>
@@ -18,7 +18,7 @@ const getUserLocation = async () => {
     return response
 }
 
-const setUserLocation = (data: IPlaceData) => {
+const setUserLocation = (data: IPlaceData): void => {
     const csrfToken = CookieStoreGet("XSRF-TOKEN")
 
     HTTPClient(URL, {
@@ -42,7 +42,7 @@ const handleLocationChange = (event: Event) => {
     setUserLocation(placeData)
 }
 
-const load = () => {
+const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 

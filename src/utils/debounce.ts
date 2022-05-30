@@ -1,22 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const Debounce = (
-    func: (...args: any[]) => void,
-    wait: number,
-    ...funcArgs: any[]
-) => {
-    let timeout: Nullable<number>
-
-    return () => {
-        const callNow = !timeout
-
-        if (timeout) clearTimeout(timeout)
-
-        timeout = setTimeout(() => {
-            timeout = null
-        }, wait)
-
-        if (callNow) func.apply(this, funcArgs)
-    }
+export function Debounce<F extends (...params: any[]) => void>(
+    fn: F,
+    delay: number
+) {
+    let timeoutID: number
+    return function debouncefunc(this: any, ...args: any[]) {
+        clearTimeout(timeoutID)
+        timeoutID = window.setTimeout(() => fn.apply(this, args), delay)
+    } as F
 }
 
 export default Debounce

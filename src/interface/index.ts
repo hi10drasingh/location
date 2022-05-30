@@ -1,2 +1,7 @@
-export { type default as IPlaceData } from "./placedata"
-export type { Map, IResult, IPrediction } from "./google"
+import IPlaceData from "./placedata"
+
+export type { Plugin, FactoryFunc } from "./plugin"
+
+export type { CustomHTMLInputElement, Listener } from "./input"
+
+export default IPlaceData

@@ -1,19 +1,10 @@
-import errorHandler from "src/utils/errorHandler"
-import { Debounce } from "./utils"
-import { HideSuggestion, UpdateSuggestion } from "./suggestion"
-import { GetAutoCompletePredictions } from "./map"
-import { LocationAttributeSlug, LocationChangeEvent } from "./constant"
-import { IPlaceData } from "./interface"
+import { Debounce, ErrorHandler } from "../utils"
+import { HideSuggestion, UpdateSuggestion } from "../suggestion"
+import { GetAutoCompletePredictions } from "../map"
+import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
+import IPlaceData, { type CustomHTMLInputElement, Listener } from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
-
-type Listener = {
-    [key: string]: (event: Event) => void
-}
-
-interface CustomHTMLInputElement extends HTMLInputElement {
-    listeners: Listener[]
-}
 
 const typeAttrName = "type"
 
@@ -65,14 +56,14 @@ const inputListener = (event: Event) => {
                 country: "in"
             }
         })
-            .then(data => {
+            .then((data: google.maps.places.AutocompleteResponse) => {
                 if (data?.predictions?.length) {
                     UpdateSuggestion(data.predictions, element)
                 } else {
-                    errorHandler.info(PREDICTIONS_NOT_FOUND)
+                    ErrorHandler.info(PREDICTIONS_NOT_FOUND)
                 }
             })
-            .catch(err => errorHandler.error(err))
+            .catch(err => ErrorHandler.error(err))
     }
 }
 
@@ -115,7 +106,7 @@ const locationChangedListener = (event: Event) => {
 const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     // INPUT EVENT
     const inputHandler = (event: Event) =>
-        Debounce(inputListener, DEBOUCE_TIMEOUT, [event])
+        Debounce(inputListener, DEBOUCE_TIMEOUT)(event)
     ele.addEventListener("input", inputHandler)
     ele.listeners.push({ input: inputHandler })
 
@@ -130,13 +121,13 @@ const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
     }
 }
 
-const bind = (element: HTMLInputElement, isGlobal: boolean) => {
+const bind = (element: HTMLInputElement, isGlobal: boolean): void => {
     const customInput = element as CustomHTMLInputElement
     applyAttributes(customInput, isGlobal)
     applyEvents(customInput, isGlobal)
 }
 
-const unbind = (element: CustomHTMLInputElement) => {
+const unbind = (element: CustomHTMLInputElement): void => {
     element.listeners.forEach((val: Listener) => {
         Object.entries(val).forEach(([eventName, cb]) => {
             element.removeEventListener(eventName, cb)

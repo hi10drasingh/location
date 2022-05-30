@@ -1,5 +1,5 @@
 import { DeepEqual } from "./utils"
-import { IPlaceData } from "./interface"
+import IPlaceData from "./interface"
 import { LocationChangeEvent, LocationAttributeSlug } from "./constant"
 
 let placeData: IPlaceData
@@ -25,7 +25,7 @@ const emitEvent = (details: IPlaceData) => {
     window.dispatchEvent(event)
 }
 
-const triggerChange = (newPlaceData: IPlaceData) => {
+const triggerChange = (newPlaceData: IPlaceData): void => {
     if (!newPlaceData) return
 
     if (placeData && DeepEqual(newPlaceData, placeData)) return

@@ -1,4 +1,4 @@
-import { IPlaceData } from "./interface"
+import IPlaceData from "../interface"
 
 const attributeSlug = "locationplugin"
 

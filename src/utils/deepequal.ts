@@ -1,8 +1,8 @@
 type Obj = { [key: string]: unknown }
 
-const isObject = (object: Obj) => object != null && typeof object === "object"
+const isObject = (object: Obj) => object !== null && typeof object === "object"
 
-const DeepEqual = (obj1: Obj, obj2: Obj) => {
+const DeepEqual = (obj1: Obj, obj2: Obj): boolean => {
     const keys1 = Object.keys(obj1)
     const keys2 = Object.keys(obj2)
 
