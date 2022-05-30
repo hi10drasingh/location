@@ -3,17 +3,9 @@ import { Debounce } from "../utils"
 import { HideSuggestion, UpdateSuggestion } from "../suggestion"
 import { GetAutoCompletePredictions } from "../map"
 import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
-import IPlaceData from "../interface"
+import IPlaceData, { type CustomHTMLInputElement, Listener } from "../interface"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
-
-type Listener = {
-    [key: string]: (event: Event) => void
-}
-
-interface CustomHTMLInputElement extends HTMLInputElement {
-    listeners: Listener[]
-}
 
 const typeAttrName = "type"
 
