@@ -48,7 +48,7 @@ const triggerLocalChange = (
     emitEvent(newPlaceData, [inputEle])
 }
 
-const isGlobal = (ele: HTMLInputElement) => {
+const isGlobal = (ele: HTMLInputElement): boolean => {
     const typeAttr = ele.getAttribute(
         `${LocationAttrSlug}-${LocationTypeAttrName}`
     )

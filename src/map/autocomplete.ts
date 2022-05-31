@@ -20,7 +20,7 @@ const GetPredictions = (request: google.maps.places.AutocompletionRequest) => {
 const itemClickHandler = (
     request: google.maps.GeocoderRequest,
     inputEle: HTMLInputElement
-) => {
+): void => {
     GetPlaceFromGeocode(request)
         .then((placeData: IPlaceData) => {
             const isGlobal = IsGlobalLocation(inputEle)
