@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BindInput, UnbindInput } from "./input"
 import { Plugin, FactoryFunc } from "./interface"
@@ -10,17 +11,23 @@ interface Settings {
     isLoaded: boolean
 }
 
-const wrapper =
-    <F extends (...params: any[]) => void>(settings: Settings, CB: F) =>
-    async (...args: any[]) => {
+const wrapper = <F extends (...params: any[]) => void>(
+    settings: Settings,
+    CB: F
+) =>
+    ((...args: any[]) => {
         const newSettings = settings
         if (!newSettings.isLoaded) {
-            await Load().catch(err => ErrorHandler.error(err))
-            // eslint-disable-next-line no-param-reassign
-            newSettings.isLoaded = true
+            Load()
+                .then(() => {
+                    newSettings.isLoaded = true
+                    CB(...args)
+                })
+                .catch(err => ErrorHandler.error(err))
+        } else {
+            CB(...args)
         }
-        CB(args)
-    }
+    }) as F
 
 const pluginFunc = (): Plugin => {
     const settings: Settings = {

@@ -11,10 +11,10 @@ enum MatchType {
 const suggestionsSelector = ".pac-container.location-suggestions"
 
 const html = `
-    <div class="pac-container pac-logo location-suggestions>
+    <div class="pac-container pac-logo location-suggestions">
         <div class="pac-item">
             <span class="pac-icon pac-icon-marker"></span>
-
+            <span class="pac-item-query">
                 <span class="pac-matched"></span>
             </span>
             <span class="pac-secondary">
@@ -144,11 +144,14 @@ const updatePosition = () => {
 
     let showReverse = false
     const height = parseInt(suggestions.getAttribute("height") as string, 10)
-    const inputPos = (
-        JSON.parse(
-            suggestions.getAttribute(currentInputAttr) as string
-        ) as HTMLInputElement
-    ).getBoundingClientRect()
+
+    const inputSelector = suggestions.getAttribute(currentInputAttr) as string
+
+    const input = document.querySelector(inputSelector)
+
+    if (!input) return
+
+    const inputPos = input.getBoundingClientRect()
 
     suggestions.style.left = `${(
         inputPos.left + window.pageXOffset
@@ -192,11 +195,13 @@ const updateMatchedSubstr = (
     const match = element.querySelector(".pac-matched") as HTMLElement
 
     const matchText = formatting[type]
-    const lastChild = match.lastChild as HTMLElement
 
     if (type === MatchType.Main) {
+        const lastChild = match.lastChild as ChildNode
+
         const matchSubstrArray =
             formatting[`${MatchType.Main}_matched_substrings`]
+
         const matchSubstr =
             matchSubstrArray[0] as google.maps.places.PredictionSubstring
 
@@ -209,20 +214,23 @@ const updateMatchedSubstr = (
         lastChild.nodeValue = matchText.substring(0, matchSubstr.length)
     } else {
         match.style.display = "none"
-        lastChild.nodeValue = formatting.secondary_text
+        match.innerText = formatting.secondary_text
     }
 }
 
 const updateListData = (
     predictions: google.maps.places.AutocompletePrediction[],
-    inputElement: HTMLInputElement
+    selector: string
 ): void => {
     const suggestions = getElement()
-    suggestions.setAttribute(currentInputAttr, JSON.stringify(inputElement))
+    suggestions.setAttribute(currentInputAttr, selector)
+
+    const items = suggestions.querySelectorAll(".pac-item")
 
     predictions.forEach((prediction, index) => {
-        if (!suggestions.childNodes[index]) return
-        const item = suggestions.childNodes[index] as HTMLElement
+        if (!items[index]) return
+
+        const item = items[index] as HTMLElement
         const formatting = prediction.structured_formatting
 
         // pac-item

@@ -1,13 +1,5 @@
-type Listener = {
-    [key: string]: (event: Event) => void
-}
+type BindInputFunc = (selector: string, isGlobal: boolean) => void
 
-interface CustomHTMLInputElement extends HTMLInputElement {
-    listeners: Listener[]
-}
+type UnbindInputFunc = (element: HTMLInputElement) => void
 
-type BindInputFunc = (element: HTMLInputElement, isGlobal: boolean) => void
-
-type UnbindInputFunc = (element: CustomHTMLInputElement) => void
-
-export type { CustomHTMLInputElement, Listener, BindInputFunc, UnbindInputFunc }
+export type { BindInputFunc, UnbindInputFunc }
