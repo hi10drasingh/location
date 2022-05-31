@@ -197,11 +197,8 @@ const updateMatchedSubstr = (
     const matchText = formatting[type]
 
     if (type === MatchType.Main) {
-        const lastChild = match.lastChild as ChildNode
-
         const matchSubstrArray =
             formatting[`${MatchType.Main}_matched_substrings`]
-
         const matchSubstr =
             matchSubstrArray[0] as google.maps.places.PredictionSubstring
 
@@ -211,7 +208,10 @@ const updateMatchedSubstr = (
             matchSubstr.offset + matchSubstr.length
         )
 
-        lastChild.nodeValue = matchText.substring(0, matchSubstr.length)
+        const lastChild = element.lastChild as ChildNode
+        lastChild.nodeValue = matchText.substring(
+            matchSubstr.offset + matchSubstr.length
+        )
     } else {
         match.style.display = "none"
         match.innerText = formatting.secondary_text
@@ -246,6 +246,7 @@ const updateListData = (
     })
 
     updatePosition()
+    show()
 }
 
 export {
