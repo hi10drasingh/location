@@ -1,20 +1,23 @@
-import { ErrorHandler } from "../utils"
-import { GetPlaceFromGeocode } from "../map/geocode"
-import TriggerLocationChange from "../location"
-import IPlaceData from "../interface"
+import { HandlerAutoCompleteItemClick } from "../map"
 
 enum MatchType {
     Main = "main_text",
     Secondary = "secondary_text"
 }
 
+type UpdateSubstrFunc = (
+    type: MatchType,
+    element: HTMLElement,
+    formatting: google.maps.places.StructuredFormatting
+) => void
+
 const suggestionsSelector = ".pac-container.location-suggestions"
 
 const html = `
-    <div class="pac-container pac-logo location-suggestions>
+    <div class="pac-container pac-logo location-suggestions">
         <div class="pac-item">
             <span class="pac-icon pac-icon-marker"></span>
-
+            <span class="pac-item-query">
                 <span class="pac-matched"></span>
             </span>
             <span class="pac-secondary">
@@ -97,13 +100,19 @@ const childElementEvents = (child: HTMLElement) => {
 
     child.addEventListener("click", () => {
         hide()
-        GetPlaceFromGeocode({
-            placeId: child.getAttribute(placeIDAttr)
-        })
-            .then((placeData: IPlaceData) => {
-                TriggerLocationChange(placeData)
-            })
-            .catch(err => ErrorHandler.error(err))
+
+        const suggestions = getElement()
+
+        const input = document.querySelector(
+            suggestions.getAttribute(currentInputAttr) as string
+        ) as HTMLInputElement
+
+        HandlerAutoCompleteItemClick(
+            {
+                placeId: child.getAttribute(placeIDAttr)
+            },
+            input
+        )
     })
 }
 
@@ -143,25 +152,28 @@ const updatePosition = () => {
     const suggestions = getElement()
 
     let showReverse = false
-    const height = parseInt(suggestions.getAttribute("height") as string, 10)
-    const inputPos = (
-        JSON.parse(
-            suggestions.getAttribute(currentInputAttr) as string
-        ) as HTMLInputElement
-    ).getBoundingClientRect()
+    const height = parseInt(suggestions.getAttribute(heightAttr) as string, 10)
 
-    suggestions.style.left = `${(
-        inputPos.left + window.pageXOffset
-    ).toString()}px`
-    suggestions.style.top = `${(
-        inputPos.bottom +
-        window.pageYOffset -
-        1
-    ).toString()}px`
-    // enough space in buttom
+    const inputSelector = suggestions.getAttribute(currentInputAttr) as string
+
+    const input = document.querySelector(inputSelector)
+
+    if (!input) return
+
+    const inputPos = input.getBoundingClientRect()
+
+    const leftPos = inputPos.left + window.pageXOffset
+    suggestions.style.left = `${leftPos.toString()}px`
+
+    let topPos = inputPos.bottom + window.pageYOffset - 1
+    suggestions.style.top = `${topPos.toString()}px`
+
+    // not enough space in buttom
     if (inputPos.bottom + height > window.innerHeight) {
         showReverse = true
-        suggestions.style.top = `${(window.pageYOffset - height).toString()}px`
+
+        topPos = inputPos.top + window.pageYOffset - height - 1
+        suggestions.style.top = `${topPos.toString()}px`
     }
     updateOrder(showReverse)
 }
@@ -184,45 +196,45 @@ const load = (): void => {
     applyEvents()
 }
 
-const updateMatchedSubstr = (
-    type: MatchType,
-    element: HTMLElement,
-    formatting: google.maps.places.StructuredFormatting
-) => {
-    const match = element.querySelector(".pac-matched") as HTMLElement
-
-    const matchText = formatting[type]
-    const lastChild = match.lastChild as HTMLElement
-
+const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
     if (type === MatchType.Main) {
+        const match = element.querySelector(".pac-matched") as HTMLElement
+
+        const matchText = formatting[type]
         const matchSubstrArray =
             formatting[`${MatchType.Main}_matched_substrings`]
         const matchSubstr =
             matchSubstrArray[0] as google.maps.places.PredictionSubstring
 
-        match.style.display = "block"
+        match.style.display = ""
         match.innerText = matchText.substring(
             matchSubstr.offset,
             matchSubstr.offset + matchSubstr.length
         )
 
-        lastChild.nodeValue = matchText.substring(0, matchSubstr.length)
+        const lastChild = element.lastChild as ChildNode
+        lastChild.nodeValue = matchText.substring(
+            matchSubstr.offset + matchSubstr.length
+        )
     } else {
-        match.style.display = "none"
+        const lastChild = element.lastChild as ChildNode
         lastChild.nodeValue = formatting.secondary_text
     }
 }
 
 const updateListData = (
     predictions: google.maps.places.AutocompletePrediction[],
-    inputElement: HTMLInputElement
+    selector: string
 ): void => {
     const suggestions = getElement()
-    suggestions.setAttribute(currentInputAttr, JSON.stringify(inputElement))
+    suggestions.setAttribute(currentInputAttr, selector)
+
+    const items = suggestions.querySelectorAll(".pac-item")
 
     predictions.forEach((prediction, index) => {
-        if (!suggestions.childNodes[index]) return
-        const item = suggestions.childNodes[index] as HTMLElement
+        if (!items[index]) return
+
+        const item = items[index] as HTMLElement
         const formatting = prediction.structured_formatting
 
         // pac-item
@@ -238,6 +250,7 @@ const updateListData = (
     })
 
     updatePosition()
+    show()
 }
 
 export {

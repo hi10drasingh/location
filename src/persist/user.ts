@@ -39,15 +39,11 @@ const handleLocationChange = (event: Event) => {
 
     const placeData = customInput.detail as IPlaceData
 
-    setUserLocation(placeData)
+    if (window.auth) setUserLocation(placeData)
 }
 
 const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 
-export default {
-    load,
-    getUserLocation,
-    setUserLocation
-}
+export { load as LoadUserStore, getUserLocation, setUserLocation }

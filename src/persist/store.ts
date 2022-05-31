@@ -40,7 +40,7 @@ const getState = (city: string): Nullable<string> => {
 const getCookieData = () => {
     const data = CookieStoreGet(cookieKey)
 
-    return data ? atob(data) : data
+    return data ? window.atob(data) : data
 }
 
 const getLSData = () => {
@@ -66,7 +66,7 @@ const getData = (): IPlaceData => {
 }
 
 const setData = (data: IPlaceData) => {
-    CookieStoreSet(cookieKey, btoa(data.city), timeInDays)
+    CookieStoreSet(cookieKey, data.city, timeInDays)
 
     LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
 }
@@ -74,16 +74,13 @@ const setData = (data: IPlaceData) => {
 const handleLocationChange = (event: Event) => {
     const customInput = event as CustomEvent
 
-    const palceData = customInput.detail as IPlaceData
+    const placeData = customInput.detail as IPlaceData
 
-    setData(palceData)
+    setData(placeData)
 }
 
 const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 
-export default {
-    load,
-    getData
-}
+export { load, getData }

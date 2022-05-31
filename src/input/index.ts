@@ -1,57 +1,52 @@
 import { Debounce, ErrorHandler } from "../utils"
 import { HideSuggestion, UpdateSuggestion } from "../suggestion"
 import { GetAutoCompletePredictions } from "../map"
-import { LocationAttributeSlug, LocationChangeEvent } from "../constant"
-import IPlaceData, {
-    type CustomHTMLInputElement,
-    Listener,
-    BindInputFunc,
-    UnbindInputFunc
-} from "../interface"
+import {
+    LocationAttrSlug,
+    LocationChangeEvent,
+    LocationTypeAttrName,
+    LocationInputSelectorAttrName,
+    LocationPluginTypes,
+    LocationDataAttrList
+} from "../constant"
+import IPlaceData, { BindInputFunc, UnbindInputFunc } from "../interface"
+import { IsGlobalLocation } from "../location"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
-
-const typeAttrName = "type"
-
-const pluginType = {
-    GLOBAL: "global",
-    LOCAL: "local"
-}
-
-const dataAttrNames = {
-    lat: "lat",
-    lng: "lng",
-    city: "city",
-    state: "state",
-    country: "country",
-    address: "address",
-    pincode: "pincode",
-    placeId: "place_id"
-}
 
 const PREDICTIONS_NOT_FOUND = "Predictions not found for given input value."
 
 const ucwords = (string: string) =>
     string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
-const applyAttributes = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
-    ele.setAttribute(LocationAttributeSlug, LocationAttributeSlug)
+const applyAttributes = (selector: string, isGlobal: boolean) => {
+    const ele = document.querySelector(selector) as HTMLElement
+
+    ele.setAttribute(LocationAttrSlug, LocationAttrSlug)
+
+    ele.setAttribute(
+        `${LocationAttrSlug}-${LocationInputSelectorAttrName}`,
+        selector
+    )
 
     if (isGlobal) {
         ele.setAttribute(
-            `${LocationAttributeSlug}-${typeAttrName}`,
-            pluginType.GLOBAL
+            `${LocationAttrSlug}-${LocationTypeAttrName}`,
+            LocationPluginTypes.GLOBAL
         )
     } else {
         ele.setAttribute(
-            `${LocationAttributeSlug}-${typeAttrName}`,
-            pluginType.LOCAL
+            `${LocationAttrSlug}-${LocationTypeAttrName}`,
+            LocationPluginTypes.LOCAL
         )
     }
 }
 
 const inputListener = (event: Event) => {
-    const element = event.currentTarget as CustomHTMLInputElement
+    const element = event.target as HTMLInputElement
+    const selector = element.getAttribute(
+        `${LocationAttrSlug}-${LocationInputSelectorAttrName}`
+    ) as string
     const { value } = element
     HideSuggestion()
     if (value.length > 2) {
@@ -63,7 +58,7 @@ const inputListener = (event: Event) => {
         })
             .then((data: google.maps.places.AutocompleteResponse) => {
                 if (data?.predictions?.length) {
-                    UpdateSuggestion(data.predictions, element)
+                    UpdateSuggestion(data.predictions, selector)
                 } else {
                     ErrorHandler.info(PREDICTIONS_NOT_FOUND)
                 }
@@ -73,81 +68,85 @@ const inputListener = (event: Event) => {
 }
 
 const blurListener = (event: Event) => {
-    const element = event.currentTarget as CustomHTMLInputElement
-    const selectedCity = element.getAttribute(dataAttrNames.city)
+    const element = event.target as HTMLInputElement
+    const selectedCity = element.getAttribute(LocationDataAttrList.city)
 
     if (!selectedCity || selectedCity !== element.value.toLowerCase()) {
         element.value = ""
     } else {
         element.value = ucwords(element.value)
     }
+    HideSuggestion()
 }
 
 const changeInputAttributes = (
-    element: CustomHTMLInputElement,
+    element: HTMLInputElement,
     placeData: IPlaceData
 ) => {
     const input = element
     input.value = ucwords(placeData.city)
 
-    Object.values(dataAttrNames).forEach(key => {
+    Object.values(LocationDataAttrList).forEach(key => {
         const value = placeData[key]
         if (!value) return
-        element.setAttribute(
-            `${LocationAttributeSlug}-${key}`,
-            value.toString()
-        )
+        element.setAttribute(`${LocationAttrSlug}-${key}`, value.toString())
     })
 }
 
 const locationChangedListener = (event: Event) => {
-    const element = event.currentTarget as CustomHTMLInputElement
+    const element = event.target as HTMLInputElement
 
     const placeData = (event as CustomEvent).detail as IPlaceData
 
     changeInputAttributes(element, placeData)
 }
 
-const applyEvents = (ele: CustomHTMLInputElement, isGlobal: boolean) => {
+const inputHandler = Debounce(inputListener, DEBOUCE_TIMEOUT)
+
+const applyEvents = (selector: string) => {
+    const ele = document.querySelector(selector) as HTMLInputElement
     // INPUT EVENT
-    const inputHandler = (event: Event) =>
-        Debounce(inputListener, DEBOUCE_TIMEOUT)(event)
     ele.addEventListener("input", inputHandler)
-    ele.listeners.push({ input: inputHandler })
 
     // BLUR EVENT
     ele.addEventListener("blur", blurListener)
-    ele.listeners.push({ blur: blurListener })
 
     // if location is global
-    if (isGlobal) {
-        ele.addEventListener(LocationChangeEvent, locationChangedListener)
-        ele.listeners.push({ LocationChangeEvent: locationChangedListener })
-    }
+    ele.addEventListener(LocationChangeEvent, locationChangedListener)
 }
 
-const bind: BindInputFunc = (
-    element: HTMLInputElement,
-    isGlobal: boolean
-): void => {
-    const customInput = element as CustomHTMLInputElement
-    applyAttributes(customInput, isGlobal)
-    applyEvents(customInput, isGlobal)
-}
+const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
+    const ele = document.querySelector(selector)
 
-const unbind: UnbindInputFunc = (element: CustomHTMLInputElement): void => {
-    element.listeners.forEach((val: Listener) => {
-        Object.entries(val).forEach(([eventName, cb]) => {
-            element.removeEventListener(eventName, cb)
-        })
-    })
-
-    if (element.hasAttribute(LocationAttributeSlug)) {
-        element.removeAttribute(LocationAttributeSlug)
+    if (!ele) {
+        return
     }
 
-    if (element.hasAttribute(`${LocationAttributeSlug}-${typeAttrName}`)) {
-        element.removeAttribute(`${LocationAttributeSlug}-${typeAttrName}`)
+    applyAttributes(selector, isGlobal)
+    applyEvents(selector)
+}
+
+const unbind: UnbindInputFunc = (element: HTMLInputElement): void => {
+    // INPUT EVENT
+    element.removeEventListener("input", inputHandler)
+
+    // BLUR EVENT
+    element.removeEventListener("blur", blurListener)
+
+    // if location is global
+    if (IsGlobalLocation(element)) {
+        element.removeEventListener(
+            LocationChangeEvent,
+            locationChangedListener
+        )
+    }
+
+    if (element.hasAttribute(LocationAttrSlug)) {
+        element.removeAttribute(LocationAttrSlug)
+    }
+
+    if (element.hasAttribute(`${LocationAttrSlug}-${LocationTypeAttrName}`)) {
+        element.removeAttribute(`${LocationAttrSlug}-${LocationTypeAttrName}`)
     }
 }
 

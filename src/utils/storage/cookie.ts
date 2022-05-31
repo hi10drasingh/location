@@ -30,12 +30,14 @@ const set: IStoreSet = (
 
     const date = new Date()
 
-    const jsonValue = JSON.stringify(value)
+    const jsonValue = value
 
     date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
-    expires = `; expires=${date.toUTCString()}`
+    expires = `;expires=${date.toUTCString()}`
 
-    document.cookie = `${key}=${btoa(jsonValue)}${expires}; path=/`
+    document.cookie = `${key}=${window.btoa(jsonValue)}${expires};domain=${
+        window.cookie_domain
+    };path=/`
 }
 
 export { get, set }
