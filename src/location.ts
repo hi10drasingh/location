@@ -1,4 +1,3 @@
-import { DeepEqual } from "./utils"
 import IPlaceData from "./interface"
 import {
     LocationChangeEvent,
@@ -30,8 +29,6 @@ const emitEvent = (
 
 const triggerChange = (newPlaceData: IPlaceData): void => {
     if (!newPlaceData) return
-
-    if (placeData && DeepEqual(newPlaceData, placeData)) return
 
     placeData = newPlaceData
 
