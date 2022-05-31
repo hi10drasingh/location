@@ -9,6 +9,8 @@ declare global {
         assets_version: string
         minify: number
         LocationPlugin: Plugin
+        auth: boolean
+        cookie_domain: string
     }
 
     interface DroomResponse {

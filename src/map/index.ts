@@ -1,5 +1,9 @@
 import { load as LoadMap } from "./map"
-import { LoadAutoComplete, GetAutoCompletePredictions } from "./autocomplete"
+import {
+    LoadAutoComplete,
+    GetAutoCompletePredictions,
+    HandlerAutoCompleteItemClick
+} from "./autocomplete"
 import { GetCurrentLocation } from "./geocode"
 
 const load = () =>
@@ -16,5 +20,6 @@ const load = () =>
 export {
     GetCurrentLocation,
     load as LoadGoogleMaps,
-    GetAutoCompletePredictions
+    GetAutoCompletePredictions,
+    HandlerAutoCompleteItemClick
 }

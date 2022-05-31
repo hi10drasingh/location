@@ -15,8 +15,31 @@ const defaultPlaceData: IPlaceData = {
     address: null
 }
 
+const typeAttrName = "type"
+const selectorAttrName = "selector"
+
+const pluginType = {
+    GLOBAL: "global",
+    LOCAL: "local"
+}
+
+const dataAttrNames = {
+    lat: "lat",
+    lng: "lng",
+    city: "city",
+    state: "state",
+    country: "country",
+    address: "address",
+    pincode: "pincode",
+    placeId: "place_id"
+}
+
 export {
     changeEventName as LocationChangeEvent,
     defaultPlaceData as LocationDefaultData,
-    attributeSlug as LocationAttributeSlug
+    attributeSlug as LocationAttrSlug,
+    typeAttrName as LocationTypeAttrName,
+    selectorAttrName as LocationInputSelectorAttrName,
+    pluginType as LocationPluginTypes,
+    dataAttrNames as LocationDataAttrList
 }

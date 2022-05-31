@@ -1,5 +1,5 @@
 import { processResult } from "./map"
-import TriggerLocationChange from "../location"
+import { TriggerGlobalChange } from "../location"
 
 const GEOLOCATION_NOT_AVAILABLE_MSG =
     "Geolocation is not available for this browser"
@@ -30,7 +30,7 @@ const GetCurrentLocation = () =>
                     }
                 })
                     .then(placeData => {
-                        TriggerLocationChange(placeData)
+                        TriggerGlobalChange(placeData)
                         resolve()
                     })
                     .catch(err => reject(err))
