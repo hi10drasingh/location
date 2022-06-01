@@ -83,6 +83,8 @@ const getElement = () => {
 
 /**
  * Displays The Suggestions.
+ *
+ * @returns {void}
  */
 const show = (): void => {
     const suggestions = getElement()
@@ -91,6 +93,8 @@ const show = (): void => {
 
 /**
  * Hides The Suggestions.
+ *
+ * @returns {void}
  */
 const hide = (): void => {
     const suggestions = getElement()
@@ -99,6 +103,8 @@ const hide = (): void => {
 
 /**
  * Apply Height and IsReverse Attributes To Suggestions.
+ *
+ * @returns {void}
  */
 const applyAttributes = () => {
     const suggestions = getElement()
@@ -110,6 +116,7 @@ const applyAttributes = () => {
  * Apply Autocomplete Click Event To Suggestions.
  *
  * @param {HTMLElement} child - Event Target.
+ * @returns {void}
  */
 const childElementEvents = (child: HTMLElement) => {
     // to prevent closeing of suggestion box when clickin on suggestion list
@@ -150,6 +157,8 @@ const isOrderReverse = () => {
 
 /**
  * Reverse the display order of suggestions.
+ *
+ * @returns {void}
  */
 const reverseOrder = () => {
     const suggestions = getElement()
@@ -167,6 +176,7 @@ const reverseOrder = () => {
  * Updates the display order of suggestion according to param.
  *
  * @param {boolean} showReverse -if suggestion should be reverse or not.
+ * @returns {void}
  */
 const updateOrder = (showReverse: boolean) => {
     const suggestions = getElement()
@@ -182,6 +192,8 @@ const updateOrder = (showReverse: boolean) => {
 
 /**
  * Updates the position of suggestions according to associated input.
+ *
+ * @returns {void}
  */
 const updatePosition = () => {
     const suggestions = getElement()
@@ -215,6 +227,8 @@ const updatePosition = () => {
 
 /**
  * Apply click and scroll event to suggestion elements.
+ *
+ * @returns {void}
  */
 const applyEvents = () => {
     const suggestions = getElement()
@@ -230,6 +244,8 @@ const applyEvents = () => {
 
 /**
  * Add suggestion html to document and apply events and attributes.
+ *
+ * @returns {void}
  */
 const load = (): void => {
     document.body.insertAdjacentHTML("beforeend", html)
@@ -243,6 +259,7 @@ const load = (): void => {
  * @param {MatchType} type - Type of Substr To Update.
  * @param {HTMLElement} element - Element for which match is to be updated.
  * @param {google.maps.places.StructuredFormatting} formatting - Matched substr offset and length.
+ * @returns {void}
  */
 const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
     if (type === MatchType.Main) {
@@ -275,6 +292,7 @@ const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
  *
  * @param {google.maps.places.AutocompletePrediction[]} predictions - Autocomplete prediction from goole for typed location.
  * @param {string} selector - Current Input Selector.
+ * @returns {void}
  */
 const updateListData = (
     predictions: google.maps.places.AutocompletePrediction[],

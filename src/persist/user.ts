@@ -10,6 +10,8 @@ const URL = "/user/location"
 
 /**
  * Fetched user location from api.
+ *
+ * @returns {IPlaceData | null} - User location data.
  */
 const getUserLocation = async () => {
     const response = await HTTPClient<UserLocationResponse>(URL, {
@@ -25,6 +27,7 @@ const getUserLocation = async () => {
  * Set user location to api.
  *
  * @param {IPlaceData} data - Location Data to save.
+ * @returns {void}
  */
 const setUserLocation = (data: IPlaceData): void => {
     const csrfToken = CookieStoreGet("XSRF-TOKEN")
@@ -46,6 +49,7 @@ const setUserLocation = (data: IPlaceData): void => {
  * Set User Location is global location changes.
  *
  * @param {Event} event - Global Location Change Event.
+ * @returns {void}
  */
 const handleLocationChange = (event: Event) => {
     const customInput = event as CustomEvent
@@ -57,6 +61,8 @@ const handleLocationChange = (event: Event) => {
 
 /**
  * Registers event listener to handle global location change.
+ *
+ * @returns {void}
  */
 const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)

@@ -2,20 +2,22 @@
 /**
  * Creates a debounced function that delays invoking `func` until after `wait` milliseconds have elapsed since the last time the debounced function was invoked.
  *
- * @typedef F
+ * @template F
  * @param {F} fn - Function that  needs to be delayed.
  * @param {number} delay - Time in milliseconds.
  * @returns {F} - Debounced function with same signature as the param function.
  */
-export function Debounce<F extends (...params: any[]) => void>(
+export function Debounce<F extends (...params: any[]) => any>(
     fn: F,
     delay: number
 ) {
     let timeoutID: number
-    return function debouncefunc(this: any, ...args: any[]) {
+    const debounced = (...args: Parameters<F>) => {
         clearTimeout(timeoutID)
-        timeoutID = window.setTimeout(() => fn.apply(this, args), delay)
-    } as F
+        timeoutID = window.setTimeout(() => fn(...args) as F, delay)
+    }
+
+    return debounced as (...args: Parameters<F>) => ReturnType<F>
 }
 
 export default Debounce

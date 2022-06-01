@@ -31,15 +31,7 @@ module.exports = {
             },
             rules: {
                 "max-lines-per-function": ["error", 30],
-                "require-jsdoc": ["error", {
-                    "require": {
-                        "FunctionDeclaration": true,
-                        "MethodDefinition": true,
-                        "ClassDeclaration": true,
-                        "ArrowFunctionExpression": true,
-                        "FunctionExpression": true
-                    }
-                }],
+                "require-jsdoc": 2,
                 "jsdoc/check-indentation": 1,
                 "jsdoc/check-line-alignment": 1,
                 "jsdoc/match-description": 1,
@@ -47,7 +39,25 @@ module.exports = {
                 "jsdoc/require-description-complete-sentence": 1,
                 "jsdoc/require-hyphen-before-param-description": 1,
                 "jsdoc/require-throws": 1,
-                "@typescript-eslint/consistent-type-assertions": "error"
+                "@typescript-eslint/consistent-type-assertions": "error",
+                "valid-jsdoc": [
+                    "error",
+                    {
+                        prefer: {
+                            arg: "param",
+                            argument: "param",
+                            class: "constructor",
+                            return: "returns",
+                            virtual: "abstract"
+                        },
+                        preferType: {
+                            Boolean: "boolean",
+                            Number: "number",
+                            object: "Object",
+                            String: "string"
+                        }
+                    }
+                ]
             }
         }
     ],
@@ -59,15 +69,7 @@ module.exports = {
     ],
     rules: {
         "max-lines-per-function": ["error", 30],
-        "require-jsdoc": ["error", {
-            "require": {
-                "FunctionDeclaration": true,
-                "MethodDefinition": true,
-                "ClassDeclaration": true,
-                "ArrowFunctionExpression": true,
-                "FunctionExpression": true
-            }
-        }],
+        "require-jsdoc": 2,
         "jsdoc/check-indentation": 1,
         "jsdoc/check-line-alignment": 1,
         "jsdoc/match-description": 1,
@@ -75,5 +77,23 @@ module.exports = {
         "jsdoc/require-description-complete-sentence": 1,
         "jsdoc/require-hyphen-before-param-description": 1,
         "jsdoc/require-throws": 1,
+        "valid-jsdoc": [
+            "error",
+            {
+                prefer: {
+                    arg: "param",
+                    argument: "param",
+                    class: "constructor",
+                    return: "returns",
+                    virtual: "abstract"
+                },
+                preferType: {
+                    Boolean: "boolean",
+                    Number: "number",
+                    object: "Object",
+                    String: "string"
+                }
+            }
+        ]
     }
 }

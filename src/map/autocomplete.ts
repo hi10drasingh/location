@@ -33,6 +33,7 @@ const GetPredictions = (request: google.maps.places.AutocompletionRequest) => {
  *
  * @param {google.maps.GeocoderRequest} request - Request Obj.
  * @param { HTMLInputElement} inputEle - Current input element to which suggestions as bound.
+ * @returns {void}
  */
 const itemClickHandler = (
     request: google.maps.GeocoderRequest,

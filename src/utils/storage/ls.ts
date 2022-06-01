@@ -41,6 +41,7 @@ const exist = (key: string) => {
  * @param {string} key - LSKey Name.
  * @param {string} val - LS Value.
  * @param {number} timeInDays - Expiry Time in Days.
+ * @returns {void}
  */
 const set: IStoreSet = (key: string, val: string, timeInDays: number): void => {
     const data = {

@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BindInput, UnbindInput } from "./input"
-import { Plugin, FactoryFunc, Settings } from "./interface"
+import { Plugin, FactoryFunc, Settings , type BindInputFunc, type UnbindInputFunc } from "./interface"
 import LoadWrapper from "./load"
-import type { BindInputFunc, UnbindInputFunc } from "./interface"
+
 
 /**
  * Ruturn public plugin object.
@@ -22,10 +20,11 @@ const pluginFunc = (): Plugin => {
 }
 
 /**
- * Initializes Location Plugin.
+ * Initializes Location Plugin and set it to global object.
  *
  * @param {Window} root - Global Variable Window.
  * @param {FactoryFunc} factory - Plugin Factory Function.
+ * @returns {void}
  */
 const init = (root: Window, factory: FactoryFunc): void => {
     const newRoot = root

@@ -24,9 +24,11 @@ const GetPlaceFromGeocode = (request: google.maps.GeocoderRequest) => {
 
 /**
  * Fetches current location of user via navigation and geocode api.
+ *
+ * @returns {Promise<void>} - Void Promise.
  */
-const GetCurrentLocation = () =>
-    new Promise<void>((resolve, reject) => {
+const GetCurrentLocation = () => {
+    const promise = new Promise<void>((resolve, reject) => {
         if (!navigator?.geolocation) {
             reject(new Error(GEOLOCATION_NOT_AVAILABLE_MSG))
         }
@@ -48,5 +50,8 @@ const GetCurrentLocation = () =>
             err => reject(err)
         )
     })
+
+    return promise
+}
 
 export { GetPlaceFromGeocode, GetCurrentLocation }

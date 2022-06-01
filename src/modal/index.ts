@@ -22,6 +22,8 @@ const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
 
 /**
  * Loads required css for modal.
+ *
+ * @returns {void}
  */
 const loadDependencies = () => {
     const requests = CSS.map(style =>
@@ -36,6 +38,8 @@ const loadDependencies = () => {
 
 /**
  * Loads required html for modal and appends it to dom.
+ *
+ * @returns {void}
  */
 const fetchHTML = () => {
     HTTPClient<ModalResonse>(URL, {
@@ -55,6 +59,7 @@ const fetchHTML = () => {
  * Register modal to on click for a selector.
  *
  * @param {string} selector - Element selector for which click event will be bounded.
+ * @returns {void}
  */
 const register = (selector: string): void => {
     const ele = document.querySelector(selector)

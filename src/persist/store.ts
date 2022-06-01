@@ -90,6 +90,7 @@ const getData = (): IPlaceData => {
  * Set cached location data for current session.
  *
  * @param {IPlaceData} data - Current Location Data.
+ * @returns {void}
  */
 const setData = (data: IPlaceData) => {
     CookieStoreSet(cookieKey, data.city, timeInDays)
@@ -101,6 +102,7 @@ const setData = (data: IPlaceData) => {
  * Set data to cache if global location changes.
  *
  * @param {CustomEvent} event - Global Location Change Event.
+ * @returns {void}
  */
 const handleLocationChange = (event: Event) => {
     const customInput = event as CustomEvent
@@ -112,6 +114,8 @@ const handleLocationChange = (event: Event) => {
 
 /**
  * Adds event listener for global location change event.
+ *
+ * @returns {void}
  */
 const load = (): void => {
     window.addEventListener(LocationChangeEvent, handleLocationChange)

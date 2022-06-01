@@ -9,8 +9,14 @@ const JS =
 
 /**
  * Load js required for map to work.
+ *
+ * @returns {Promise<HTMLLinkElement | HTMLScriptElement>} - Resource load promise.
  */
-const load = async () => LoadResource(RESOURCE.JS, JS)
+const load = async () => {
+    const promise = LoadResource(RESOURCE.JS, JS)
+
+    return promise
+}
 
 /**
  * Processes address component of maps result into palce data.

@@ -6,23 +6,25 @@ import {
     LocationPluginTypes
 } from "./constant"
 
-let placeData: IPlaceData
-
 /**
  * List of all inputs which are registered as global.
  *
  * @returns {NodeListOf<HTMLInputElement>} - List of all global input.
  */
-const GetGlobalInput = (): NodeListOf<HTMLInputElement> =>
-    document.querySelectorAll(
+const GetGlobalInput = () => {
+    const globalInput = document.querySelectorAll(
         `input[${LocationAttrSlug}-${LocationTypeAttrName}="${LocationPluginTypes.GLOBAL}"]`
     )
+
+    return globalInput
+}
 
 /**
  * Emits Custom Event to all items with given details.
  *
  * @param {IPlaceData} details - New Place Data.
  * @param {Array<HTMLInputElement | Window>} items - List of element for which evit needs to be triggered.
+ * @returns {void}
  */
 const emitEvent = (
     details: IPlaceData,
@@ -42,6 +44,7 @@ const emitEvent = (
  * Triggers Location change for all global inputs.
  *
  * @param {IPlaceData} newPlaceData - New Place Data.
+ * @returns {void}
  */
 const triggerChange = (newPlaceData: IPlaceData): void => {
     if (!newPlaceData) return
@@ -55,14 +58,12 @@ const triggerChange = (newPlaceData: IPlaceData): void => {
         .replace("prayagraj", "allahabad")
         .replace("bangalore urban", "bengaluru")
 
-    placeData = newPlaceData
-
     // Emit event to all plugin inputs
     const inputs = GetGlobalInput()
 
-    const items = Array.from(inputs)
+    const items = Array.from(inputs) as HTMLInputElement[]
 
-    emitEvent(placeData, [...items, window])
+    emitEvent(newPlaceData, [...items, window])
 }
 
 /**
@@ -70,6 +71,7 @@ const triggerChange = (newPlaceData: IPlaceData): void => {
  *
  * @param {IPlaceData} newPlaceData - New place data.
  * @param {HTMLInputElement} inputEle - Input for which change will be triggered.
+ * @returns {void}
  */
 const triggerLocalChange = (
     newPlaceData: IPlaceData,

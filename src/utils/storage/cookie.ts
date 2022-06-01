@@ -33,6 +33,7 @@ const get: IStoreGet = (key: string): Nullable<string> => {
  * @param {string} key - CookieKey Name.
  * @param {string} value - CookieValue.
  * @param {number} timeInDays - Expiry Time in Days.
+ * @returns {void}
  */
 const set: IStoreSet = (
     key: string,

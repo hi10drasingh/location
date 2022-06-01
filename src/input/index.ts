@@ -30,6 +30,7 @@ const ucwords = (string: string) =>
  *
  * @param {string} selector - Input Ele Selector.
  * @param {boolean} isGlobal - Is Location Global.
+ * @returns {void}
  */
 const applyAttributes = (selector: string, isGlobal: boolean) => {
     const ele = document.querySelector(selector) as HTMLElement
@@ -58,6 +59,7 @@ const applyAttributes = (selector: string, isGlobal: boolean) => {
  * On Input Event Listener, which updates prediction on input after debounced delay.
  *
  * @param {Event} event - Input Event.
+ * @returns {void}
  */
 const inputListener = (event: Event) => {
     const element = event.target as HTMLInputElement
@@ -89,6 +91,7 @@ const inputListener = (event: Event) => {
  * Added by requirements team.
  *
  * @param {Event} event - Blur Event.
+ * @returns {void}
  */
 const blurListener = (event: Event) => {
     const element = event.target as HTMLInputElement
@@ -107,6 +110,7 @@ const blurListener = (event: Event) => {
  *
  * @param {HTMLInputElement} element - Input Element.
  * @param {IPlaceData} placeData - Location Change Data.
+ * @returns {void}
  */
 const changeInputAttributes = (
     element: HTMLInputElement,
@@ -126,6 +130,7 @@ const changeInputAttributes = (
  * On LocationChange Event Listener, adds all relevant attributes to input.
  *
  * @param {Event} event - LocationChange Event.
+ * @returns {void}
  */
 const locationChangedListener = (event: Event) => {
     const element = event.target as HTMLInputElement
@@ -141,6 +146,7 @@ const inputHandler = Debounce(inputListener, DEBOUCE_TIMEOUT)
  * Apply listeners for input , blur & location change event.
  *
  * @param {string} selector - Input element selector.
+ * @returns {void}
  */
 const applyEvents = (selector: string) => {
     const ele = document.querySelector(selector) as HTMLInputElement
@@ -159,6 +165,7 @@ const applyEvents = (selector: string) => {
  *
  * @param {string} selector - Input element selector.
  * @param {boolean} isGlobal - Is Location Global.
+ * @returns {void}
  */
 const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
     const ele = document.querySelector(selector)
@@ -175,6 +182,7 @@ const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
  * UnBind Location Plugin to a input element.
  *
  * @param {HTMLInputElement} element - Input element.
+ * @returns {void}
  */
 const unbind: UnbindInputFunc = (element: HTMLInputElement): void => {
     // INPUT EVENT

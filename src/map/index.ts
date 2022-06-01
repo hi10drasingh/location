@@ -8,9 +8,11 @@ import { GetCurrentLocation } from "./geocode"
 
 /**
  * Loads map dependencies then autocomplete then resolves.
+ *
+ * @returns {Promise<void>} - Map dependencies load promise.
  */
-const load = () =>
-    new Promise<void>((resolve, reject) => {
+const load = () => {
+    const promise = new Promise<void>((resolve, reject) => {
         LoadMap()
             .then(() =>
                 LoadAutoComplete()
@@ -19,6 +21,9 @@ const load = () =>
             )
             .catch(err => reject(err))
     })
+
+    return promise
+}
 
 export {
     GetCurrentLocation,

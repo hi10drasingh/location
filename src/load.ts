@@ -38,15 +38,16 @@ const load = () =>
 /**
  * Loads all relevent dependencies if not already loaded before execution of callback.
  *
+ * @template T
  * @param {Settings} settings - Load Setting of Plugin.
- * @param {(...params: any[]) => void} CB - Callback func after load function resolves.
- * @returns {(...params: any[]) => void} - Wrapper func whose signature is same as Cb func.
+ * @param {T} CB - Callback func after load function resolves.
+ * @returns {T} - Wrapper func whose signature is same as Cb func.
  */
-const wrapper = <F extends (...params: any[]) => void>(
+const wrapper = <F extends (...params: any[]) => any>(
     settings: Settings,
     CB: F
-) =>
-    ((...args: any[]) => {
+) => {
+    const warppedFunc = (...args: Parameters<F>) => {
         const newSettings = settings
         if (!newSettings.isLoaded) {
             load()
@@ -62,6 +63,9 @@ const wrapper = <F extends (...params: any[]) => void>(
             CB(...args)
             TriggerGlobalChange(newSettings.placeData as IPlaceData)
         }
-    }) as F
+    }
+
+    return warppedFunc as (...args: Parameters<F>) => ReturnType<F>
+}
 
 export default wrapper
