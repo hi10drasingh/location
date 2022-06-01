@@ -68,6 +68,11 @@ const heightAttr = "height"
 const currentInputAttr = "current-input"
 const placeIDAttr = "place-id"
 
+/**
+ * Returns Suggestions Element.
+ *
+ * @returns {HTMLElement} - Suggestions html element.
+ */
 const getElement = () => {
     const suggestions = document.querySelector(
         suggestionsSelector
@@ -76,22 +81,36 @@ const getElement = () => {
     return suggestions
 }
 
+/**
+ * Displays The Suggestions.
+ */
 const show = (): void => {
     const suggestions = getElement()
     suggestions.style.display = "block"
 }
 
+/**
+ * Hides The Suggestions.
+ */
 const hide = (): void => {
     const suggestions = getElement()
     suggestions.style.display = "none"
 }
 
+/**
+ * Apply Height and IsReverse Attributes To Suggestions.
+ */
 const applyAttributes = () => {
     const suggestions = getElement()
     suggestions.setAttribute(heightAttr, suggestions.offsetHeight.toString())
     suggestions.setAttribute(isReverseAttr, "false")
 }
 
+/**
+ * Apply Autocomplete Click Event To Suggestions.
+ *
+ * @param {HTMLElement} child - Event Target.
+ */
 const childElementEvents = (child: HTMLElement) => {
     // to prevent closeing of suggestion box when clickin on suggestion list
     child.addEventListener("mousedown", event => {
@@ -116,6 +135,11 @@ const childElementEvents = (child: HTMLElement) => {
     })
 }
 
+/**
+ * Check is suggestion are displayed in reverse order.
+ *
+ * @returns {boolean} - If reverse order.
+ */
 const isOrderReverse = () => {
     const suggestions = getElement()
 
@@ -124,6 +148,9 @@ const isOrderReverse = () => {
     return suggestions.getAttribute(isReverseAttr) === "true"
 }
 
+/**
+ * Reverse the display order of suggestions.
+ */
 const reverseOrder = () => {
     const suggestions = getElement()
 
@@ -136,6 +163,11 @@ const reverseOrder = () => {
     }
 }
 
+/**
+ * Updates the display order of suggestion according to param.
+ *
+ * @param {boolean} showReverse -if suggestion should be reverse or not.
+ */
 const updateOrder = (showReverse: boolean) => {
     const suggestions = getElement()
     // checking if we need to reverse it
@@ -148,6 +180,9 @@ const updateOrder = (showReverse: boolean) => {
     }
 }
 
+/**
+ * Updates the position of suggestions according to associated input.
+ */
 const updatePosition = () => {
     const suggestions = getElement()
 
@@ -178,6 +213,9 @@ const updatePosition = () => {
     updateOrder(showReverse)
 }
 
+/**
+ * Apply click and scroll event to suggestion elements.
+ */
 const applyEvents = () => {
     const suggestions = getElement()
 
@@ -190,12 +228,22 @@ const applyEvents = () => {
     window.addEventListener("scroll", updatePosition)
 }
 
+/**
+ * Add suggestion html to document and apply events and attributes.
+ */
 const load = (): void => {
     document.body.insertAdjacentHTML("beforeend", html)
     applyAttributes()
     applyEvents()
 }
 
+/**
+ * Updates the main and secondary parts of suggestion.
+ *
+ * @param {MatchType} type - Type of Substr To Update.
+ * @param {HTMLElement} element - Element for which match is to be updated.
+ * @param {google.maps.places.StructuredFormatting} formatting - Matched substr offset and length.
+ */
 const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
     if (type === MatchType.Main) {
         const match = element.querySelector(".pac-matched") as HTMLElement
@@ -222,6 +270,12 @@ const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
     }
 }
 
+/**
+ * Update the suggestion list according to new autocomplete predictions.
+ *
+ * @param {google.maps.places.AutocompletePrediction[]} predictions - Autocomplete prediction from goole for typed location.
+ * @param {string} selector - Current Input Selector.
+ */
 const updateListData = (
     predictions: google.maps.places.AutocompletePrediction[],
     selector: string

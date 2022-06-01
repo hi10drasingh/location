@@ -13,8 +13,16 @@ const CSS = [
     "/themes/beta/css/elements/plugins/location/icomoon/style.css"
 ]
 
+/**
+ * Check is location modal is already loaded.
+ *
+ * @returns {boolean} Boolean.
+ */
 const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
 
+/**
+ * Loads required css for modal.
+ */
 const loadDependencies = () => {
     const requests = CSS.map(style =>
         LoadResource(RESOURCE.CSS, style).catch(err => ErrorHandler.error(err))
@@ -26,6 +34,9 @@ const loadDependencies = () => {
         .catch(err => ErrorHandler.log(err))
 }
 
+/**
+ * Loads required html for modal and appends it to dom.
+ */
 const fetchHTML = () => {
     HTTPClient<ModalResonse>(URL, {
         headers: {
@@ -40,6 +51,11 @@ const fetchHTML = () => {
         .catch(err => ErrorHandler.error(err))
 }
 
+/**
+ * Register modal to on click for a selector.
+ *
+ * @param {string} selector - Element selector for which click event will be bounded.
+ */
 const register = (selector: string): void => {
     const ele = document.querySelector(selector)
 

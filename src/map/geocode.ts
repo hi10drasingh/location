@@ -1,9 +1,16 @@
+import IPlaceData from "src/interface"
 import { processResult } from "./map"
 import { TriggerGlobalChange } from "../location"
 
 const GEOLOCATION_NOT_AVAILABLE_MSG =
     "Geolocation is not available for this browser"
 
+/**
+ * Fetches and process the result from geocode to IPlaceData.
+ *
+ * @param {google.maps.GeocoderRequest} request - Request Obj.
+ * @returns {Promise<IPlaceData>} - Geocode Result converted to place data format.
+ */
 const GetPlaceFromGeocode = (request: google.maps.GeocoderRequest) => {
     const geocoder = new window.google.maps.Geocoder()
 
@@ -15,6 +22,9 @@ const GetPlaceFromGeocode = (request: google.maps.GeocoderRequest) => {
     })
 }
 
+/**
+ * Fetches current location of user via navigation and geocode api.
+ */
 const GetCurrentLocation = () =>
     new Promise<void>((resolve, reject) => {
         if (!navigator?.geolocation) {

@@ -1,7 +1,20 @@
 type Obj = { [key: string]: unknown }
 
+/**
+ * Check if parameter is not null object.
+ *
+ * @param {Obj} object - Object to check.
+ * @returns {boolean} - Is param follow not null object condition.
+ */
 const isObject = (object: Obj) => object !== null && typeof object === "object"
 
+/**
+ * Check if two objects are exactaly equal.
+ *
+ * @param {Obj} obj1 - Any Object.
+ * @param {Obj} obj2 - Any Object.
+ * @returns {boolean} - If obj1 is equal to obj2.
+ */
 const DeepEqual = (obj1: Obj, obj2: Obj): boolean => {
     const keys1 = Object.keys(obj1)
     const keys2 = Object.keys(obj2)

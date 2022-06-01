@@ -7,8 +7,18 @@ type Result = google.maps.GeocoderResult | google.maps.places.PlaceResult
 const JS =
     "https://maps.googleapis.com/maps/api/js?key=AIzaSyDcupH1pAzOULz35i00ADvn1sndjRa4m_A&libraries=places"
 
+/**
+ * Load js required for map to work.
+ */
 const load = async () => LoadResource(RESOURCE.JS, JS)
 
+/**
+ * Processes address component of maps result into palce data.
+ *
+ * @param {google.maps.GeocoderAddressComponent[]} addressComponent - Place Address Component.
+ * @param {IPlaceData} placeData - PlaceData Obj.
+ * @returns {IPlaceData} ProcessedPlaceData.
+ */
 const processAddressComponent = (
     addressComponent: google.maps.GeocoderAddressComponent[],
     placeData: IPlaceData
@@ -39,6 +49,12 @@ const processAddressComponent = (
     }
 }
 
+/**
+ * Processes result of geocode and autocomplete predictions to IPlacedata.
+ *
+ * @param {Result} result - Place result.
+ * @returns {IPlaceData} PlaceData.
+ */
 const processResult = (result: Result): IPlaceData => {
     const placeData = { ...LocationDefaultData }
 

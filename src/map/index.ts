@@ -6,6 +6,9 @@ import {
 } from "./autocomplete"
 import { GetCurrentLocation } from "./geocode"
 
+/**
+ * Loads map dependencies then autocomplete then resolves.
+ */
 const load = () =>
     new Promise<void>((resolve, reject) => {
         LoadMap()

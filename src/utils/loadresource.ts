@@ -3,6 +3,12 @@ const RESOURCE = {
     JS: "js"
 }
 
+/**
+ * Parse url to include assets URL and assets version.
+ *
+ * @param {string} url - Url to be parsed.
+ * @returns {string} - Parsed URL.
+ */
 const parseURL = (url: string) => {
     let parsedURL = url
 
@@ -23,6 +29,13 @@ const parseURL = (url: string) => {
     return parsedURL
 }
 
+/**
+ * Create resource for js or css.
+ *
+ * @param {string } type - Resource Type.
+ * @param {string } url - ParsedUrl.
+ * @returns {HTMLLinkElement | HTMLScriptElement} - Resource.
+ */
 const getResource = (type: string, url: string) => {
     let resource
     switch (type) {
@@ -43,6 +56,13 @@ const getResource = (type: string, url: string) => {
     return resource
 }
 
+/**
+ * Asynchronously loads resource.
+ *
+ * @param {string} type - Resource Type.
+ * @param {string } url - Resource Link.
+ * @returns {Promise<HTMLLinkElement | HTMLScriptElement>} - Promise that will resolved when script or link has loaded.
+ */
 const LoadResource = (type: string, url: string) =>
     new Promise<HTMLLinkElement | HTMLScriptElement>((resolve, reject) => {
         if (!url) reject(new Error("Please provide a valid url"))

@@ -5,6 +5,11 @@ import { Plugin, FactoryFunc, Settings } from "./interface"
 import LoadWrapper from "./load"
 import type { BindInputFunc, UnbindInputFunc } from "./interface"
 
+/**
+ * Ruturn public plugin object.
+ *
+ * @returns {Plugin} - Object of publicily accessible method of Location Plugin.
+ */
 const pluginFunc = (): Plugin => {
     const settings: Settings = {
         isLoaded: false

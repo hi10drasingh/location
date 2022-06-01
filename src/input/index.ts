@@ -16,9 +16,21 @@ const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
 const PREDICTIONS_NOT_FOUND = "Predictions not found for given input value."
 
+/**
+ * Converts first letter of each word to capital.
+ *
+ * @param {string} string - String to be converted.
+ * @returns {string} ModifiedString.
+ */
 const ucwords = (string: string) =>
     string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
+/**
+ * Add Location Plugin Attributes to Input.
+ *
+ * @param {string} selector - Input Ele Selector.
+ * @param {boolean} isGlobal - Is Location Global.
+ */
 const applyAttributes = (selector: string, isGlobal: boolean) => {
     const ele = document.querySelector(selector) as HTMLElement
 
@@ -42,6 +54,11 @@ const applyAttributes = (selector: string, isGlobal: boolean) => {
     }
 }
 
+/**
+ * On Input Event Listener, which updates prediction on input after debounced delay.
+ *
+ * @param {Event} event - Input Event.
+ */
 const inputListener = (event: Event) => {
     const element = event.target as HTMLInputElement
     const selector = element.getAttribute(
@@ -67,6 +84,12 @@ const inputListener = (event: Event) => {
     }
 }
 
+/**
+ * On Blur Event Listener, Hide Suggestion and reset current input value is type value is not same.
+ * Added by requirements team.
+ *
+ * @param {Event} event - Blur Event.
+ */
 const blurListener = (event: Event) => {
     const element = event.target as HTMLInputElement
     const selectedCity = element.getAttribute(LocationDataAttrList.city)
@@ -79,6 +102,12 @@ const blurListener = (event: Event) => {
     HideSuggestion()
 }
 
+/**
+ * Change input attribute on location change event. Add all place data element value and keys to input attr.
+ *
+ * @param {HTMLInputElement} element - Input Element.
+ * @param {IPlaceData} placeData - Location Change Data.
+ */
 const changeInputAttributes = (
     element: HTMLInputElement,
     placeData: IPlaceData
@@ -93,6 +122,11 @@ const changeInputAttributes = (
     })
 }
 
+/**
+ * On LocationChange Event Listener, adds all relevant attributes to input.
+ *
+ * @param {Event} event - LocationChange Event.
+ */
 const locationChangedListener = (event: Event) => {
     const element = event.target as HTMLInputElement
 
@@ -103,6 +137,11 @@ const locationChangedListener = (event: Event) => {
 
 const inputHandler = Debounce(inputListener, DEBOUCE_TIMEOUT)
 
+/**
+ * Apply listeners for input , blur & location change event.
+ *
+ * @param {string} selector - Input element selector.
+ */
 const applyEvents = (selector: string) => {
     const ele = document.querySelector(selector) as HTMLInputElement
     // INPUT EVENT
@@ -115,6 +154,12 @@ const applyEvents = (selector: string) => {
     ele.addEventListener(LocationChangeEvent, locationChangedListener)
 }
 
+/**
+ * Bind Location Plugin to a input element.
+ *
+ * @param {string} selector - Input element selector.
+ * @param {boolean} isGlobal - Is Location Global.
+ */
 const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
     const ele = document.querySelector(selector)
 
@@ -126,6 +171,11 @@ const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
     applyEvents(selector)
 }
 
+/**
+ * UnBind Location Plugin to a input element.
+ *
+ * @param {HTMLInputElement} element - Input element.
+ */
 const unbind: UnbindInputFunc = (element: HTMLInputElement): void => {
     // INPUT EVENT
     element.removeEventListener("input", inputHandler)
