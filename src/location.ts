@@ -41,10 +41,19 @@ const emitEvent = (
 /**
  * Triggers Location change for all global inputs.
  *
- * @param {IPlaceData} newPlaceData -.
+ * @param {IPlaceData} newPlaceData - New Place Data.
  */
 const triggerChange = (newPlaceData: IPlaceData): void => {
     if (!newPlaceData) return
+
+    // Know issues handled
+    newPlaceData.city
+        .replace("new delhi", "delhi")
+        .replace("gurugram", "gurgaon")
+        .replace("noida", "gautam buddh nagar")
+        .replace("sarhol", "gurgaon")
+        .replace("prayagraj", "allahabad")
+        .replace("bangalore urban", "bengaluru")
 
     placeData = newPlaceData
 

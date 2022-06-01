@@ -21,7 +21,15 @@ const pluginFunc = (): Plugin => {
     }
 }
 
-;((root: Window, factory: FactoryFunc): void => {
+/**
+ * Initializes Location Plugin.
+ *
+ * @param {Window} root - Global Variable Window.
+ * @param {FactoryFunc} factory - Plugin Factory Function.
+ */
+const init = (root: Window, factory: FactoryFunc): void => {
     const newRoot = root
     newRoot.LocationPlugin = factory()
-})(window, pluginFunc)
+}
+
+init(window, pluginFunc)

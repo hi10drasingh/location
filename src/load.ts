@@ -2,7 +2,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoadGoogleMaps } from "./map"
 import { LoadSuggestion } from "./suggestion"
-import { LoadCacheStore, LoadUserStore, GetCacheData } from "./persist"
+import {
+    LoadCacheStore,
+    LoadUserStore,
+    GetCacheData,
+    getUserLocation
+} from "./persist"
 import IPlaceData, { Settings } from "./interface"
 import { TriggerGlobalChange } from "./location"
 import { ErrorHandler } from "./utils"
@@ -10,19 +15,22 @@ import { ErrorHandler } from "./utils"
 /**
  * Loads all dependencies required for plugin.
  *
- * @returns {Promise<IPlaceData>} - Loads all plugin dependencies and return global placeData from cache.
+ * @returns {Promise<Nullable<IPlaceData>>} - Loads all plugin dependencies and return global placeData from cache.
  */
 const load = () =>
-    new Promise<IPlaceData>((resolve, reject) => {
+    new Promise<Nullable<IPlaceData>>((resolve, reject) => {
         LoadGoogleMaps()
             .then(() => {
                 LoadSuggestion()
                 LoadCacheStore()
                 LoadUserStore()
             })
-            .then(() => {
-                const cacheData = GetCacheData()
-                resolve(cacheData)
+            .then(() => GetCacheData())
+            .then(cacheData => {
+                if (cacheData) resolve(cacheData)
+                getUserLocation()
+                    .then(dbData => resolve(dbData))
+                    .catch(error => reject(error))
             })
             .catch(error => reject(error))
     })
@@ -44,8 +52,9 @@ const wrapper = <F extends (...params: any[]) => void>(
             load()
                 .then(placeData => {
                     newSettings.isLoaded = true
-                    newSettings.placeData = placeData
                     CB(...args)
+                    if (!placeData) return
+                    newSettings.placeData = placeData
                     TriggerGlobalChange(newSettings.placeData)
                 })
                 .catch(err => ErrorHandler.error(err))
