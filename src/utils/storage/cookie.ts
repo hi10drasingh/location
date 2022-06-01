@@ -1,5 +1,11 @@
 import { IStoreGet, IStoreSet } from "./interface"
 
+/**
+ * Get Value of a key from cookie store.
+ *
+ * @param {string} key - CookieKey Name.
+ * @returns {string} - CookieValue.
+ */
 const get: IStoreGet = (key: string): Nullable<string> => {
     const nameEQ = `${key}=`
     const ca = document.cookie.split(";")
@@ -21,6 +27,13 @@ const get: IStoreGet = (key: string): Nullable<string> => {
     return cookieValue
 }
 
+/**
+ * Set cookie with given name and value for certain time in days.
+ *
+ * @param {string} key - CookieKey Name.
+ * @param {string} value - CookieValue.
+ * @param {number} timeInDays - Expiry Time in Days.
+ */
 const set: IStoreSet = (
     key: string,
     value: string,

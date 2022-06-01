@@ -7,6 +7,11 @@ import IPlaceData, { Settings } from "./interface"
 import { TriggerGlobalChange } from "./location"
 import { ErrorHandler } from "./utils"
 
+/**
+ * Loads all dependencies required for plugin.
+ *
+ * @returns {Promise<IPlaceData>} - Loads all plugin dependencies and return global placeData from cache.
+ */
 const load = () =>
     new Promise<IPlaceData>((resolve, reject) => {
         LoadGoogleMaps()
@@ -22,6 +27,13 @@ const load = () =>
             .catch(error => reject(error))
     })
 
+/**
+ * Loads all relevent dependencies if not already loaded before execution of callback.
+ *
+ * @param {Settings} settings - Load Setting of Plugin.
+ * @param {(...params: any[]) => void} CB - Callback func after load function resolves.
+ * @returns {(...params: any[]) => void} - Wrapper func whose signature is same as Cb func.
+ */
 const wrapper = <F extends (...params: any[]) => void>(
     settings: Settings,
     CB: F
