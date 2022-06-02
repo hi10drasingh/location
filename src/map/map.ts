@@ -84,4 +84,4 @@ const processResult = (result: Result): IPlaceData => {
     return placeData
 }
 
-export { load, processResult }
+export { load, processResult, type Result }

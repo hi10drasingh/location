@@ -1,4 +1,4 @@
-type Obj = { [key: string]: unknown }
+export type Obj = { [key: string]: unknown }
 
 /**
  * Check if parameter is not null object.
