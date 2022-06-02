@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/utils/storage/interface.ts:5](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/interface.ts#L5)
+[utils/storage/interface.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L5)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/utils/storage/interface.ts:6](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/interface.ts#L6)
+[utils/storage/interface.ts:6](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L6)

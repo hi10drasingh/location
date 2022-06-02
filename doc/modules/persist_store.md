@@ -25,7 +25,7 @@ Return cached location data for current session.
 
 #### Defined in
 
-[src/persist/store.ts:73](https://github.com/hitendrarao/location/blob/6f44bad/src/persist/store.ts#L73)
+[persist/store.ts:73](https://github.com/hitendrarao/location/blob/56352cf/src/persist/store.ts#L73)
 
 ___
 
@@ -41,4 +41,4 @@ Adds event listener for global location change event.
 
 #### Defined in
 
-[src/persist/store.ts:120](https://github.com/hitendrarao/location/blob/6f44bad/src/persist/store.ts#L120)
+[persist/store.ts:120](https://github.com/hitendrarao/location/blob/56352cf/src/persist/store.ts#L120)

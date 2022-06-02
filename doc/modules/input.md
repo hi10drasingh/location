@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Namespaces
-
-- [&lt;internal\&gt;](input._internal_.md)
-
 ### Functions
 
 - [BindInput](input.md#bindinput)
@@ -34,7 +30,7 @@ Bind Location Plugin to a input element.
 
 #### Defined in
 
-[src/input/index.ts:170](https://github.com/hitendrarao/location/blob/6f44bad/src/input/index.ts#L170)
+[input/index.ts:170](https://github.com/hitendrarao/location/blob/56352cf/src/input/index.ts#L170)
 
 ___
 
@@ -48,7 +44,7 @@ UnBind Location Plugin to a input element.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input element. |
+| `element` | `HTMLInputElement` | Input element. |
 
 #### Returns
 
@@ -56,4 +52,4 @@ UnBind Location Plugin to a input element.
 
 #### Defined in
 
-[src/input/index.ts:187](https://github.com/hitendrarao/location/blob/6f44bad/src/input/index.ts#L187)
+[input/index.ts:187](https://github.com/hitendrarao/location/blob/56352cf/src/input/index.ts#L187)

@@ -48,4 +48,4 @@ Loads map dependencies then autocomplete then resolves.
 
 #### Defined in
 
-[src/map/index.ts:14](https://github.com/hitendrarao/location/blob/6f44bad/src/map/index.ts#L14)
+[map/index.ts:14](https://github.com/hitendrarao/location/blob/56352cf/src/map/index.ts#L14)

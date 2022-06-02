@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/interface/plugin.ts:4](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/plugin.ts#L4)
+[interface/plugin.ts:4](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L4)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/interface/plugin.ts:5](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/plugin.ts#L5)
+[interface/plugin.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L5)

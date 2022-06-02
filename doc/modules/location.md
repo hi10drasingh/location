@@ -22,7 +22,7 @@ Check if given input is registers as global not not.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ele` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input element to be checked for global. |
+| `ele` | `HTMLInputElement` | Input element to be checked for global. |
 
 #### Returns
 
@@ -32,7 +32,7 @@ Check if given input is registers as global not not.
 
 #### Defined in
 
-[src/location.ts:90](https://github.com/hitendrarao/location/blob/6f44bad/src/location.ts#L90)
+[location.ts:90](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L90)
 
 ___
 
@@ -54,7 +54,7 @@ Triggers Location change for all global inputs.
 
 #### Defined in
 
-[src/location.ts:49](https://github.com/hitendrarao/location/blob/6f44bad/src/location.ts#L49)
+[location.ts:49](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L49)
 
 ___
 
@@ -69,7 +69,7 @@ Trigger Location Change for local inputs.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `newPlaceData` | [`default`](../interfaces/interface_placedata.default.md) | New place data. |
-| `inputEle` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input for which change will be triggered. |
+| `inputEle` | `HTMLInputElement` | Input for which change will be triggered. |
 
 #### Returns
 
@@ -77,4 +77,4 @@ Trigger Location Change for local inputs.
 
 #### Defined in
 
-[src/location.ts:76](https://github.com/hitendrarao/location/blob/6f44bad/src/location.ts#L76)
+[location.ts:76](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L76)

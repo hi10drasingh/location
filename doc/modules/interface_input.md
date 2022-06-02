@@ -32,13 +32,13 @@
 
 #### Defined in
 
-[src/interface/input.ts:1](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/input.ts#L1)
+[interface/input.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/interface/input.ts#L1)
 
 ___
 
 ### UnbindInputFunc
 
-Ƭ **UnbindInputFunc**: (`element`: [`HTMLInputElement`](input._internal_.md#htmlinputelement)) => `void`
+Ƭ **UnbindInputFunc**: (`element`: `HTMLInputElement`) => `void`
 
 #### Type declaration
 
@@ -48,7 +48,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `element` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) |
+| `element` | `HTMLInputElement` |
 
 ##### Returns
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-[src/interface/input.ts:3](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/input.ts#L3)
+[interface/input.ts:3](https://github.com/hitendrarao/location/blob/56352cf/src/interface/input.ts#L3)

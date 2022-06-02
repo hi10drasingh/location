@@ -13,7 +13,7 @@
 
 ### get
 
-▸ **get**(`key`): [`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+▸ **get**(`key`): [`Nullable`](global.md#nullable)<`string`\>
 
 Get Value of a key from cookie store.
 
@@ -25,13 +25,13 @@ Get Value of a key from cookie store.
 
 #### Returns
 
-[`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+[`Nullable`](global.md#nullable)<`string`\>
 
 - CookieValue.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:9](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/cookie.ts#L9)
+[utils/storage/cookie.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/cookie.ts#L9)
 
 ___
 
@@ -55,4 +55,4 @@ Set cookie with given name and value for certain time in days.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:38](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/cookie.ts#L38)
+[utils/storage/cookie.ts:38](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/cookie.ts#L38)

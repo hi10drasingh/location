@@ -6,7 +6,7 @@
 
 ## Indexable
 
-▪ [key: `string`]: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`number`\> \| `string` \| [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`string`\>
+▪ [key: `string`]: [`Nullable`](../modules/global.md#nullable)<`number`\> \| `string` \| [`Nullable`](../modules/global.md#nullable)<`string`\>
 
 ## Table of contents
 
@@ -25,11 +25,11 @@
 
 ### address
 
-• **address**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`string`\>
+• **address**: [`Nullable`](../modules/global.md#nullable)<`string`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:10](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L10)
+[interface/placedata.ts:10](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L10)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/interface/placedata.ts:5](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L5)
+[interface/placedata.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L5)
 
 ___
 
@@ -49,54 +49,54 @@ ___
 
 #### Defined in
 
-[src/interface/placedata.ts:9](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L9)
+[interface/placedata.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L9)
 
 ___
 
 ### lat
 
-• **lat**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`number`\>
+• **lat**: [`Nullable`](../modules/global.md#nullable)<`number`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:3](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L3)
+[interface/placedata.ts:3](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L3)
 
 ___
 
 ### lng
 
-• **lng**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`number`\>
+• **lng**: [`Nullable`](../modules/global.md#nullable)<`number`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:4](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L4)
+[interface/placedata.ts:4](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L4)
 
 ___
 
 ### pincode
 
-• **pincode**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`string`\>
+• **pincode**: [`Nullable`](../modules/global.md#nullable)<`string`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:7](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L7)
+[interface/placedata.ts:7](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L7)
 
 ___
 
 ### place\_id
 
-• **place\_id**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`string`\>
+• **place\_id**: [`Nullable`](../modules/global.md#nullable)<`string`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:8](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L8)
+[interface/placedata.ts:8](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L8)
 
 ___
 
 ### state
 
-• **state**: [`Nullable`](../modules/interface_placedata._internal_.md#nullable)<`string`\>
+• **state**: [`Nullable`](../modules/global.md#nullable)<`string`\>
 
 #### Defined in
 
-[src/interface/placedata.ts:6](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/placedata.ts#L6)
+[interface/placedata.ts:6](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L6)

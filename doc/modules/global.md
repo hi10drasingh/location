@@ -4,16 +4,29 @@
 
 ## Table of contents
 
-### Variables
+### Interfaces
 
-- [default](global.md#default)
+- [DroomResponse](../interfaces/global.DroomResponse.md)
+- [Window](../interfaces/global.Window.md)
 
-## Variables
+### Type Aliases
 
-### default
+- [Nullable](global.md#nullable)
 
-• **default**: typeof `globalThis`
+## Type Aliases
+
+### Nullable
+
+Ƭ **Nullable**<`T`\>: `T` \| ``null``
+
+Nullable<T> type return type {T | null}.
+
+#### Type parameters
+
+| Name | Description |
+| :------ | :------ |
+| `T` | Variable type. |
 
 #### Defined in
 
-node_modules/@types/node/globals.global.d.ts:1
+[global.d.ts:28](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L28)

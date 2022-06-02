@@ -25,7 +25,7 @@ Hides The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:99](https://github.com/hitendrarao/location/blob/6f44bad/src/suggestion/index.ts#L99)
+[suggestion/index.ts:99](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L99)
 
 ___
 
@@ -41,7 +41,7 @@ Add suggestion html to document and apply events and attributes.
 
 #### Defined in
 
-[src/suggestion/index.ts:250](https://github.com/hitendrarao/location/blob/6f44bad/src/suggestion/index.ts#L250)
+[suggestion/index.ts:250](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L250)
 
 ___
 
@@ -57,7 +57,7 @@ Displays The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:89](https://github.com/hitendrarao/location/blob/6f44bad/src/suggestion/index.ts#L89)
+[suggestion/index.ts:89](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L89)
 
 ___
 
@@ -71,7 +71,7 @@ Update the suggestion list according to new autocomplete predictions.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `predictions` | [`AutocompletePrediction`](../interfaces/map_autocomplete._internal_.AutocompletePrediction.md)[] | Autocomplete prediction from goole for typed location. |
+| `predictions` | `AutocompletePrediction`[] | Autocomplete prediction from goole for typed location. |
 | `selector` | `string` | Current Input Selector. |
 
 #### Returns
@@ -80,4 +80,4 @@ Update the suggestion list according to new autocomplete predictions.
 
 #### Defined in
 
-[src/suggestion/index.ts:297](https://github.com/hitendrarao/location/blob/6f44bad/src/suggestion/index.ts#L297)
+[suggestion/index.ts:297](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L297)

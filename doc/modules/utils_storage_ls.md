@@ -13,7 +13,7 @@
 
 ### get
 
-▸ **get**(`key`): [`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+▸ **get**(`key`): [`Nullable`](global.md#nullable)<`string`\>
 
 Get Value of a key from Local Storage.
 
@@ -25,13 +25,13 @@ Get Value of a key from Local Storage.
 
 #### Returns
 
-[`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+[`Nullable`](global.md#nullable)<`string`\>
 
 - LSValue.
 
 #### Defined in
 
-[src/utils/storage/ls.ts:62](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/ls.ts#L62)
+[utils/storage/ls.ts:62](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/ls.ts#L62)
 
 ___
 
@@ -55,4 +55,4 @@ Set data in LocalStorage with given key.
 
 #### Defined in
 
-[src/utils/storage/ls.ts:46](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/ls.ts#L46)
+[utils/storage/ls.ts:46](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/ls.ts#L46)

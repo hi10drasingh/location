@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Namespaces
-
-- [&lt;internal\&gt;](map_autocomplete._internal_.md)
-
 ### Functions
 
 - [GetAutoCompletePredictions](map_autocomplete.md#getautocompletepredictions)
@@ -18,7 +14,7 @@
 
 ### GetAutoCompletePredictions
 
-▸ **GetAutoCompletePredictions**(`request`): `Promise`<[`AutocompleteResponse`](../classes/map_autocomplete._internal_.AutocompleteResponse.md)\>
+▸ **GetAutoCompletePredictions**(`request`): `Promise`<`AutocompleteResponse`\>
 
 Fetches predictions from google maps according to requests obj.
 
@@ -26,17 +22,17 @@ Fetches predictions from google maps according to requests obj.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `request` | [`AutocompletionRequest`](../interfaces/map_autocomplete._internal_.AutocompletionRequest.md) | Request obj from GetPlacePrediction Api. |
+| `request` | `AutocompletionRequest` | Request obj from GetPlacePrediction Api. |
 
 #### Returns
 
-`Promise`<[`AutocompleteResponse`](../classes/map_autocomplete._internal_.AutocompleteResponse.md)\>
+`Promise`<`AutocompleteResponse`\>
 
 Prediction Results.
 
 #### Defined in
 
-[src/map/autocomplete.ts:25](https://github.com/hitendrarao/location/blob/6f44bad/src/map/autocomplete.ts#L25)
+[map/autocomplete.ts:25](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L25)
 
 ___
 
@@ -50,8 +46,8 @@ Event handler for suggestions elements result click.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `request` | [`GeocoderRequest`](../interfaces/map_autocomplete._internal_.GeocoderRequest.md) | Request Obj. |
-| `inputEle` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Current input element to which suggestions as bound. |
+| `request` | `GeocoderRequest` | Request Obj. |
+| `inputEle` | `HTMLInputElement` | Current input element to which suggestions as bound. |
 
 #### Returns
 
@@ -59,22 +55,22 @@ Event handler for suggestions elements result click.
 
 #### Defined in
 
-[src/map/autocomplete.ts:38](https://github.com/hitendrarao/location/blob/6f44bad/src/map/autocomplete.ts#L38)
+[map/autocomplete.ts:38](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L38)
 
 ___
 
 ### LoadAutoComplete
 
-▸ **LoadAutoComplete**(): `Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
+▸ **LoadAutoComplete**(): `Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
 
 Load css required for autocomplete.
 
 #### Returns
 
-`Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
+`Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
 
 Resolves to resource.
 
 #### Defined in
 
-[src/map/autocomplete.ts:17](https://github.com/hitendrarao/location/blob/6f44bad/src/map/autocomplete.ts#L17)
+[map/autocomplete.ts:17](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L17)

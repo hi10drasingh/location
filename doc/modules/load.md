@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Namespaces
-
-- [&lt;internal\&gt;](load._internal_.md)
-
 ### Functions
 
 - [default](load.md#default)
@@ -16,7 +12,7 @@
 
 ### default
 
-▸ **default**<`F`\>(`settings`, `CB`): (...`args`: [`Parameters`](load._internal_.md#parameters)<`F`\>) => [`ReturnType`](load._internal_.md#returntype)<`F`\>
+▸ **default**<`F`\>(`settings`, `CB`): (...`args`: `Parameters`<`F`\>) => `ReturnType`<`F`\>
 
 Loads all relevent dependencies if not already loaded before execution of callback.
 
@@ -39,18 +35,18 @@ Loads all relevent dependencies if not already loaded before execution of callba
 
 - Wrapper func whose signature is same as Cb func.
 
-▸ (...`args`): [`ReturnType`](load._internal_.md#returntype)<`F`\>
+▸ (...`args`): `ReturnType`<`F`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | [`Parameters`](load._internal_.md#parameters)<`F`\> |
+| `...args` | `Parameters`<`F`\> |
 
 ##### Returns
 
-[`ReturnType`](load._internal_.md#returntype)<`F`\>
+`ReturnType`<`F`\>
 
 #### Defined in
 
-[src/load.ts:46](https://github.com/hitendrarao/location/blob/6f44bad/src/load.ts#L46)
+[load.ts:46](https://github.com/hitendrarao/location/blob/56352cf/src/load.ts#L46)

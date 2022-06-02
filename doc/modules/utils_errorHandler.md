@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/errorHandler.ts#L41)
+[utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/56352cf/src/utils/errorHandler.ts#L41)

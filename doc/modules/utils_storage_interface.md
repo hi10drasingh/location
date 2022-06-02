@@ -17,11 +17,11 @@
 
 ### IStoreGet
 
-Ƭ **IStoreGet**: (`key`: `string`) => [`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+Ƭ **IStoreGet**: (`key`: `string`) => [`Nullable`](global.md#nullable)<`string`\>
 
 #### Type declaration
 
-▸ (`key`): [`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+▸ (`key`): [`Nullable`](global.md#nullable)<`string`\>
 
 ##### Parameters
 
@@ -31,11 +31,11 @@
 
 ##### Returns
 
-[`Nullable`](interface_placedata._internal_.md#nullable)<`string`\>
+[`Nullable`](global.md#nullable)<`string`\>
 
 #### Defined in
 
-[src/utils/storage/interface.ts:1](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/interface.ts#L1)
+[utils/storage/interface.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L1)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-[src/utils/storage/interface.ts:2](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/storage/interface.ts#L2)
+[utils/storage/interface.ts:2](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L2)

@@ -4,32 +4,42 @@
 
 ## Table of contents
 
-### Namespaces
+### Type Aliases
 
-- [&lt;internal\&gt;](map_map._internal_.md)
+- [Result](map_map.md#result)
 
 ### Functions
 
 - [load](map_map.md#load)
 - [processResult](map_map.md#processresult)
 
+## Type Aliases
+
+### Result
+
+Ƭ **Result**: `google.maps.GeocoderResult` \| `google.maps.places.PlaceResult`
+
+#### Defined in
+
+[map/map.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/map/map.ts#L5)
+
 ## Functions
 
 ### load
 
-▸ **load**(): `Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
+▸ **load**(): `Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
 
 Load js required for map to work.
 
 #### Returns
 
-`Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
+`Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
 
 - Resource load promise.
 
 #### Defined in
 
-[src/map/map.ts:15](https://github.com/hitendrarao/location/blob/6f44bad/src/map/map.ts#L15)
+[map/map.ts:15](https://github.com/hitendrarao/location/blob/56352cf/src/map/map.ts#L15)
 
 ___
 
@@ -43,7 +53,7 @@ Processes result of geocode and autocomplete predictions to IPlacedata.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `result` | [`Result`](map_map._internal_.md#result) | Place result. |
+| `result` | [`Result`](map_map.md#result) | Place result. |
 
 #### Returns
 
@@ -53,4 +63,4 @@ PlaceData.
 
 #### Defined in
 
-[src/map/map.ts:64](https://github.com/hitendrarao/location/blob/6f44bad/src/map/map.ts#L64)
+[map/map.ts:64](https://github.com/hitendrarao/location/blob/56352cf/src/map/map.ts#L64)

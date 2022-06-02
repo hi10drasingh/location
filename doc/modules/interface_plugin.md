@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[src/interface/plugin.ts:8](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/plugin.ts#L8)
+[interface/plugin.ts:8](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L8)

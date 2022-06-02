@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Namespaces
-
-- [&lt;internal\&gt;](utils_http._internal_.md)
-
 ### Functions
 
 - [default](utils_http.md#default)
@@ -30,8 +26,8 @@ Droom Wrapper for fetch api.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `input` | [`RequestInfo`](utils_http._internal_.md#requestinfo) | Request defination. |
-| `init?` | [`RequestInit`](../interfaces/utils_http._internal_.RequestInit.md) | Request init object. |
+| `input` | `RequestInfo` | Request defination. |
+| `init?` | `RequestInit` | Request init object. |
 
 #### Returns
 
@@ -41,4 +37,4 @@ Droom Wrapper for fetch api.
 
 #### Defined in
 
-[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/http.ts#L9)
+[utils/http.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/utils/http.ts#L9)

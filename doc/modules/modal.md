@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[src/modal/index.ts:80](https://github.com/hitendrarao/location/blob/6f44bad/src/modal/index.ts#L80)
+[modal/index.ts:80](https://github.com/hitendrarao/location/blob/56352cf/src/modal/index.ts#L80)

@@ -22,7 +22,7 @@ Renames and re-exports [Debounce](utils_debounce.md#debounce)
 
 ### Debounce
 
-▸ **Debounce**<`F`\>(`fn`, `delay`): (...`args`: [`Parameters`](load._internal_.md#parameters)<`F`\>) => [`ReturnType`](load._internal_.md#returntype)<`F`\>
+▸ **Debounce**<`F`\>(`fn`, `delay`): (...`args`: `Parameters`<`F`\>) => `ReturnType`<`F`\>
 
 Creates a debounced function that delays invoking `func` until after `wait` milliseconds have elapsed since the last time the debounced function was invoked.
 
@@ -45,18 +45,18 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 
 - Debounced function with same signature as the param function.
 
-▸ (...`args`): [`ReturnType`](load._internal_.md#returntype)<`F`\>
+▸ (...`args`): `ReturnType`<`F`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | [`Parameters`](load._internal_.md#parameters)<`F`\> |
+| `...args` | `Parameters`<`F`\> |
 
 ##### Returns
 
-[`ReturnType`](load._internal_.md#returntype)<`F`\>
+`ReturnType`<`F`\>
 
 #### Defined in
 
-[src/utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/debounce.ts#L10)
+[utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/56352cf/src/utils/debounce.ts#L10)

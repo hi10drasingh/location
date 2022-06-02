@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/interface/index.ts:5](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/index.ts#L5)
+[interface/index.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/interface/index.ts#L5)
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[src/interface/index.ts:6](https://github.com/hitendrarao/location/blob/6f44bad/src/interface/index.ts#L6)
+[interface/index.ts:6](https://github.com/hitendrarao/location/blob/56352cf/src/interface/index.ts#L6)

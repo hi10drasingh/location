@@ -4,13 +4,27 @@
 
 ## Table of contents
 
-### Namespaces
+### Type Aliases
 
-- [&lt;internal\&gt;](utils_deepequal._internal_.md)
+- [Obj](utils_deepequal.md#obj)
 
 ### Functions
 
 - [default](utils_deepequal.md#default)
+
+## Type Aliases
+
+### Obj
+
+Ƭ **Obj**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `unknown`
+
+#### Defined in
+
+[utils/deepequal.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/utils/deepequal.ts#L1)
 
 ## Functions
 
@@ -24,8 +38,8 @@ Check if two objects are exactaly equal.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj1` | [`Obj`](utils_deepequal._internal_.md#obj) | Any Object. |
-| `obj2` | [`Obj`](utils_deepequal._internal_.md#obj) | Any Object. |
+| `obj1` | [`Obj`](utils_deepequal.md#obj) | Any Object. |
+| `obj2` | [`Obj`](utils_deepequal.md#obj) | Any Object. |
 
 #### Returns
 
@@ -35,4 +49,4 @@ Check if two objects are exactaly equal.
 
 #### Defined in
 
-[src/utils/deepequal.ts:18](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/deepequal.ts#L18)
+[utils/deepequal.ts:18](https://github.com/hitendrarao/location/blob/56352cf/src/utils/deepequal.ts#L18)
