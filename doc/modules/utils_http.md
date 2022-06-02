@@ -1,0 +1,44 @@
+[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/http
+
+# Module: utils/http
+
+## Table of contents
+
+### Namespaces
+
+- [&lt;internal\&gt;](utils_http._internal_.md)
+
+### Functions
+
+- [default](utils_http.md#default)
+
+## Functions
+
+### default
+
+▸ **default**<`T`\>(`input`, `init?`): `Promise`<`T`\>
+
+Droom Wrapper for fetch api.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `input` | [`RequestInfo`](utils_http._internal_.md#requestinfo) | Request defination. |
+| `init?` | [`RequestInit`](../interfaces/utils_http._internal_.RequestInit.md) | Request init object. |
+
+#### Returns
+
+`Promise`<`T`\>
+
+- Response promise which resolves to object wth provided type T.
+
+#### Defined in
+
+[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/6f44bad/src/utils/http.ts#L9)
