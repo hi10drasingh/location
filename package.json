@@ -79,7 +79,7 @@
             "> 1%",
             "not dead",
             "last 2 versions",
-            "not IE all"
+            "not IE 10"
         ],
         "development": [
             "last 1 chrome version",
