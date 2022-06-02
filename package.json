@@ -42,11 +42,6 @@
         "url": "https://github.com/hitendrarao/location/issues"
     },
     "homepage": "https://github.com/hitendrarao/location#readme",
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not IE 10"
-    ],
     "devDependencies": {
         "@babel/core": "^7.18.2",
         "@babel/eslint-parser": "^7.18.2",
@@ -75,5 +70,29 @@
         "webpack-cli": "^4.9.2",
         "webpack-dev-server": "^4.9.0",
         "wepack-cli": "0.0.1-security"
+    },
+    "dependencies": {
+        "lint-staged": "^13.0.0"
+    },
+    "browserslist": {
+        "production": [
+            "> 1%",
+            "not dead",
+            "last 2 versions",
+            "not IE all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix"
+        ],
+        "*.{css,scss,sass}": [
+            "stylelint --fix"
+        ]
     }
 }
