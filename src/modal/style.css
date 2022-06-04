@@ -1,0 +1,92 @@
+.locationmodal .modal-dialog {
+  max-width: 600px;
+  width: 96%;
+}
+
+.locationmodal .modal-dialog .modal-body {
+  padding: 35px;
+  padding-bottom: 0;
+  max-height: inherit;
+}
+
+.locationmodal .popular-cities li a {
+  color: #6f727b;
+}
+
+.locationmodal .modal-dialog .modal-body a,
+.locationmodal .modal-dialog .modal-body a:hover,
+.locationmodal .modal-dialog .modal-body a:visited,
+.locationmodal .modal-dialog .modal-body a:focus-visible {
+  text-decoration: none;
+}
+
+.locationmodal .popular-cities li a i {
+  font-size: 55px;
+}
+
+.locationmodal .modal-dialog .modal-body .right-inner-addon i {
+  pointer-events: none;
+  top: -5px;
+}
+
+.locationmodal .modal-dialog .modal-body input[type="search"] {
+  border: none;
+  border-bottom: 1px solid #a2adbd;
+  box-shadow: none;
+  padding-left: 2px;
+  border-radius: unset;
+}
+
+.locationmodal .popular-cities li {
+  width: 15%;
+  margin-right: 28px;
+  margin-bottom: 32px;
+}
+
+.locationmodal .popular-cities li:nth-child(5n) {
+  margin-right: 0;
+}
+
+.locationmodal .popular-cities li.selected a i::before,
+.locationmodal .popular-cities li.selected a span {
+  color: #2899f0;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .locationmodal .modal-dialog .modal-body {
+    padding: 25px;
+  }
+
+  .locationmodal .popular-cities li {
+    width: 26%;
+  }
+
+  .locationmodal .popular-cities li:nth-child(5n) {
+    margin-right: 28px;
+  }
+
+  .locationmodal .popular-cities li:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .locationmodal .modal-dialog .modal-body .close {
+    float: left;
+    left: -7px;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .locationmodal .modal-dialog .modal-body {
+    padding: 20px;
+  }
+
+  .locationmodal .popular-cities li {
+    width: 25%;
+  }
+
+  .locationmodal .modal-dialog .modal-body h2 {
+    font-size: 15px;
+  }
+}

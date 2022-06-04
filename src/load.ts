@@ -1,4 +1,3 @@
-import { LoadGoogleMaps } from "./map"
 import { LoadSuggestion } from "./suggestion"
 import {
 	LoadCacheStore,
@@ -6,65 +5,46 @@ import {
 	GetCacheData,
 	getUserLocation
 } from "./persist"
-import IPlaceData, { Settings } from "./interface"
 import { TriggerGlobalChange } from "./location"
 import { ErrorHandler } from "./utils"
 
 /**
- * Loads all dependencies required for plugin.
+ * Loads user location data from db.
  *
- * @returns {Promise<Nullable<IPlaceData>>} - Loads all plugin dependencies and return global placeData from cache.
+ * @returns {void}
  */
-const load = () =>
-	new Promise<Nullable<IPlaceData>>((resolve, reject) => {
-		LoadGoogleMaps()
-			.then(() => {
-				LoadSuggestion()
-				LoadCacheStore()
-				LoadUserStore()
-			})
-			.then(() => GetCacheData())
-			.then(cacheData => {
-				if (cacheData) resolve(cacheData)
-				getUserLocation()
-					.then(dbData => resolve(dbData))
-					.catch(error => reject(error))
-			})
-			.catch(error => reject(error))
-	})
-
-/**
- * Loads all relevent dependencies if not already loaded before execution of callback.
- *
- * @template F
- * @param {Settings} settings - Load Setting of Plugin.
- * @param {F} CB - Callback func after load function resolves.
- * @returns {F} - Wrapper func whose signature is same as Cb func.
- */
-const wrapper = <F extends (...params: never[]) => void>(
-	settings: Settings,
-	CB: F
-): F => {
-	const warppedFunc = (...args: Parameters<F>) => {
-		const newSettings = settings
-		if (!newSettings.isLoaded) {
-			load()
-				.then(placeData => {
-					newSettings.isLoaded = true
-					CB(...args)
-					if (placeData) {
-						newSettings.placeData = placeData
-						TriggerGlobalChange(newSettings.placeData)
-					}
-				})
-				.catch(err => ErrorHandler.error(err))
-		} else {
-			CB(...args)
-			TriggerGlobalChange(newSettings.placeData as IPlaceData)
-		}
-	}
-
-	return warppedFunc as F
+const loadDataFromDB = (): void => {
+	getUserLocation()
+		.then(dbData => {
+			if (dbData) {
+				const newCachedData = GetCacheData()
+				if (!newCachedData) {
+					TriggerGlobalChange(newCachedData)
+				}
+			}
+		})
+		.catch(err => ErrorHandler.error(err))
 }
 
-export default wrapper
+/**
+ * Loads all dependencies required for plugin.
+ * Checks if old data exist in store then update global data.
+ * Else Get data from databases and then update global data.
+ *
+ * @returns {void}
+ */
+const load = (): void => {
+	LoadSuggestion()
+	LoadCacheStore()
+	LoadUserStore()
+
+	const cachedData = GetCacheData()
+
+	if (!cachedData) {
+		loadDataFromDB()
+	} else {
+		TriggerGlobalChange(cachedData)
+	}
+}
+
+export default load

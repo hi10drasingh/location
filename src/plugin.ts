@@ -1,11 +1,6 @@
 import { BindInput, UnbindInput } from "./input"
-import {
-	Plugin,
-	Settings,
-	type BindInputFunc,
-	type UnbindInputFunc
-} from "./interface"
-import LoadWrapper from "./load"
+import { Plugin } from "./interface"
+import LoadDependencies from "./load"
 
 /**
  * Ruturn public plugin object.
@@ -13,13 +8,10 @@ import LoadWrapper from "./load"
  * @returns {Plugin} - Object of publicily accessible method of Location Plugin.
  */
 const PluginFunc = (): Plugin => {
-	const settings: Settings = {
-		isLoaded: false
-	}
-
+	LoadDependencies()
 	return {
-		bindInput: LoadWrapper<BindInputFunc>(settings, BindInput),
-		unbindInput: LoadWrapper<UnbindInputFunc>(settings, UnbindInput)
+		bindInput: BindInput,
+		unbindInput: UnbindInput
 	}
 }
 

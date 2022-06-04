@@ -1,32 +1,37 @@
 {
-    "peacock.color": "#c987d6",
-    "peacock.remoteColor": "#61f320",
-    "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#83f650",
-        "activityBar.activeBorder": "#6794f7",
-        "activityBar.background": "#83f650",
-        "activityBar.foreground": "#15202b",
-        "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.foreground": "#15202b",
-        "sash.hoverBorder": "#83f650",
-        "statusBar.background": "#61f320",
-        "statusBar.foreground": "#15202b",
-        "statusBarItem.hoverBackground": "#49d50b",
-        "statusBarItem.remoteBackground": "#61f320",
-        "statusBarItem.remoteForeground": "#15202b",
-        "titleBar.activeBackground": "#61f320",
-        "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveBackground": "#61f32099",
-        "titleBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#6794f7"
-    },
-    "[typescript]": {
-        "editor.codeActionsOnSave": [
-            "source.formatDocument",
-            "source.fixAll.eslint"
-        ],
-        "editor.formatOnSave": false
-    },
-    "eslint.probe": ["javascript", "typescript"],
-    "eslint.validate": ["javascript", "typescript"]
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#83f650",
+		"activityBar.activeBorder": "#6794f7",
+		"activityBar.background": "#83f650",
+		"activityBar.foreground": "#15202b",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.foreground": "#15202b",
+		"sash.hoverBorder": "#83f650",
+		"statusBar.background": "#61f320",
+		"statusBar.foreground": "#15202b",
+		"statusBarItem.hoverBackground": "#49d50b",
+		"statusBarItem.remoteBackground": "#61f320",
+		"statusBarItem.remoteForeground": "#15202b",
+		"titleBar.activeBackground": "#61f320",
+		"titleBar.activeForeground": "#15202b",
+		"titleBar.inactiveBackground": "#61f32099",
+		"titleBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#6794f7"
+	},
+	"[typescript]": {
+		"editor.codeActionsOnSave": [
+			"source.formatDocument",
+			"source.fixAll.eslint"
+		],
+		"editor.formatOnSave": false
+	},
+	"editor.formatOnSave": true,
+	"prettier.requireConfig": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"eslint.probe": ["javascript", "typescript"],
+	"eslint.validate": ["javascript", "typescript"],
+	"stylelint.validate": ["css"],
+	"[css]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	}
 }

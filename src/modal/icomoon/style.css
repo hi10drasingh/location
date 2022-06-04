@@ -1,0 +1,92 @@
+@font-face {
+  font-family: location;
+  src: url("fonts/location.eot?ymkwd5");
+  src:
+    url("fonts/location.eot?ymkwd5#iefix") format("embedded-opentype"),
+    url("fonts/location.ttf?ymkwd5") format("truetype"),
+    url("fonts/location.woff?ymkwd5") format("woff"),
+    url("fonts/location.svg?ymkwd5#location") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lcp-"],
+[class*=" lcp-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: location !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lcp-left-arrow::before {
+  content: "\e90c";
+}
+
+.lcp-search::before {
+  content: "\e900";
+  color: #a2adbd;
+}
+
+.lcp-mumbai::before {
+  content: "\e901";
+  color: #a2adbd;
+}
+
+.lcp-delhi::before {
+  content: "\e902";
+  color: #a2adbd;
+}
+
+.lcp-pune::before {
+  content: "\e903";
+  color: #a2adbd;
+}
+
+.lcp-bangalore::before {
+  content: "\e904";
+  color: #a2adbd;
+}
+
+.lcp-hyderabad::before {
+  content: "\e905";
+  color: #a2adbd;
+}
+
+.lcp-gurugram::before {
+  content: "\e906";
+  color: #a2adbd;
+}
+
+.lcp-kolkata::before {
+  content: "\e907";
+  color: #a2adbd;
+}
+
+.lcp-chennai::before {
+  content: "\e908";
+  color: #a2adbd;
+}
+
+.lcp-jaipur::before {
+  content: "\e909";
+  color: #a2adbd;
+}
+
+.lcp-surat::before {
+  content: "\e90a";
+  color: #a2adbd;
+}
+
+.lcp-gps::before {
+  content: "\e90b";
+  color: #3ba5e0;
+}

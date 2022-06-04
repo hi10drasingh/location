@@ -1,14 +1,14 @@
 import {
-    LocalStoreGet,
-    LocalStoreSet,
-    CookieStoreGet,
-    CookieStoreSet
+	LocalStoreGet,
+	LocalStoreSet,
+	CookieStoreGet,
+	CookieStoreSet
 } from "../utils"
 import { LocationChangeEvent, LocationDefaultData } from "../constant"
 import IPlaceData from "../interface"
 
 interface IPopularCityStateMapping {
-    [key: string]: string
+	[key: string]: string
 }
 
 const cookieKey = "dul"
@@ -18,17 +18,17 @@ const lsKey = "location_data"
 const timeInDays = 365
 
 const popularCityStateMapping: IPopularCityStateMapping = {
-    delhi: "delhi",
-    mumbai: "maharashtra",
-    pune: "maharashtra",
-    bangalore: "karnataka",
-    hyderabad: "telangana",
-    gurgoan: "haryana",
-    gurugram: "haryana",
-    kolkata: "west bengal",
-    chennai: "tamil nadu",
-    jaipur: "rajasthan",
-    surat: "gujarat"
+	delhi: "delhi",
+	mumbai: "maharashtra",
+	pune: "maharashtra",
+	bangalore: "karnataka",
+	hyderabad: "telangana",
+	gurgoan: "haryana",
+	gurugram: "haryana",
+	kolkata: "west bengal",
+	chennai: "tamil nadu",
+	jaipur: "rajasthan",
+	surat: "gujarat"
 }
 
 /**
@@ -38,9 +38,9 @@ const popularCityStateMapping: IPopularCityStateMapping = {
  * @returns {string | null} - State Name.
  */
 const getState = (city: string): Nullable<string> => {
-    if (!city) return null
+	if (!city) return null
 
-    return popularCityStateMapping[city] || null
+	return popularCityStateMapping[city] || null
 }
 
 /**
@@ -49,9 +49,9 @@ const getState = (city: string): Nullable<string> => {
  * @returns {string | null} - City name if present.
  */
 const getCookieData = () => {
-    const data = CookieStoreGet(cookieKey)
+	const data = CookieStoreGet(cookieKey)
 
-    return data ? window.atob(data) : data
+	return data ? window.atob(data) : data
 }
 
 /**
@@ -60,9 +60,9 @@ const getCookieData = () => {
  * @returns {IPlaceData} - Place Data.
  */
 const getLSData = () => {
-    const data = LocalStoreGet(lsKey) as string
+	const data = LocalStoreGet(lsKey) as string
 
-    return JSON.parse(data) as IPlaceData
+	return JSON.parse(data) as IPlaceData
 }
 
 /**
@@ -71,19 +71,19 @@ const getLSData = () => {
  * @returns {IPlaceData} - Place Data.
  */
 const getData = (): IPlaceData => {
-    const cookieData = getCookieData()
+	const cookieData = getCookieData()
 
-    const lsData = getLSData()
+	const lsData = getLSData()
 
-    if (!cookieData) return lsData
+	if (!cookieData) return lsData
 
-    if (lsData && lsData.city === cookieData) return lsData
+	if (lsData && lsData.city === cookieData) return lsData
 
-    return {
-        ...LocationDefaultData,
-        city: cookieData,
-        state: cookieData ? getState(cookieData) : null
-    }
+	return {
+		...LocationDefaultData,
+		city: cookieData,
+		state: cookieData ? getState(cookieData) : null
+	}
 }
 
 /**
@@ -93,9 +93,9 @@ const getData = (): IPlaceData => {
  * @returns {void}
  */
 const setData = (data: IPlaceData) => {
-    CookieStoreSet(cookieKey, data.city, timeInDays)
+	CookieStoreSet(cookieKey, data.city, timeInDays)
 
-    LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
+	LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
 }
 
 /**
@@ -105,11 +105,11 @@ const setData = (data: IPlaceData) => {
  * @returns {void}
  */
 const handleLocationChange = (event: Event) => {
-    const customInput = event as CustomEvent
+	const customInput = event as CustomEvent
 
-    const placeData = customInput.detail as IPlaceData
+	const placeData = customInput.detail as IPlaceData
 
-    setData(placeData)
+	setData(placeData)
 }
 
 /**
@@ -118,7 +118,7 @@ const handleLocationChange = (event: Event) => {
  * @returns {void}
  */
 const load = (): void => {
-    window.addEventListener(LocationChangeEvent, handleLocationChange)
+	window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 
 export { load, getData }
