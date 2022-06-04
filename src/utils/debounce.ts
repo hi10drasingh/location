@@ -7,17 +7,17 @@
  * @param {number} delay - Time in milliseconds.
  * @returns {F} - Debounced function with same signature as the param function.
  */
-export function Debounce<F extends (...params: any[]) => any>(
-    fn: F,
-    delay: number
-) {
-    let timeoutID: number
-    const debounced = (...args: Parameters<F>) => {
-        clearTimeout(timeoutID)
-        timeoutID = window.setTimeout(() => fn(...args) as F, delay)
-    }
+export function Debounce<F extends (...params: never[]) => void>(
+	fn: F,
+	delay: number
+): F {
+	let timeoutID: number
+	const debounced = (...args: Parameters<F>) => {
+		clearTimeout(timeoutID)
+		timeoutID = window.setTimeout(() => fn(...args), delay)
+	}
 
-    return debounced as (...args: Parameters<F>) => ReturnType<F>
+	return debounced as F
 }
 
 export default Debounce
