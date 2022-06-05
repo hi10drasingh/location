@@ -1,7 +1,7 @@
 {
-	"name": "my-webpack-project",
+	"name": "location-plugin",
 	"version": "1.0.2",
-	"description": "My webpack project",
+	"description": "Universal Location Plugin",
 	"main": "index.js",
 	"scripts": {
 		"lint": "run-s lint:style lint:script",
@@ -33,6 +33,7 @@
 		"url": "git+https://github.com/hitendrarao/location.git"
 	},
 	"keywords": [
+		"Universal",
 		"Google",
 		"Maps",
 		"Places",
