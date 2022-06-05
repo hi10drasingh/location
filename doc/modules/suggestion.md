@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / suggestion
+[location-plugin](../README.md) / [Exports](../modules.md) / suggestion
 
 # Module: suggestion
 
@@ -25,7 +25,7 @@ Hides The Suggestions.
 
 #### Defined in
 
-[suggestion/index.ts:99](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L99)
+[suggestion/index.ts:99](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L99)
 
 ___
 
@@ -41,7 +41,7 @@ Add suggestion html to document and apply events and attributes.
 
 #### Defined in
 
-[suggestion/index.ts:250](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L250)
+[suggestion/index.ts:250](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L250)
 
 ___
 
@@ -57,7 +57,7 @@ Displays The Suggestions.
 
 #### Defined in
 
-[suggestion/index.ts:89](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L89)
+[suggestion/index.ts:89](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L89)
 
 ___
 
@@ -80,4 +80,4 @@ Update the suggestion list according to new autocomplete predictions.
 
 #### Defined in
 
-[suggestion/index.ts:297](https://github.com/hitendrarao/location/blob/56352cf/src/suggestion/index.ts#L297)
+[suggestion/index.ts:298](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L298)

@@ -1,10 +1,9 @@
 [production]
 > 0.25%
 not dead
-not IE > 0
+not IE 11
 
 [development]
 last 1 chrome version
 last 1 firefox version
 last 1 safari version
-last 3 explorer version

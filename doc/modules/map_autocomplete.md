@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / map/autocomplete
+[location-plugin](../README.md) / [Exports](../modules.md) / map/autocomplete
 
 # Module: map/autocomplete
 
@@ -8,7 +8,6 @@
 
 - [GetAutoCompletePredictions](map_autocomplete.md#getautocompletepredictions)
 - [HandlerAutoCompleteItemClick](map_autocomplete.md#handlerautocompleteitemclick)
-- [LoadAutoComplete](map_autocomplete.md#loadautocomplete)
 
 ## Functions
 
@@ -32,7 +31,7 @@ Prediction Results.
 
 #### Defined in
 
-[map/autocomplete.ts:25](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L25)
+[map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/d401e71/src/map/autocomplete/index.ts#L17)
 
 ___
 
@@ -55,22 +54,4 @@ Event handler for suggestions elements result click.
 
 #### Defined in
 
-[map/autocomplete.ts:38](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L38)
-
-___
-
-### LoadAutoComplete
-
-▸ **LoadAutoComplete**(): `Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
-
-Load css required for autocomplete.
-
-#### Returns
-
-`Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
-
-Resolves to resource.
-
-#### Defined in
-
-[map/autocomplete.ts:17](https://github.com/hitendrarao/location/blob/56352cf/src/map/autocomplete.ts#L17)
+[map/autocomplete/index.ts:30](https://github.com/hitendrarao/location/blob/d401e71/src/map/autocomplete/index.ts#L30)

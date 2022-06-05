@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/storage/interface
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage/interface
 
 # Module: utils/storage/interface
 
@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[utils/storage/interface.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L1)
+[utils/storage/interface.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/interface.ts#L1)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-[utils/storage/interface.ts:2](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L2)
+[utils/storage/interface.ts:2](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/interface.ts#L2)

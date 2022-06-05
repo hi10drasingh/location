@@ -25,14 +25,9 @@ const config = {
 				use: ["style-loader", "css-loader"]
 			},
 			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ["babel-loader"]
-			},
-			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
-				use: ["ts-loader"]
+				use: ["babel-loader", "ts-loader"]
 			}
 		]
 	},

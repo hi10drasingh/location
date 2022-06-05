@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / location
+[location-plugin](../README.md) / [Exports](../modules.md) / location
 
 # Module: location
 
@@ -32,7 +32,7 @@ Check if given input is registers as global not not.
 
 #### Defined in
 
-[location.ts:90](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L90)
+[location.ts:90](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L90)
 
 ___
 
@@ -54,7 +54,7 @@ Triggers Location change for all global inputs.
 
 #### Defined in
 
-[location.ts:49](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L49)
+[location.ts:49](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L49)
 
 ___
 
@@ -77,4 +77,4 @@ Trigger Location Change for local inputs.
 
 #### Defined in
 
-[location.ts:76](https://github.com/hitendrarao/location/blob/56352cf/src/location.ts#L76)
+[location.ts:76](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L76)

@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
+[location-plugin](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
 
 # Interface: Plugin
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[interface/plugin.ts:4](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L4)
+[interface/plugin.ts:4](https://github.com/hitendrarao/location/blob/d401e71/src/interface/plugin.ts#L4)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[interface/plugin.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L5)
+[interface/plugin.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/interface/plugin.ts#L5)

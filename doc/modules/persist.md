@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / persist
+[location-plugin](../README.md) / [Exports](../modules.md) / persist
 
 # Module: persist
 

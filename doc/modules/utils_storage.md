@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/storage
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage
 
 # Module: utils/storage
 

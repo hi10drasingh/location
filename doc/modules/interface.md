@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / interface
+[location-plugin](../README.md) / [Exports](../modules.md) / interface
 
 # Module: interface
 
@@ -11,10 +11,6 @@
 - [Plugin](interface.md#plugin)
 - [UnbindInputFunc](interface.md#unbindinputfunc)
 - [default](interface.md#default)
-
-### Interfaces
-
-- [Settings](../interfaces/interface.Settings.md)
 
 ## References
 

@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / modal
+[location-plugin](../README.md) / [Exports](../modules.md) / modal
 
 # Module: modal
 
@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modal/index.ts:80](https://github.com/hitendrarao/location/blob/56352cf/src/modal/index.ts#L80)
+[modal/index.ts:59](https://github.com/hitendrarao/location/blob/d401e71/src/modal/index.ts#L59)

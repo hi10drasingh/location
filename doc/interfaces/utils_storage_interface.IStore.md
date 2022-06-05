@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / [utils/storage/interface](../modules/utils_storage_interface.md) / IStore
+[location-plugin](../README.md) / [Exports](../modules.md) / [utils/storage/interface](../modules/utils_storage_interface.md) / IStore
 
 # Interface: IStore
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[utils/storage/interface.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L5)
+[utils/storage/interface.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/interface.ts#L5)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[utils/storage/interface.ts:6](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/interface.ts#L6)
+[utils/storage/interface.ts:6](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/interface.ts#L6)

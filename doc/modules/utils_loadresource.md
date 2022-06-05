@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/loadresource
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/loadresource
 
 # Module: utils/loadresource
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[utils/loadresource.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/utils/loadresource.ts#L1)
+[utils/loadresource.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/utils/loadresource.ts#L1)
 
 ## Functions
 
@@ -52,4 +52,4 @@ Asynchronously loads resource.
 
 #### Defined in
 
-[utils/loadresource.ts:66](https://github.com/hitendrarao/location/blob/56352cf/src/utils/loadresource.ts#L66)
+[utils/loadresource.ts:66](https://github.com/hitendrarao/location/blob/d401e71/src/utils/loadresource.ts#L66)

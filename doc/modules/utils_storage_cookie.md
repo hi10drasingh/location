@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/storage/cookie
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage/cookie
 
 # Module: utils/storage/cookie
 
@@ -31,7 +31,7 @@ Get Value of a key from cookie store.
 
 #### Defined in
 
-[utils/storage/cookie.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/cookie.ts#L9)
+[utils/storage/cookie.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/cookie.ts#L9)
 
 ___
 
@@ -55,4 +55,4 @@ Set cookie with given name and value for certain time in days.
 
 #### Defined in
 
-[utils/storage/cookie.ts:38](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/cookie.ts#L38)
+[utils/storage/cookie.ts:38](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/cookie.ts#L38)

@@ -1,4 +1,4 @@
-my-webpack-project / [Exports](modules.md)
+location-plugin / [Exports](modules.md)
 
 # 🚀 Welcome to your new awesome project!
 

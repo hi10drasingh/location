@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / [global](../modules/global.md) / DroomResponse
+[location-plugin](../README.md) / [Exports](../modules.md) / [global](../modules/global.md) / DroomResponse
 
 # Interface: DroomResponse
 
@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[global.d.ts:17](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L17)
+[global.d.ts:17](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L17)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[global.d.ts:18](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L18)
+[global.d.ts:18](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L18)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[global.d.ts:19](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L19)
+[global.d.ts:19](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L19)

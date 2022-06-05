@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / constant
+[location-plugin](../README.md) / [Exports](../modules.md) / constant
 
 # Module: constant
 
@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[constant/index.ts:3](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L3)
+[constant/index.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L3)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L5)
+[constant/index.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L5)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:26](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L26)
+[constant/index.ts:26](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L26)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:7](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L7)
+[constant/index.ts:7](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L7)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:19](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L19)
+[constant/index.ts:19](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L19)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:21](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L21)
+[constant/index.ts:21](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L21)
 
 ___
 
@@ -102,4 +102,4 @@ ___
 
 #### Defined in
 
-[constant/index.ts:18](https://github.com/hitendrarao/location/blob/56352cf/src/constant/index.ts#L18)
+[constant/index.ts:18](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L18)

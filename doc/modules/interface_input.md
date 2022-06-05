@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / interface/input
+[location-plugin](../README.md) / [Exports](../modules.md) / interface/input
 
 # Module: interface/input
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[interface/input.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/interface/input.ts#L1)
+[interface/input.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/interface/input.ts#L1)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-[interface/input.ts:3](https://github.com/hitendrarao/location/blob/56352cf/src/interface/input.ts#L3)
+[interface/input.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/interface/input.ts#L3)

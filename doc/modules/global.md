@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / global
+[location-plugin](../README.md) / [Exports](../modules.md) / global
 
 # Module: global
 
@@ -29,4 +29,4 @@ Nullable<T> type return type {T | null}.
 
 #### Defined in
 
-[global.d.ts:28](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L28)
+[global.d.ts:28](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L28)

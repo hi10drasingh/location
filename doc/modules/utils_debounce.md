@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/debounce
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/debounce
 
 # Module: utils/debounce
 
@@ -22,7 +22,7 @@ Renames and re-exports [Debounce](utils_debounce.md#debounce)
 
 ### Debounce
 
-▸ **Debounce**<`F`\>(`fn`, `delay`): (...`args`: `Parameters`<`F`\>) => `ReturnType`<`F`\>
+▸ **Debounce**<`F`\>(`fn`, `delay`): `F`
 
 Creates a debounced function that delays invoking `func` until after `wait` milliseconds have elapsed since the last time the debounced function was invoked.
 
@@ -30,7 +30,7 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 
 | Name | Type |
 | :------ | :------ |
-| `F` | extends (...`params`: `any`[]) => `any` |
+| `F` | extends (...`params`: `never`[]) => `void` |
 
 #### Parameters
 
@@ -41,22 +41,10 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 
 #### Returns
 
-`fn`
+`F`
 
 - Debounced function with same signature as the param function.
 
-▸ (...`args`): `ReturnType`<`F`\>
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...args` | `Parameters`<`F`\> |
-
-##### Returns
-
-`ReturnType`<`F`\>
-
 #### Defined in
 
-[utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/56352cf/src/utils/debounce.ts#L10)
+[utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/d401e71/src/utils/debounce.ts#L10)

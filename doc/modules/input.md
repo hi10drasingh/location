@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / input
+[location-plugin](../README.md) / [Exports](../modules.md) / input
 
 # Module: input
 
@@ -30,7 +30,7 @@ Bind Location Plugin to a input element.
 
 #### Defined in
 
-[input/index.ts:170](https://github.com/hitendrarao/location/blob/56352cf/src/input/index.ts#L170)
+[input/index.ts:175](https://github.com/hitendrarao/location/blob/d401e71/src/input/index.ts#L175)
 
 ___
 
@@ -52,4 +52,4 @@ UnBind Location Plugin to a input element.
 
 #### Defined in
 
-[input/index.ts:187](https://github.com/hitendrarao/location/blob/56352cf/src/input/index.ts#L187)
+[input/index.ts:225](https://github.com/hitendrarao/location/blob/d401e71/src/input/index.ts#L225)

@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / map/geocode
+[location-plugin](../README.md) / [Exports](../modules.md) / map/geocode
 
 # Module: map/geocode
 
@@ -25,7 +25,7 @@ Fetches current location of user via navigation and geocode api.
 
 #### Defined in
 
-[map/geocode.ts:30](https://github.com/hitendrarao/location/blob/56352cf/src/map/geocode.ts#L30)
+[map/geocode.ts:32](https://github.com/hitendrarao/location/blob/d401e71/src/map/geocode.ts#L32)
 
 ___
 
@@ -49,4 +49,4 @@ Fetches and process the result from geocode to IPlaceData.
 
 #### Defined in
 
-[map/geocode.ts:14](https://github.com/hitendrarao/location/blob/56352cf/src/map/geocode.ts#L14)
+[map/geocode.ts:14](https://github.com/hitendrarao/location/blob/d401e71/src/map/geocode.ts#L14)

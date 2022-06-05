@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
+[location-plugin](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
 
 # Interface: default
 
@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[interface/placedata.ts:10](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L10)
+[interface/placedata.ts:10](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L10)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:5](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L5)
+[interface/placedata.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L5)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L9)
+[interface/placedata.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L9)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:3](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L3)
+[interface/placedata.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L3)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:4](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L4)
+[interface/placedata.ts:4](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L4)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:7](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L7)
+[interface/placedata.ts:7](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L7)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:8](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L8)
+[interface/placedata.ts:8](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L8)
 
 ___
 
@@ -99,4 +99,4 @@ ___
 
 #### Defined in
 
-[interface/placedata.ts:6](https://github.com/hitendrarao/location/blob/56352cf/src/interface/placedata.ts#L6)
+[interface/placedata.ts:6](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L6)

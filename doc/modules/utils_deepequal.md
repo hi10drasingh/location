@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/deepequal
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/deepequal
 
 # Module: utils/deepequal
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[utils/deepequal.ts:1](https://github.com/hitendrarao/location/blob/56352cf/src/utils/deepequal.ts#L1)
+[utils/deepequal.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/utils/deepequal.ts#L1)
 
 ## Functions
 
@@ -49,4 +49,4 @@ Check if two objects are exactaly equal.
 
 #### Defined in
 
-[utils/deepequal.ts:18](https://github.com/hitendrarao/location/blob/56352cf/src/utils/deepequal.ts#L18)
+[utils/deepequal.ts:18](https://github.com/hitendrarao/location/blob/d401e71/src/utils/deepequal.ts#L18)

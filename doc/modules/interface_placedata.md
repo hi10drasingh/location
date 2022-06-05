@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / interface/placedata
+[location-plugin](../README.md) / [Exports](../modules.md) / interface/placedata
 
 # Module: interface/placedata
 

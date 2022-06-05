@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/storage/ls
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage/ls
 
 # Module: utils/storage/ls
 
@@ -31,7 +31,7 @@ Get Value of a key from Local Storage.
 
 #### Defined in
 
-[utils/storage/ls.ts:62](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/ls.ts#L62)
+[utils/storage/ls.ts:62](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/ls.ts#L62)
 
 ___
 
@@ -55,4 +55,4 @@ Set data in LocalStorage with given key.
 
 #### Defined in
 
-[utils/storage/ls.ts:46](https://github.com/hitendrarao/location/blob/56352cf/src/utils/storage/ls.ts#L46)
+[utils/storage/ls.ts:46](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/ls.ts#L46)

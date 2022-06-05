@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / [global](../modules/global.md) / Window
+[location-plugin](../README.md) / [Exports](../modules.md) / [global](../modules/global.md) / Window
 
 # Interface: Window
 
@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[global.d.ts:11](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L11)
+[global.d.ts:11](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L11)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[global.d.ts:8](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L8)
+[global.d.ts:8](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L8)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[global.d.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L9)
+[global.d.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L9)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[global.d.ts:12](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L12)
+[global.d.ts:12](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L12)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[global.d.ts:13](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L13)
+[global.d.ts:13](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L13)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[global.d.ts:10](https://github.com/hitendrarao/location/blob/56352cf/src/global.d.ts#L10)
+[global.d.ts:10](https://github.com/hitendrarao/location/blob/d401e71/src/global.d.ts#L10)

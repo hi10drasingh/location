@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / persist/store
+[location-plugin](../README.md) / [Exports](../modules.md) / persist/store
 
 # Module: persist/store
 
@@ -25,7 +25,7 @@ Return cached location data for current session.
 
 #### Defined in
 
-[persist/store.ts:73](https://github.com/hitendrarao/location/blob/56352cf/src/persist/store.ts#L73)
+[persist/store.ts:73](https://github.com/hitendrarao/location/blob/d401e71/src/persist/store.ts#L73)
 
 ___
 
@@ -41,4 +41,4 @@ Adds event listener for global location change event.
 
 #### Defined in
 
-[persist/store.ts:120](https://github.com/hitendrarao/location/blob/56352cf/src/persist/store.ts#L120)
+[persist/store.ts:120](https://github.com/hitendrarao/location/blob/d401e71/src/persist/store.ts#L120)

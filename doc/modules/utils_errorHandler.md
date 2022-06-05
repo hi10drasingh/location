@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/errorHandler
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/errorHandler
 
 # Module: utils/errorHandler
 
@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/56352cf/src/utils/errorHandler.ts#L41)
+[utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/d401e71/src/utils/errorHandler.ts#L41)

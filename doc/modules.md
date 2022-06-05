@@ -1,6 +1,6 @@
-[my-webpack-project](README.md) / Exports
+[location-plugin](README.md) / Exports
 
-# my-webpack-project
+# location-plugin
 
 ## Table of contents
 
@@ -23,6 +23,7 @@
 - [persist](modules/persist.md)
 - [persist/store](modules/persist_store.md)
 - [persist/user](modules/persist_user.md)
+- [plugin](modules/plugin.md)
 - [suggestion](modules/suggestion.md)
 - [utils](modules/utils.md)
 - [utils/debounce](modules/utils_debounce.md)

@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / utils/http
+[location-plugin](../README.md) / [Exports](../modules.md) / utils/http
 
 # Module: utils/http
 
@@ -37,4 +37,4 @@ Droom Wrapper for fetch api.
 
 #### Defined in
 
-[utils/http.ts:9](https://github.com/hitendrarao/location/blob/56352cf/src/utils/http.ts#L9)
+[utils/http.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/utils/http.ts#L9)

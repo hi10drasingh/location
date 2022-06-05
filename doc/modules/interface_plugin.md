@@ -1,4 +1,4 @@
-[my-webpack-project](../README.md) / [Exports](../modules.md) / interface/plugin
+[location-plugin](../README.md) / [Exports](../modules.md) / interface/plugin
 
 # Module: interface/plugin
 
@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[interface/plugin.ts:8](https://github.com/hitendrarao/location/blob/56352cf/src/interface/plugin.ts#L8)
+[interface/plugin.ts:8](https://github.com/hitendrarao/location/blob/d401e71/src/interface/plugin.ts#L8)
