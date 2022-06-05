@@ -1,31 +1,12 @@
 const rules = {
 	"max-lines-per-function": ["error", 30],
-	"require-jsdoc": 2,
 	"jsdoc/check-indentation": 1,
 	"jsdoc/check-line-alignment": 1,
 	"jsdoc/match-description": 1,
 	"jsdoc/require-description": 1,
 	"jsdoc/require-description-complete-sentence": 1,
 	"jsdoc/require-hyphen-before-param-description": 1,
-	"jsdoc/require-throws": 1,
-	"valid-jsdoc": [
-		"error",
-		{
-			prefer: {
-				arg: "param",
-				argument: "param",
-				class: "constructor",
-				return: "returns",
-				virtual: "abstract"
-			},
-			preferType: {
-				Boolean: "boolean",
-				Number: "number",
-				object: "Object",
-				String: "string"
-			}
-		}
-	]
+	"jsdoc/require-throws": 1
 }
 
 const extendPlugins = [
@@ -44,7 +25,28 @@ module.exports = {
 		es2021: true
 	},
 	extends: extendPlugins,
-	rules: rules,
+	rules: {
+		...rules,
+		"require-jsdoc": 2,
+		"valid-jsdoc": [
+			"error",
+			{
+				prefer: {
+					arg: "param",
+					argument: "param",
+					class: "constructor",
+					return: "returns",
+					virtual: "abstract"
+				},
+				preferType: {
+					Boolean: "boolean",
+					Number: "number",
+					object: "Object",
+					String: "string"
+				}
+			}
+		]
+	},
 	settings: {
 		polyfills: [
 			// Example of marking entire API and all methods and properties as polyfilled
@@ -77,6 +79,26 @@ module.exports = {
 			},
 			rules: {
 				...rules,
+				"jsdoc/require-jsdoc": [
+					"error",
+					{
+						contexts: [
+							"TSInterfaceDeclaration",
+							"TSMethodSignature",
+							"TSPropertySignature",
+							"TSTypeAliasDeclaration",
+							"TSEnumDeclaration"
+						],
+						publicOnly: { ancestorsOnly: true },
+						require: {
+							FunctionExpression: true,
+							ClassDeclaration: true,
+							MethodDefinition: true,
+							ArrowFunctionExpression: true,
+							ClassExpression: true
+						}
+					}
+				],
 				"@typescript-eslint/consistent-type-assertions": "error"
 			}
 		}

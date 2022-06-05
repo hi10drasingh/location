@@ -1,11 +1,41 @@
+/**
+ *
+ */
 export default interface IPlaceData {
-    [key: string]: Nullable<number> | string | Nullable<string>
-    lat: Nullable<number>
-    lng: Nullable<number>
-    city: string
-    state: Nullable<string>
-    pincode: Nullable<string>
-    place_id: Nullable<string>
-    country: string
-    address: Nullable<string>
+	/**
+	 *
+	 */
+	[key: string]: Nullable<number> | string | Nullable<string>
+	/**
+	 * Latitude of the Place.
+	 */
+	lat: Nullable<number>
+	/**
+	 * Longitute of the Place.
+	 */
+	lng: Nullable<number>
+	/**
+	 * City of the place.
+	 */
+	city: string
+	/**
+	 *	State of the place.
+	 */
+	state: Nullable<string>
+	/**
+	 * Pincode of the place.
+	 */
+	pincode: Nullable<string>
+	/**
+	 * Google Place ID of the place.
+	 */
+	place_id: Nullable<string>
+	/**
+	 * Country of the place.
+	 */
+	country: string
+	/**
+	 * Address of the place.
+	 */
+	address: Nullable<string>
 }
