@@ -1,10 +1,16 @@
 import { HandlerAutoCompleteItemClick } from "../map"
 
+/**
+ * Formatting match type.
+ */
 enum MatchType {
 	Main = "main_text",
 	Secondary = "secondary_text"
 }
 
+/**
+ * Updates matching prediction substring according to MatchType.
+ */
 type UpdateSubstrFunc = (
 	type: MatchType,
 	element: HTMLElement,

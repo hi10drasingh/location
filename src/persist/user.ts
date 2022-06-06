@@ -2,8 +2,14 @@ import { CookieStoreGet, ErrorHandler, HTTPClient } from "../utils"
 import IPlaceData from "../interface"
 import { LocationChangeEvent } from "../constant"
 
+/**
+ * User Location Api Result Format.
+ */
 interface UserLocationResponse extends DroomResponse {
-    data: Nullable<IPlaceData>
+	/**
+	 * Data is null or in place data format.
+	 */
+	data: Nullable<IPlaceData>
 }
 
 const URL = "/user/location"
@@ -14,13 +20,14 @@ const URL = "/user/location"
  * @returns {IPlaceData | null} - User location data.
  */
 const getUserLocation = async () => {
-    const response = await HTTPClient<UserLocationResponse>(URL, {
-        headers: {
-            "X-Requested-With": "XMLHttpRequest"
-        }
-    }).then((res: UserLocationResponse) => (res.data ? res.data : null))
+	if (!window.auth) return null
+	const response = await HTTPClient<UserLocationResponse>(URL, {
+		headers: {
+			"X-Requested-With": "XMLHttpRequest"
+		}
+	}).then((res: UserLocationResponse) => (res.data ? res.data : null))
 
-    return response
+	return response
 }
 
 /**
@@ -30,19 +37,20 @@ const getUserLocation = async () => {
  * @returns {void}
  */
 const setUserLocation = (data: IPlaceData): void => {
-    const csrfToken = CookieStoreGet("XSRF-TOKEN")
+	if (!window.auth) return
+	const csrfToken = CookieStoreGet("XSRF-TOKEN") as string
 
-    HTTPClient(URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest",
-            ...(csrfToken && {
-                "X-XSRF-TOKEN": decodeURIComponent(csrfToken)
-            })
-        },
-        body: JSON.stringify(data)
-    }).catch((err: string) => ErrorHandler.error(err))
+	HTTPClient(URL, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"X-Requested-With": "XMLHttpRequest",
+			...(csrfToken && {
+				"X-XSRF-TOKEN": decodeURIComponent(csrfToken)
+			})
+		},
+		body: JSON.stringify(data)
+	}).catch((err: string) => ErrorHandler.error(err))
 }
 
 /**
@@ -52,11 +60,11 @@ const setUserLocation = (data: IPlaceData): void => {
  * @returns {void}
  */
 const handleLocationChange = (event: Event) => {
-    const customInput = event as CustomEvent
+	const customInput = event as CustomEvent
 
-    const placeData = customInput.detail as IPlaceData
+	const placeData = customInput.detail as IPlaceData
 
-    if (window.auth) setUserLocation(placeData)
+	setUserLocation(placeData)
 }
 
 /**
@@ -65,7 +73,7 @@ const handleLocationChange = (event: Event) => {
  * @returns {void}
  */
 const load = (): void => {
-    window.addEventListener(LocationChangeEvent, handleLocationChange)
+	window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 
 export { load as LoadUserStore, getUserLocation, setUserLocation }

@@ -1,10 +1,25 @@
-import { BindInputFunc, UnbindInputFunc } from "./input"
-
+/**
+ * Plugin init config.
+ */
+interface Config {
+	[key: string]: boolean
+	/**
+	 * Is Input registed as global.
+	 */
+	isGlobal: boolean
+}
+/**
+ *
+ */
 interface Plugin {
-    bindInput: BindInputFunc
-    unbindInput: UnbindInputFunc
+	/**
+	 * Bind an element with given config to plugin.
+	 */
+	bind: (selector: string, config?: Config) => void
+	/**
+	 * Bind an element from plugin.
+	 */
+	unbind: (selector: string) => void
 }
 
-type FactoryFunc = () => Plugin
-
-export type { Plugin, FactoryFunc }
+export type { Plugin, Config }

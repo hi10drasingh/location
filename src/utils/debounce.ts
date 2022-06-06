@@ -12,6 +12,11 @@ export function Debounce<F extends (...params: never[]) => void>(
 	delay: number
 ): F {
 	let timeoutID: number
+	/**
+	 * Debounced Function with same signature a original function.
+	 *
+	 * @param {...any} args - Same arguments as the original function.
+	 */
 	const debounced = (...args: Parameters<F>) => {
 		clearTimeout(timeoutID)
 		timeoutID = window.setTimeout(() => fn(...args), delay)

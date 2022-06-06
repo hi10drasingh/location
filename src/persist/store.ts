@@ -2,14 +2,11 @@ import {
 	LocalStoreGet,
 	LocalStoreSet,
 	CookieStoreGet,
-	CookieStoreSet
+	CookieStoreSet,
+	DeepEqual
 } from "../utils"
 import { LocationChangeEvent, LocationDefaultData } from "../constant"
 import IPlaceData from "../interface"
-
-interface IPopularCityStateMapping {
-	[key: string]: string
-}
 
 const cookieKey = "dul"
 
@@ -17,53 +14,12 @@ const lsKey = "location_data"
 
 const timeInDays = 365
 
-const popularCityStateMapping: IPopularCityStateMapping = {
-	delhi: "delhi",
-	mumbai: "maharashtra",
-	pune: "maharashtra",
-	bangalore: "karnataka",
-	hyderabad: "telangana",
-	gurgoan: "haryana",
-	gurugram: "haryana",
-	kolkata: "west bengal",
-	chennai: "tamil nadu",
-	jaipur: "rajasthan",
-	surat: "gujarat"
-}
-
-/**
- * Returns state crossponsing to city listed in popular ciites block.
- *
- * @param {string} city - City Name.
- * @returns {string | null} - State Name.
- */
-const getState = (city: string): Nullable<string> => {
-	if (!city) return null
-
-	return popularCityStateMapping[city] || null
-}
-
-/**
- * Return location city from cookie store.
- *
- * @returns {string | null} - City name if present.
- */
-const getCookieData = () => {
-	const data = CookieStoreGet(cookieKey)
-
-	return data ? window.atob(data) : data
-}
-
 /**
  * Return location data from Local Storage.
  *
  * @returns {IPlaceData} - Place Data.
  */
-const getLSData = () => {
-	const data = LocalStoreGet(lsKey) as string
-
-	return JSON.parse(data) as IPlaceData
-}
+const getLSData = (): IPlaceData => LocalStoreGet(lsKey) as IPlaceData
 
 /**
  * Return cached location data for current session.
@@ -71,7 +27,7 @@ const getLSData = () => {
  * @returns {IPlaceData} - Place Data.
  */
 const getData = (): IPlaceData => {
-	const cookieData = getCookieData()
+	const cookieData = CookieStoreGet(cookieKey)
 
 	const lsData = getLSData()
 
@@ -81,8 +37,7 @@ const getData = (): IPlaceData => {
 
 	return {
 		...LocationDefaultData,
-		city: cookieData,
-		state: cookieData ? getState(cookieData) : null
+		city: cookieData as string
 	}
 }
 
@@ -92,10 +47,14 @@ const getData = (): IPlaceData => {
  * @param {IPlaceData} data - Current Location Data.
  * @returns {void}
  */
-const setData = (data: IPlaceData) => {
-	CookieStoreSet(cookieKey, data.city, timeInDays)
+const setData = (data: IPlaceData): void => {
+	const cookieData = CookieStoreGet(cookieKey) as Nullable<string>
+	if (!(cookieData && cookieData === data.city))
+		CookieStoreSet(cookieKey, data.city, timeInDays)
 
-	LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
+	const lsData = LocalStoreGet(lsKey) as Nullable<IPlaceData>
+	if (!(lsData && DeepEqual(lsData, data)))
+		LocalStoreSet(lsKey, JSON.stringify(data), timeInDays)
 }
 
 /**
@@ -104,7 +63,7 @@ const setData = (data: IPlaceData) => {
  * @param {CustomEvent} event - Global Location Change Event.
  * @returns {void}
  */
-const handleLocationChange = (event: Event) => {
+const handleLocationChange = (event: Event): void => {
 	const customInput = event as CustomEvent
 
 	const placeData = customInput.detail as IPlaceData

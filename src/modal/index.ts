@@ -2,7 +2,13 @@ import { HTTPClient, ErrorHandler } from "../utils"
 import "./style.css"
 import "./icomoon/style.css"
 
+/**
+ * Get Modal Api response format.
+ */
 interface ModalResonse extends DroomResponse {
+	/**
+	 * Data will be html string.
+	 */
 	data: string
 }
 

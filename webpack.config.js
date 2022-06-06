@@ -8,7 +8,12 @@ const config = {
 	entry: ["./src/index.ts"],
 	devtool: "source-map",
 	output: {
-		path: path.resolve(__dirname, "dist")
+		path: path.resolve(__dirname, "dist"),
+		library: {
+			type: "umd",
+			export: "default",
+			name: "LocationPlugin"
+		}
 	},
 	devServer: {
 		open: true,

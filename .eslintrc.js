@@ -89,7 +89,6 @@ module.exports = {
 							"TSTypeAliasDeclaration",
 							"TSEnumDeclaration"
 						],
-						publicOnly: { ancestorsOnly: true },
 						require: {
 							FunctionExpression: true,
 							ClassDeclaration: true,

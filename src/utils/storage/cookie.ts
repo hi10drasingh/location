@@ -1,4 +1,4 @@
-import { IStoreGet, IStoreSet } from "./interface"
+import { IStoreGet, IStoreSet } from "../../interface"
 
 /**
  * Get Value of a key from cookie store.
@@ -7,24 +7,24 @@ import { IStoreGet, IStoreSet } from "./interface"
  * @returns {string} - CookieValue.
  */
 const get: IStoreGet = (key: string): Nullable<string> => {
-    const nameEQ = `${key}=`
-    const ca = document.cookie.split(";")
+	const nameEQ = `${key}=`
+	const ca = document.cookie.split(";")
 
-    let cookieValue: Nullable<string> = null
+	let cookieValue: Nullable<string> = null
 
-    ca.forEach(value => {
-        let c = value
+	ca.forEach(value => {
+		let c = value
 
-        while (c.charAt(0) === " ") {
-            c = c.substring(1, c.length)
-        }
+		while (c.charAt(0) === " ") {
+			c = c.substring(1, c.length)
+		}
 
-        if (c.indexOf(nameEQ) === 0) {
-            cookieValue = c.substring(nameEQ.length, c.length)
-        }
-    })
+		if (c.indexOf(nameEQ) === 0) {
+			cookieValue = c.substring(nameEQ.length, c.length)
+		}
+	})
 
-    return cookieValue
+	return cookieValue ? window.atob(cookieValue) : null
 }
 
 /**
@@ -36,22 +36,24 @@ const get: IStoreGet = (key: string): Nullable<string> => {
  * @returns {void}
  */
 const set: IStoreSet = (
-    key: string,
-    value: string,
-    timeInDays: number
+	key: string,
+	value: string,
+	timeInDays: number
 ): void => {
-    let expires = ""
+	let expires = ""
 
-    const date = new Date()
+	const date = new Date()
 
-    const jsonValue = value
+	const jsonValue = value
 
-    date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
-    expires = `;expires=${date.toUTCString()}`
+	date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
+	expires = `;expires=${date.toUTCString()}`
 
-    document.cookie = `${key}=${window.btoa(jsonValue)}${expires};domain=${
-        window.cookie_domain
-    };path=/`
+	const cookieValue = `${key}=${window.btoa(jsonValue)}${expires};domain=${
+		window.cookie_domain || window.location.host
+	};path=/`
+
+	window.document.cookie = cookieValue
 }
 
 export { get, set }

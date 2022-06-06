@@ -23,7 +23,7 @@ const pluginType = {
 	LOCAL: "local"
 }
 
-const dataAttrNames = {
+const dataAttrNames: { [key in keyof IPlaceData]: string } = {
 	lat: "lat",
 	lng: "lng",
 	city: "city",
@@ -31,7 +31,24 @@ const dataAttrNames = {
 	country: "country",
 	address: "address",
 	pincode: "pincode",
-	placeId: "place_id"
+	place_id: "place_id"
+}
+
+const defaultConfig = {
+	isGlobal: true
+}
+
+const popularCityStateMapping: Record<string, string> = {
+	delhi: "delhi",
+	mumbai: "maharashtra",
+	pune: "maharashtra",
+	bangalore: "karnataka",
+	hyderabad: "telangana",
+	gurgaon: "haryana",
+	kolkata: "west bengal",
+	chennai: "tamil nadu",
+	jaipur: "rajasthan",
+	surat: "gujarat"
 }
 
 export {
@@ -41,5 +58,7 @@ export {
 	typeAttrName as LocationTypeAttrName,
 	selectorAttrName as LocationInputSelectorAttrName,
 	pluginType as LocationPluginTypes,
-	dataAttrNames as LocationDataAttrList
+	dataAttrNames as LocationDataAttrList,
+	defaultConfig as LocationDefaultConfig,
+	popularCityStateMapping as LocationPopularCityStateMap
 }

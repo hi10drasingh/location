@@ -1,9 +1,10 @@
 import IPlaceData from "./interface"
 import {
-    LocationChangeEvent,
-    LocationAttrSlug,
-    LocationTypeAttrName,
-    LocationPluginTypes
+	LocationChangeEvent,
+	LocationAttrSlug,
+	LocationTypeAttrName,
+	LocationPluginTypes,
+	LocationPopularCityStateMap
 } from "./constant"
 
 /**
@@ -12,32 +13,59 @@ import {
  * @returns {NodeListOf<HTMLInputElement>} - List of all global input.
  */
 const GetGlobalInput = () => {
-    const globalInput = document.querySelectorAll(
-        `input[${LocationAttrSlug}-${LocationTypeAttrName}="${LocationPluginTypes.GLOBAL}"]`
-    )
+	const globalInput = document.querySelectorAll(
+		`input[${LocationAttrSlug}-${LocationTypeAttrName}="${LocationPluginTypes.GLOBAL}"]`
+	)
 
-    return globalInput
+	return globalInput
+}
+
+/**
+ * Returns state crossponsing to city listed in popular ciites block.
+ *
+ * @param {string} city - City Name.
+ * @returns {string | null} - State Name.
+ */
+const getState = (city: string): Nullable<string> => {
+	if (!city) return null
+
+	return LocationPopularCityStateMap[city] || null
 }
 
 /**
  * Emits Custom Event to all items with given details.
  *
- * @param {IPlaceData} details - New Place Data.
+ * @param {IPlaceData} detail - New Place Data.
  * @param {Array<HTMLInputElement | Window>} items - List of element for which evit needs to be triggered.
  * @returns {void}
  */
 const emitEvent = (
-    details: IPlaceData,
-    items: Array<HTMLInputElement | Window>
+	detail: IPlaceData,
+	items: Array<HTMLInputElement | Window>
 ) => {
-    const event = new CustomEvent(LocationChangeEvent, {
-        bubbles: false,
-        detail: details
-    })
+	// Know issues handled
+	const city = detail.city
+		.replace("new delhi", "delhi")
+		.replace("gurugram", "gurgaon")
+		.replace("noida", "gautam buddh nagar")
+		.replace("sarhol", "gurgaon")
+		.replace("prayagraj", "allahabad")
+		.replace("bangalore urban", "bengaluru")
 
-    items.forEach(input => {
-        input.dispatchEvent(event)
-    })
+	const placeData = {
+		...detail,
+		city,
+		state: detail.state ? detail.state : getState(city)
+	}
+
+	const event = new CustomEvent(LocationChangeEvent, {
+		bubbles: false,
+		detail: placeData
+	})
+
+	items.forEach(input => {
+		input.dispatchEvent(event)
+	})
 }
 
 /**
@@ -47,23 +75,14 @@ const emitEvent = (
  * @returns {void}
  */
 const triggerChange = (newPlaceData: IPlaceData): void => {
-    if (!newPlaceData) return
+	if (!newPlaceData) return
 
-    // Know issues handled
-    newPlaceData.city
-        .replace("new delhi", "delhi")
-        .replace("gurugram", "gurgaon")
-        .replace("noida", "gautam buddh nagar")
-        .replace("sarhol", "gurgaon")
-        .replace("prayagraj", "allahabad")
-        .replace("bangalore urban", "bengaluru")
+	// Emit event to all plugin inputs
+	const inputs = GetGlobalInput()
 
-    // Emit event to all plugin inputs
-    const inputs = GetGlobalInput()
+	const items = Array.from(inputs) as HTMLInputElement[]
 
-    const items = Array.from(inputs) as HTMLInputElement[]
-
-    emitEvent(newPlaceData, [...items, window])
+	emitEvent(newPlaceData, [...items, window])
 }
 
 /**
@@ -74,11 +93,11 @@ const triggerChange = (newPlaceData: IPlaceData): void => {
  * @returns {void}
  */
 const triggerLocalChange = (
-    newPlaceData: IPlaceData,
-    inputEle: HTMLInputElement
+	newPlaceData: IPlaceData,
+	inputEle: HTMLInputElement
 ): void => {
-    if (!newPlaceData) return
-    emitEvent(newPlaceData, [inputEle])
+	if (!newPlaceData) return
+	emitEvent(newPlaceData, [inputEle])
 }
 
 /**
@@ -88,15 +107,15 @@ const triggerLocalChange = (
  * @returns {boolean} - Is global or not.
  */
 const isGlobal = (ele: HTMLInputElement): boolean => {
-    const typeAttr = ele.getAttribute(
-        `${LocationAttrSlug}-${LocationTypeAttrName}`
-    )
+	const typeAttr = ele.getAttribute(
+		`${LocationAttrSlug}-${LocationTypeAttrName}`
+	)
 
-    return typeAttr === LocationPluginTypes.GLOBAL
+	return typeAttr === LocationPluginTypes.GLOBAL
 }
 
 export {
-    triggerChange as TriggerGlobalChange,
-    triggerLocalChange as TriggerLocalChange,
-    isGlobal as IsGlobalLocation
+	triggerChange as TriggerGlobalChange,
+	triggerLocalChange as TriggerLocalChange,
+	isGlobal as IsGlobalLocation
 }

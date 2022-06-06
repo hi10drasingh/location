@@ -7,6 +7,7 @@ import {
 } from "./persist"
 import { TriggerGlobalChange } from "./location"
 import { ErrorHandler } from "./utils"
+import { GetCurrentLocation } from "./map"
 
 /**
  * Loads user location data from db.
@@ -41,7 +42,7 @@ const load = (): void => {
 	const cachedData = GetCacheData()
 
 	if (!cachedData) {
-		loadDataFromDB()
+		GetCurrentLocation().catch(() => loadDataFromDB())
 	} else {
 		TriggerGlobalChange(cachedData)
 	}

@@ -15,7 +15,9 @@ import { GetCacheData } from "../persist"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
-const PREDICTIONS_NOT_FOUND = "Predictions not found for given input value."
+const PREDICTIONS_NOT_FOUND_MSG = "Predictions not found for given input value."
+
+const INVALID_SELECTOR_MSG = "Please provide a valid input selector"
 
 /**
  * Converts first letter of each word to capital.
@@ -82,7 +84,7 @@ const inputListener = (event: Event) => {
 				if (data?.predictions?.length) {
 					UpdateSuggestion(data.predictions, selector)
 				} else {
-					ErrorHandler.info(PREDICTIONS_NOT_FOUND)
+					ErrorHandler.info(PREDICTIONS_NOT_FOUND_MSG)
 				}
 			})
 			.catch(err => ErrorHandler.error(err))
@@ -125,7 +127,7 @@ const changeInputAttributes = (
 	input.value = ucwords(placeData.city)
 
 	Object.values(LocationDataAttrList).forEach(key => {
-		const value = placeData[key]
+		const value = placeData?.[key]
 		if (!value) return
 		element.setAttribute(`${LocationAttrSlug}-${key}`, value.toString())
 	})
@@ -170,13 +172,14 @@ const applyEvents = (selector: string) => {
  *
  * @param {string} selector - Input element selector.
  * @param {boolean} isGlobal - Is Location Global.
+ * @throws {INVALID_SELECTOR_MSG} INVALID_SELECTOR_MSG.
  * @returns {void}
  */
 const bind: BindInputFunc = (selector: string, isGlobal: boolean): void => {
 	const ele = document.querySelector(selector) as HTMLInputElement
 
 	if (!ele) {
-		return
+		throw new Error(INVALID_SELECTOR_MSG)
 	}
 
 	applyAttributes(selector, isGlobal)
