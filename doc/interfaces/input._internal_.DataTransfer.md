@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / DataTransfer
+[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / DataTransfer
 
 # Interface: DataTransfer
 
@@ -27,7 +27,7 @@ Used to hold the data that is being dragged during a drag and drop operation. It
 
 ### dropEffect
 
-• **dropEffect**: ``"link"`` \| ``"copy"`` \| ``"none"`` \| ``"move"``
+• **dropEffect**: ``"link"`` \| ``"none"`` \| ``"copy"`` \| ``"move"``
 
 Returns the kind of operation that is currently selected. If the kind of operation isn't one of those that is allowed by the effectAllowed attribute, then the operation will fail.
 
@@ -43,7 +43,7 @@ ___
 
 ### effectAllowed
 
-• **effectAllowed**: ``"link"`` \| ``"copy"`` \| ``"none"`` \| ``"move"`` \| ``"copyLink"`` \| ``"copyMove"`` \| ``"linkMove"`` \| ``"all"`` \| ``"uninitialized"``
+• **effectAllowed**: ``"link"`` \| ``"none"`` \| ``"copy"`` \| ``"move"`` \| ``"copyLink"`` \| ``"copyMove"`` \| ``"linkMove"`` \| ``"all"`` \| ``"uninitialized"``
 
 Returns the kinds of operations that are to be allowed.
 

@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [map/autocomplete](map_autocomplete.md) / <internal\>
+[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [map/autocomplete](map_autocomplete.md) / <internal\>
 
 # Namespace: <internal\>
 

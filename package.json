@@ -24,7 +24,8 @@
 		"clean": "npx shx rm -rf _bundles lib lib-esm",
 		"tsc": "tsc",
 		"tsc:es6": "tsc -m es6 --outDir lib-esm",
-		"build": "run-s clean tsc tsc:es6 build:prod build:doc"
+		"build": "run-s clean tsc tsc:es6 build:prod build:doc",
+		"prepublish": "run-s lint build"
 	},
 	"verbose": true,
 	"engines": {

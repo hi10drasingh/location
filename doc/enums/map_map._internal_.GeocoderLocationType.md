@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [map/map](../modules/map_map.md) / [<internal\>](../modules/map_map._internal_.md) / GeocoderLocationType
+[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [map/map](../modules/map_map.md) / [<internal\>](../modules/map_map._internal_.md) / GeocoderLocationType
 
 # Enumeration: GeocoderLocationType
 

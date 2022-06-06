@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / Buffer
+[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / Buffer
 
 # Interface: Buffer
 
@@ -146,7 +146,7 @@ ___
 
 #### Inherited from
 
-Uint8Array.\_\_@toStringTag@1622
+Uint8Array.\_\_@toStringTag@2701
 
 #### Defined in
 
@@ -228,7 +228,7 @@ node_modules/typescript/lib/lib.es5.d.ts:2222
 
 #### Inherited from
 
-Uint8Array.\_\_@iterator@813
+Uint8Array.\_\_@iterator@735
 
 #### Defined in
 
