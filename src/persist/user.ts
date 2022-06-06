@@ -19,18 +19,21 @@ const URL = "/user/location"
 /**
  * Fetched user location from api.
  *
- * @returns {IPlaceData | null} - User location data.
+ * @returns {Promise<Nullable<IPlaceData>>} - User location data.
  */
-const getUserLocation = async () => {
-	if (!droomWindow.auth) return null
-	const response = await HTTPClient<UserLocationResponse>(URL, {
-		headers: {
-			"X-Requested-With": "XMLHttpRequest"
-		}
-	}).then((res: UserLocationResponse) => (res.data ? res.data : null))
-
-	return response
-}
+const getUserLocation = (): Promise<Nullable<IPlaceData>> =>
+	new Promise<Nullable<IPlaceData>>((resolve, reject) => {
+		if (!droomWindow.auth) resolve(null)
+		HTTPClient<UserLocationResponse>(URL, {
+			headers: {
+				"X-Requested-With": "XMLHttpRequest"
+			}
+		})
+			.then((res: UserLocationResponse) =>
+				resolve(res.data ? res.data : null)
+			)
+			.catch(err => reject(err))
+	})
 
 /**
  * Set user location to api.
@@ -61,7 +64,7 @@ const setUserLocation = (data: IPlaceData): void => {
  * @param {Event} event - Global Location Change Event.
  * @returns {void}
  */
-const handleLocationChange = (event: Event) => {
+const handleLocationChange = (event: Event): void => {
 	const customInput = event as CustomEvent
 
 	const placeData = customInput.detail as IPlaceData
@@ -78,4 +81,8 @@ const load = (): void => {
 	window.addEventListener(LocationChangeEvent, handleLocationChange)
 }
 
-export { load as LoadUserStore, getUserLocation, setUserLocation }
+export {
+	load as LoadUserStore,
+	getUserLocation as GetUserLocation,
+	setUserLocation as SetUserLocation
+}

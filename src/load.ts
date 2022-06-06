@@ -5,7 +5,7 @@ import {
 	LoadCacheStore,
 	LoadUserStore,
 	GetCacheData,
-	getUserLocation
+	GetUserLocation
 } from "./persist"
 import { LoadSuggestion } from "./suggestion"
 
@@ -15,12 +15,12 @@ import { LoadSuggestion } from "./suggestion"
  * @returns {void}
  */
 const loadDataFromDB = (): void => {
-	getUserLocation()
+	GetUserLocation()
 		.then(dbData => {
 			if (dbData) {
 				const newCachedData = GetCacheData()
 				if (!newCachedData) {
-					TriggerGlobalChange(newCachedData)
+					TriggerGlobalChange(dbData)
 				}
 			}
 		})

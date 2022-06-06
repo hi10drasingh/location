@@ -12,12 +12,12 @@ import { IPlaceData, Nullable } from "./interface"
  *
  * @returns {NodeListOf<HTMLInputElement>} - List of all global input.
  */
-const GetGlobalInput = () => {
+const GetGlobalInput = (): NodeListOf<HTMLInputElement> => {
 	const globalInput = document.querySelectorAll(
 		`input[${LocationAttrSlug}-${LocationTypeAttrName}="${LocationPluginTypes.GLOBAL}"]`
 	)
 
-	return globalInput
+	return globalInput as NodeListOf<HTMLInputElement>
 }
 
 /**
@@ -42,7 +42,7 @@ const getState = (city: string): Nullable<string> => {
 const emitEvent = (
 	detail: IPlaceData,
 	items: Array<HTMLInputElement | Window>
-) => {
+): void => {
 	// Know issues handled
 	const city = detail.city
 		.replace("new delhi", "delhi")
@@ -80,7 +80,7 @@ const triggerChange = (newPlaceData: IPlaceData): void => {
 	// Emit event to all plugin inputs
 	const inputs = GetGlobalInput()
 
-	const items = Array.from(inputs) as HTMLInputElement[]
+	const items = Array.from(inputs)
 
 	emitEvent(newPlaceData, [...items, window])
 }

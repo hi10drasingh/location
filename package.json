@@ -7,7 +7,7 @@
 		"lint": "run-s lint:style lint:script",
 		"lint:style": "npx stylelint **/*.{css,scss,sass}",
 		"lint:style:fix": "npm run lint:style -- --fix",
-		"lint:script": "npx eslint src --ext .js,.jsx,.ts,.tsx",
+		"lint:script": "npx eslint src --ext .js,.jsx,.ts,.tsx --max-warnings=0",
 		"lint:script:fix": "npm run lint:script -- --fix",
 		"prettier": "npx prettier src test --check",
 		"prettier:fix": "npm run prettier -- --write",
@@ -103,7 +103,7 @@
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
-			"eslint --fix"
+			"eslint --fix --max-warnings=0"
 		],
 		"*.{css,scss,sass}": [
 			"stylelint --fix"

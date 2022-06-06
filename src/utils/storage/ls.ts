@@ -26,7 +26,7 @@ const ls = window.localStorage
  * @param {string} key - LS keyName.
  * @returns {boolean} - If key exist and has not expired from Storage.
  */
-const exist = (key: string) => {
+const exist = (key: string): boolean => {
 	const value = ls.getItem(key)
 	if (!value) return false
 

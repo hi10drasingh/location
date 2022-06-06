@@ -16,7 +16,7 @@ type Result = google.maps.GeocoderResult | google.maps.places.PlaceResult
 const processAddressComponent = (
 	addressComponent: google.maps.GeocoderAddressComponent[],
 	placeData: IPlaceData
-) => {
+): IPlaceData => {
 	let [locality, subLocalityExist] = ["", false]
 	const data = { ...placeData }
 

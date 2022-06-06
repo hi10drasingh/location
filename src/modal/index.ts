@@ -6,7 +6,7 @@ import "./icomoon/style.css"
 /**
  * Get Modal Api response format.
  */
-interface ModalResonse extends DroomResponse {
+interface ModalResponse extends DroomResponse {
 	/**
 	 * Data will be html string.
 	 */
@@ -22,20 +22,20 @@ const URL = "/plugins/location"
  *
  * @returns {boolean} Boolean.
  */
-const isLoaded = () => Boolean(document.querySelector(`modal#${ID}`))
+const isLoaded = (): boolean => Boolean(document.querySelector(`modal#${ID}`))
 
 /**
  * Loads required html for modal and appends it to dom.
  *
  * @returns {void}
  */
-const fetchHTML = () => {
-	HTTPClient<ModalResonse>(URL, {
+const fetchHTML = (): void => {
+	HTTPClient<ModalResponse>(URL, {
 		headers: {
 			"X-Requested-With": "XMLHttpRequest"
 		}
 	})
-		.then((res: ModalResonse) => {
+		.then((res: ModalResponse) => {
 			if (res.code === "success") {
 				document.body.insertAdjacentHTML("beforeend", res.data)
 			}

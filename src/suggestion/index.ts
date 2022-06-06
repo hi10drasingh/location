@@ -79,7 +79,7 @@ const placeIDAttr = "place-id"
  *
  * @returns {HTMLElement} - Suggestions html element.
  */
-const getElement = () => {
+const getElement = (): HTMLElement => {
 	const suggestions = document.querySelector(
 		suggestionsSelector
 	) as HTMLElement
@@ -112,7 +112,7 @@ const hide = (): void => {
  *
  * @returns {void}
  */
-const applyAttributes = () => {
+const applyAttributes = (): void => {
 	const suggestions = getElement()
 	suggestions.setAttribute(heightAttr, suggestions.offsetHeight.toString())
 	suggestions.setAttribute(isReverseAttr, "false")
@@ -124,7 +124,7 @@ const applyAttributes = () => {
  * @param {HTMLElement} child - Event Target.
  * @returns {void}
  */
-const childElementEvents = (child: HTMLElement) => {
+const childElementEvents = (child: HTMLElement): void => {
 	// to prevent closeing of suggestion box when clickin on suggestion list
 	child.addEventListener("mousedown", event => {
 		event.preventDefault()
@@ -153,7 +153,7 @@ const childElementEvents = (child: HTMLElement) => {
  *
  * @returns {boolean} - If reverse order.
  */
-const isOrderReverse = () => {
+const isOrderReverse = (): boolean => {
 	const suggestions = getElement()
 
 	if (!suggestions.hasAttribute(isReverseAttr)) return false
@@ -166,7 +166,7 @@ const isOrderReverse = () => {
  *
  * @returns {void}
  */
-const reverseOrder = () => {
+const reverseOrder = (): void => {
 	const suggestions = getElement()
 
 	let itemCount = suggestions.childNodes.length
@@ -184,7 +184,7 @@ const reverseOrder = () => {
  * @param {boolean} showReverse -if suggestion should be reverse or not.
  * @returns {void}
  */
-const updateOrder = (showReverse: boolean) => {
+const updateOrder = (showReverse: boolean): void => {
 	const suggestions = getElement()
 	// checking if we need to reverse it
 	if (showReverse) {
@@ -201,7 +201,7 @@ const updateOrder = (showReverse: boolean) => {
  *
  * @returns {void}
  */
-const updatePosition = () => {
+const updatePosition = (): void => {
 	const suggestions = getElement()
 
 	let showReverse = false
@@ -236,7 +236,7 @@ const updatePosition = () => {
  *
  * @returns {void}
  */
-const applyEvents = () => {
+const applyEvents = (): void => {
 	const suggestions = getElement()
 
 	const child = suggestions.querySelectorAll(".pac-item")
@@ -255,9 +255,9 @@ const applyEvents = () => {
  */
 const load = (): void => {
 	document.body.insertAdjacentHTML("beforeend", html)
-	hide()
 	applyAttributes()
 	applyEvents()
+	hide()
 }
 
 /**
@@ -268,7 +268,11 @@ const load = (): void => {
  * @param {google.maps.places.StructuredFormatting} formatting - Matched substr offset and length.
  * @returns {void}
  */
-const updateMatchedSubstr: UpdateSubstrFunc = (type, element, formatting) => {
+const updateMatchedSubstr: UpdateSubstrFunc = (
+	type: MatchType,
+	element: HTMLElement,
+	formatting: google.maps.places.StructuredFormatting
+): void => {
 	if (type === MatchType.Main) {
 		const match = element.querySelector(".pac-matched") as HTMLElement
 

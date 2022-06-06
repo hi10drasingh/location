@@ -25,7 +25,7 @@ const INVALID_SELECTOR_MSG = "Please provide a valid input selector"
  * @param {string} string - String to be converted.
  * @returns {string} ModifiedString.
  */
-const ucwords = (string: string) =>
+const ucwords = (string: string): string =>
 	string.replace(/\b[a-z]/g, letter => letter.toUpperCase())
 
 /**
@@ -35,7 +35,7 @@ const ucwords = (string: string) =>
  * @param {boolean} isGlobal - Is Location Global.
  * @returns {void}
  */
-const applyAttributes = (selector: string, isGlobal: boolean) => {
+const applyAttributes = (selector: string, isGlobal: boolean): void => {
 	const ele = document.querySelector(selector) as HTMLElement
 
 	ele.setAttribute("autocomplete", "off")
@@ -66,7 +66,7 @@ const applyAttributes = (selector: string, isGlobal: boolean) => {
  * @param {Event} event - Input Event.
  * @returns {void}
  */
-const inputListener = (event: Event) => {
+const inputListener = (event: Event): void => {
 	const element = event.target as HTMLInputElement
 	const selector = element.getAttribute(
 		`${LocationAttrSlug}-${LocationInputSelectorAttrName}`
@@ -98,7 +98,7 @@ const inputListener = (event: Event) => {
  * @param {Event} event - Blur Event.
  * @returns {void}
  */
-const blurListener = (event: Event) => {
+const blurListener = (event: Event): void => {
 	const element = event.target as HTMLInputElement
 	const selectedCity = element.getAttribute(
 		`${LocationAttrSlug}-${LocationDataAttrList.city}`
@@ -122,7 +122,7 @@ const blurListener = (event: Event) => {
 const changeInputAttributes = (
 	element: HTMLInputElement,
 	placeData: IPlaceData
-) => {
+): void => {
 	const input = element
 	input.value = ucwords(placeData.city)
 
@@ -139,7 +139,7 @@ const changeInputAttributes = (
  * @param {Event} event - LocationChange Event.
  * @returns {void}
  */
-const locationChangedListener = (event: Event) => {
+const locationChangedListener = (event: Event): void => {
 	const element = event.target as HTMLInputElement
 
 	const placeData = (event as CustomEvent).detail as IPlaceData
@@ -155,7 +155,7 @@ const inputHandler = Debounce(inputListener, DEBOUCE_TIMEOUT)
  * @param {string} selector - Input element selector.
  * @returns {void}
  */
-const applyEvents = (selector: string) => {
+const applyEvents = (selector: string): void => {
 	const ele = document.querySelector(selector) as HTMLInputElement
 	// INPUT EVENT
 	ele.addEventListener("input", inputHandler)

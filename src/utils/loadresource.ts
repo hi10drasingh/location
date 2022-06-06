@@ -13,7 +13,7 @@ const RESOURCE = {
  * @param {string} url - Url to be parsed.
  * @returns {string} - Parsed URL.
  */
-const parseURL = (url: string) => {
+const parseURL = (url: string): string => {
 	let parsedURL = url
 
 	const assetsURL = droomWindow.assets_url || ""
@@ -40,7 +40,10 @@ const parseURL = (url: string) => {
  * @param {string } url - ParsedUrl.
  * @returns {HTMLLinkElement | HTMLScriptElement} - Resource.
  */
-const getResource = (type: string, url: string) => {
+const getResource = (
+	type: string,
+	url: string
+): HTMLLinkElement | HTMLScriptElement => {
 	let resource
 	switch (type) {
 		case RESOURCE.CSS:
@@ -67,7 +70,10 @@ const getResource = (type: string, url: string) => {
  * @param {string } url - Resource Link.
  * @returns {Promise<HTMLLinkElement | HTMLScriptElement>} - Promise that will resolved when script or link has loaded.
  */
-const LoadResource = (type: string, url: string) =>
+const LoadResource = (
+	type: string,
+	url: string
+): Promise<HTMLLinkElement | HTMLScriptElement> =>
 	new Promise<HTMLLinkElement | HTMLScriptElement>((resolve, reject) => {
 		if (!url) reject(new Error("Please provide a valid url"))
 

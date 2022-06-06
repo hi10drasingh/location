@@ -11,19 +11,16 @@ const GEOLOCATION_NOT_AVAILABLE_MSG =
  * @param {google.maps.GeocoderRequest} request - Request Obj.
  * @returns {Promise<IPlaceData>} - Geocode Result converted to place data format.
  */
-const GetPlaceFromGeocode = (
+const GetPlaceFromGeocode = async (
 	request: google.maps.GeocoderRequest
 ): Promise<IPlaceData> => {
 	const geocoder = new window.google.maps.Geocoder()
 
-	return geocoder
-		.geocode(request)
-		.then((res: google.maps.GeocoderResponse) => {
-			if (!res.results?.[0]) {
-				throw new Error("No geocode results found.")
-			}
-			return processResult(res.results[0])
-		})
+	const res = await geocoder.geocode(request)
+	if (!res.results?.[0]) {
+		throw new Error("No geocode results found.")
+	}
+	return processResult(res.results[0])
 }
 
 /**

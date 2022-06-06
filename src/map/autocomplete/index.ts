@@ -12,9 +12,11 @@ import "./style.css"
  * Fetches predictions from google maps according to requests obj.
  *
  * @param {google.maps.places.AutocompletionRequest} request - Request obj from GetPlacePrediction Api.
- * @returns {Promise<google.maps.places.AutocompletionResponse>} Prediction Results.
+ * @returns {Promise<google.maps.places.AutocompleteResponse>} Prediction Results.
  */
-const GetPredictions = (request: google.maps.places.AutocompletionRequest) => {
+const GetPredictions = (
+	request: google.maps.places.AutocompletionRequest
+): Promise<google.maps.places.AutocompleteResponse> => {
 	const autoCompleteService = new google.maps.places.AutocompleteService()
 
 	return autoCompleteService.getPlacePredictions(request)

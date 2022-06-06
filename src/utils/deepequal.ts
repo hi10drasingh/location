@@ -9,7 +9,8 @@ export type Obj = { [key: string]: unknown }
  * @param {Obj} object - Object to check.
  * @returns {boolean} - Is param follow not null object condition.
  */
-const isObject = (object: Obj) => object !== null && typeof object === "object"
+const isObject = (object: Obj): boolean =>
+	object !== null && typeof object === "object"
 
 /**
  * Check if two objects are exactaly equal.
