@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
+[Droom Google Location Plugin - v1.0.11](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
 
 # Interface: Plugin
 
@@ -34,7 +34,7 @@ Bind an element with given config to plugin.
 
 #### Defined in
 
-[src/interface/plugin.ts:18](https://github.com/hitendrarao/location/blob/d9af338/src/interface/plugin.ts#L18)
+[src/interface/plugin.ts:18](https://github.com/hitendrarao/location/blob/31fbd1f/src/interface/plugin.ts#L18)
 
 ___
 
@@ -56,4 +56,4 @@ Bind an element from plugin.
 
 #### Defined in
 
-[src/interface/plugin.ts:22](https://github.com/hitendrarao/location/blob/d9af338/src/interface/plugin.ts#L22)
+[src/interface/plugin.ts:22](https://github.com/hitendrarao/location/blob/31fbd1f/src/interface/plugin.ts#L22)
