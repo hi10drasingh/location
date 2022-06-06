@@ -1,5 +1,5 @@
 {
-	"name": "location-plugin",
+	"name": "@droom/location-plugin",
 	"version": "1.0.3",
 	"description": "Universal Location Plugin",
 	"main": "index.js",
