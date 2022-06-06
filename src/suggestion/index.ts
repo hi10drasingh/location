@@ -210,10 +210,10 @@ const updatePosition = (): void => {
 	const inputSelector = suggestions.getAttribute(currentInputAttr) as string
 
 	const input = document.querySelector(inputSelector)
-
 	if (!input) return
 
 	const inputPos = input.getBoundingClientRect()
+	suggestions.style.width = `${inputPos.width}px`
 
 	const leftPos = inputPos.left + window.pageXOffset
 	suggestions.style.left = `${leftPos.toString()}px`
