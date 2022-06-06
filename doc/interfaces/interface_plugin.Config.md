@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.8](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Config
+[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Config
 
 # Interface: Config
 
@@ -26,4 +26,4 @@ Is Input registed as global.
 
 #### Defined in
 
-[src/interface/plugin.ts:9](https://github.com/hitendrarao/location/blob/a1211a7/src/interface/plugin.ts#L9)
+[src/interface/plugin.ts:9](https://github.com/hitendrarao/location/blob/c9a9cea/src/interface/plugin.ts#L9)

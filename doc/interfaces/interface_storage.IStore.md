@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.8](../README.md) / [Exports](../modules.md) / [interface/storage](../modules/interface_storage.md) / IStore
+[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / [interface/storage](../modules/interface_storage.md) / IStore
 
 # Interface: IStore
 
@@ -21,7 +21,7 @@ Gets value from store.
 
 #### Defined in
 
-[src/interface/storage.ts:18](https://github.com/hitendrarao/location/blob/a1211a7/src/interface/storage.ts#L18)
+[src/interface/storage.ts:18](https://github.com/hitendrarao/location/blob/c9a9cea/src/interface/storage.ts#L18)
 
 ___
 
@@ -33,4 +33,4 @@ Sets value to Store.
 
 #### Defined in
 
-[src/interface/storage.ts:22](https://github.com/hitendrarao/location/blob/a1211a7/src/interface/storage.ts#L22)
+[src/interface/storage.ts:22](https://github.com/hitendrarao/location/blob/c9a9cea/src/interface/storage.ts#L22)
