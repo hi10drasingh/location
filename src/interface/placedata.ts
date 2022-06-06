@@ -1,5 +1,7 @@
+import Nullable from "interface/nullable"
+
 /**
- *
+ * Google Place Data format.
  */
 export default interface IPlaceData {
 	/**

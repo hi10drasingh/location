@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage/cookie
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / utils/storage/cookie
 
 # Module: utils/storage/cookie
 
@@ -13,7 +13,7 @@
 
 ### get
 
-▸ **get**(`key`): [`Nullable`](global.md#nullable)<`string`\>
+▸ **get**(`key`): `unknown`
 
 Get Value of a key from cookie store.
 
@@ -25,13 +25,13 @@ Get Value of a key from cookie store.
 
 #### Returns
 
-[`Nullable`](global.md#nullable)<`string`\>
+`unknown`
 
 - CookieValue.
 
 #### Defined in
 
-[utils/storage/cookie.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/cookie.ts#L9)
+[src/utils/storage/cookie.ts:11](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/storage/cookie.ts#L11)
 
 ___
 
@@ -55,4 +55,4 @@ Set cookie with given name and value for certain time in days.
 
 #### Defined in
 
-[utils/storage/cookie.ts:38](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/cookie.ts#L38)
+[src/utils/storage/cookie.ts:40](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/storage/cookie.ts#L40)

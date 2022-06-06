@@ -1,8 +1,12 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / map/autocomplete
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / map/autocomplete
 
 # Module: map/autocomplete
 
 ## Table of contents
+
+### Namespaces
+
+- [&lt;internal\&gt;](map_autocomplete._internal_.md)
 
 ### Functions
 
@@ -13,7 +17,7 @@
 
 ### GetAutoCompletePredictions
 
-▸ **GetAutoCompletePredictions**(`request`): `Promise`<`AutocompleteResponse`\>
+▸ **GetAutoCompletePredictions**(`request`): `Promise`<[`AutocompleteResponse`](../classes/map_autocomplete._internal_.AutocompleteResponse.md)\>
 
 Fetches predictions from google maps according to requests obj.
 
@@ -21,17 +25,17 @@ Fetches predictions from google maps according to requests obj.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `request` | `AutocompletionRequest` | Request obj from GetPlacePrediction Api. |
+| `request` | [`AutocompletionRequest`](../interfaces/map_autocomplete._internal_.AutocompletionRequest.md) | Request obj from GetPlacePrediction Api. |
 
 #### Returns
 
-`Promise`<`AutocompleteResponse`\>
+`Promise`<[`AutocompleteResponse`](../classes/map_autocomplete._internal_.AutocompleteResponse.md)\>
 
 Prediction Results.
 
 #### Defined in
 
-[map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/d401e71/src/map/autocomplete/index.ts#L17)
+[src/map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/90b33a2/src/map/autocomplete/index.ts#L17)
 
 ___
 
@@ -45,8 +49,8 @@ Event handler for suggestions elements result click.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `request` | `GeocoderRequest` | Request Obj. |
-| `inputEle` | `HTMLInputElement` | Current input element to which suggestions as bound. |
+| `request` | [`GeocoderRequest`](../interfaces/map_autocomplete._internal_.GeocoderRequest.md) | Request Obj. |
+| `inputEle` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Current input element to which suggestions as bound. |
 
 #### Returns
 
@@ -54,4 +58,4 @@ Event handler for suggestions elements result click.
 
 #### Defined in
 
-[map/autocomplete/index.ts:30](https://github.com/hitendrarao/location/blob/d401e71/src/map/autocomplete/index.ts#L30)
+[src/map/autocomplete/index.ts:30](https://github.com/hitendrarao/location/blob/90b33a2/src/map/autocomplete/index.ts#L30)

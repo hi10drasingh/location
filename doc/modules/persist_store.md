@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / persist/store
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / persist/store
 
 # Module: persist/store
 
@@ -25,7 +25,7 @@ Return cached location data for current session.
 
 #### Defined in
 
-[persist/store.ts:73](https://github.com/hitendrarao/location/blob/d401e71/src/persist/store.ts#L73)
+[src/persist/store.ts:29](https://github.com/hitendrarao/location/blob/90b33a2/src/persist/store.ts#L29)
 
 ___
 
@@ -41,4 +41,4 @@ Adds event listener for global location change event.
 
 #### Defined in
 
-[persist/store.ts:120](https://github.com/hitendrarao/location/blob/d401e71/src/persist/store.ts#L120)
+[src/persist/store.ts:79](https://github.com/hitendrarao/location/blob/90b33a2/src/persist/store.ts#L79)

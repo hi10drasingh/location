@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / utils/loadresource
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / utils/loadresource
 
 # Module: utils/loadresource
 
@@ -27,13 +27,13 @@
 
 #### Defined in
 
-[utils/loadresource.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/utils/loadresource.ts#L1)
+[src/utils/loadresource.ts:5](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/loadresource.ts#L5)
 
 ## Functions
 
 ### LoadResource
 
-▸ **LoadResource**(`type`, `url`): `Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
+▸ **LoadResource**(`type`, `url`): `Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
 
 Asynchronously loads resource.
 
@@ -46,10 +46,10 @@ Asynchronously loads resource.
 
 #### Returns
 
-`Promise`<`HTMLLinkElement` \| `HTMLScriptElement`\>
+`Promise`<[`HTMLLinkElement`](input._internal_.md#htmllinkelement) \| [`HTMLScriptElement`](input._internal_.md#htmlscriptelement)\>
 
 - Promise that will resolved when script or link has loaded.
 
 #### Defined in
 
-[utils/loadresource.ts:66](https://github.com/hitendrarao/location/blob/d401e71/src/utils/loadresource.ts#L66)
+[src/utils/loadresource.ts:70](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/loadresource.ts#L70)

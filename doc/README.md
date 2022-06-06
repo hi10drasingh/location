@@ -1,4 +1,4 @@
-location-plugin / [Exports](modules.md)
+Droom Google Location Plugin - v1.0.4 / [Exports](modules.md)
 
 # 🚀 Welcome to your new awesome project!
 

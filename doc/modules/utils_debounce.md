@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / utils/debounce
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / utils/debounce
 
 # Module: utils/debounce
 
@@ -47,4 +47,4 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 
 #### Defined in
 
-[utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/d401e71/src/utils/debounce.ts#L10)
+[src/utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/debounce.ts#L10)

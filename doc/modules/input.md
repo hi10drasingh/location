@@ -1,8 +1,12 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / input
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / input
 
 # Module: input
 
 ## Table of contents
+
+### Namespaces
+
+- [&lt;internal\&gt;](input._internal_.md)
 
 ### Functions
 
@@ -17,6 +21,8 @@
 
 Bind Location Plugin to a input element.
 
+**`throws`** {INVALID_SELECTOR_MSG} INVALID_SELECTOR_MSG.
+
 #### Parameters
 
 | Name | Type | Description |
@@ -30,7 +36,7 @@ Bind Location Plugin to a input element.
 
 #### Defined in
 
-[input/index.ts:175](https://github.com/hitendrarao/location/blob/d401e71/src/input/index.ts#L175)
+[src/input/index.ts:178](https://github.com/hitendrarao/location/blob/90b33a2/src/input/index.ts#L178)
 
 ___
 
@@ -44,7 +50,7 @@ UnBind Location Plugin to a input element.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | `HTMLInputElement` | Input element. |
+| `element` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input element. |
 
 #### Returns
 
@@ -52,4 +58,4 @@ UnBind Location Plugin to a input element.
 
 #### Defined in
 
-[input/index.ts:225](https://github.com/hitendrarao/location/blob/d401e71/src/input/index.ts#L225)
+[src/input/index.ts:228](https://github.com/hitendrarao/location/blob/90b33a2/src/input/index.ts#L228)

@@ -1,4 +1,6 @@
-import { IStoreGet, IStoreSet } from "../../interface"
+import { IStoreGet, IStoreSet, Nullable, DroomWindow } from "interface"
+
+const droomWindow = window as Window as DroomWindow
 
 /**
  * Get Value of a key from cookie store.
@@ -24,7 +26,7 @@ const get: IStoreGet = (key: string): Nullable<string> => {
 		}
 	})
 
-	return cookieValue ? window.atob(cookieValue) : null
+	return cookieValue ? droomWindow.atob(cookieValue) : null
 }
 
 /**
@@ -49,11 +51,13 @@ const set: IStoreSet = (
 	date.setTime(date.getTime() + timeInDays * 24 * 60 * 60 * 1000)
 	expires = `;expires=${date.toUTCString()}`
 
-	const cookieValue = `${key}=${window.btoa(jsonValue)}${expires};domain=${
-		window.cookie_domain || window.location.host
+	const cookieValue = `${key}=${droomWindow.btoa(
+		jsonValue
+	)}${expires};domain=${
+		droomWindow.cookie_domain || droomWindow.location.host
 	};path=/`
 
-	window.document.cookie = cookieValue
+	droomWindow.document.cookie = cookieValue
 }
 
 export { get, set }

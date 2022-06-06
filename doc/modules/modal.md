@@ -1,25 +1,31 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / modal
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / modal
 
 # Module: modal
 
 ## Table of contents
 
-### Variables
+### Functions
 
 - [default](modal.md#default)
 
-## Variables
+## Functions
 
 ### default
 
-• **default**: `Object`
+▸ **default**(`selector`): `void`
 
-#### Type declaration
+Register modal to on click for a selector.
 
-| Name | Type |
-| :------ | :------ |
-| `register` | (`selector`: `string`) => `void` |
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `selector` | `string` | Element selector for which click event will be bounded. |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[modal/index.ts:59](https://github.com/hitendrarao/location/blob/d401e71/src/modal/index.ts#L59)
+[src/modal/index.ts:52](https://github.com/hitendrarao/location/blob/90b33a2/src/modal/index.ts#L52)

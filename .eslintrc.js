@@ -60,11 +60,6 @@ module.exports = {
 			files: ["**/*.ts", "**/*.tsx"],
 			parser: "@typescript-eslint/parser",
 			plugins: ["@typescript-eslint", "jsdoc"],
-			globals: {
-				Nullable: "readonly",
-				DroomResponse: "readonly",
-				google: "readonly"
-			},
 			extends: [
 				...extendPlugins,
 				"airbnb-typescript/base",
@@ -73,6 +68,9 @@ module.exports = {
 				"plugin:@typescript-eslint/recommended-requiring-type-checking",
 				"prettier" // Make sure this is the last
 			],
+			globals: {
+				google: "readonly"
+			},
 			parserOptions: {
 				project: "./tsconfig.json",
 				ecmaVersion: "latest"

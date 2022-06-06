@@ -1,32 +1,59 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [interface/plugin](../modules/interface_plugin.md) / Plugin
 
 # Interface: Plugin
 
 [interface/plugin](../modules/interface_plugin.md).Plugin
 
+Plugin Function Structure.
+
 ## Table of contents
 
-### Properties
+### Methods
 
-- [bindInput](interface_plugin.Plugin.md#bindinput)
-- [unbindInput](interface_plugin.Plugin.md#unbindinput)
+- [bind](interface_plugin.Plugin.md#bind)
+- [unbind](interface_plugin.Plugin.md#unbind)
 
-## Properties
+## Methods
 
-### bindInput
+### bind
 
-• **bindInput**: [`BindInputFunc`](../modules/interface_input.md#bindinputfunc)
+▸ **bind**(`selector`, `config?`): `void`
+
+Bind an element with given config to plugin.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `selector` | `string` |
+| `config?` | [`Config`](interface_plugin.Config.md) |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[interface/plugin.ts:4](https://github.com/hitendrarao/location/blob/d401e71/src/interface/plugin.ts#L4)
+[src/interface/plugin.ts:18](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/plugin.ts#L18)
 
 ___
 
-### unbindInput
+### unbind
 
-• **unbindInput**: [`UnbindInputFunc`](../modules/interface_input.md#unbindinputfunc)
+▸ **unbind**(`selector`): `void`
+
+Bind an element from plugin.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `selector` | `string` |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[interface/plugin.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/interface/plugin.ts#L5)
+[src/interface/plugin.ts:22](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/plugin.ts#L22)

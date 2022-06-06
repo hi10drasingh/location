@@ -4,9 +4,9 @@ import {
 	CookieStoreGet,
 	CookieStoreSet,
 	DeepEqual
-} from "../utils"
-import { LocationChangeEvent, LocationDefaultData } from "../constant"
-import IPlaceData from "../interface"
+} from "utils"
+import { LocationChangeEvent, LocationDefaultData } from "constant"
+import { IPlaceData, Nullable } from "interface"
 
 const cookieKey = "dul"
 

@@ -1,6 +1,8 @@
-import { CookieStoreGet, ErrorHandler, HTTPClient } from "../utils"
-import IPlaceData from "../interface"
-import { LocationChangeEvent } from "../constant"
+import { CookieStoreGet, ErrorHandler, HTTPClient } from "utils"
+import { IPlaceData, Nullable, DroomResponse, DroomWindow } from "interface"
+import { LocationChangeEvent } from "constant"
+
+const droomWindow = window as Window as DroomWindow
 
 /**
  * User Location Api Result Format.
@@ -20,7 +22,7 @@ const URL = "/user/location"
  * @returns {IPlaceData | null} - User location data.
  */
 const getUserLocation = async () => {
-	if (!window.auth) return null
+	if (!droomWindow.auth) return null
 	const response = await HTTPClient<UserLocationResponse>(URL, {
 		headers: {
 			"X-Requested-With": "XMLHttpRequest"
@@ -37,7 +39,7 @@ const getUserLocation = async () => {
  * @returns {void}
  */
 const setUserLocation = (data: IPlaceData): void => {
-	if (!window.auth) return
+	if (!droomWindow.auth) return
 	const csrfToken = CookieStoreGet("XSRF-TOKEN") as string
 
 	HTTPClient(URL, {

@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / location
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / location
 
 # Module: location
 
@@ -22,7 +22,7 @@ Check if given input is registers as global not not.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ele` | `HTMLInputElement` | Input element to be checked for global. |
+| `ele` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input element to be checked for global. |
 
 #### Returns
 
@@ -32,7 +32,7 @@ Check if given input is registers as global not not.
 
 #### Defined in
 
-[location.ts:90](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L90)
+[src/location.ts:109](https://github.com/hitendrarao/location/blob/90b33a2/src/location.ts#L109)
 
 ___
 
@@ -54,7 +54,7 @@ Triggers Location change for all global inputs.
 
 #### Defined in
 
-[location.ts:49](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L49)
+[src/location.ts:77](https://github.com/hitendrarao/location/blob/90b33a2/src/location.ts#L77)
 
 ___
 
@@ -69,7 +69,7 @@ Trigger Location Change for local inputs.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `newPlaceData` | [`default`](../interfaces/interface_placedata.default.md) | New place data. |
-| `inputEle` | `HTMLInputElement` | Input for which change will be triggered. |
+| `inputEle` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) | Input for which change will be triggered. |
 
 #### Returns
 
@@ -77,4 +77,4 @@ Trigger Location Change for local inputs.
 
 #### Defined in
 
-[location.ts:76](https://github.com/hitendrarao/location/blob/d401e71/src/location.ts#L76)
+[src/location.ts:95](https://github.com/hitendrarao/location/blob/90b33a2/src/location.ts#L95)

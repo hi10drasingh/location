@@ -1,6 +1,6 @@
-import IPlaceData from "../interface"
-import { processResult } from "./map"
-import { TriggerGlobalChange } from "../location"
+import { IPlaceData } from "interface"
+import { TriggerGlobalChange } from "location"
+import { processResult } from "map/map"
 
 const GEOLOCATION_NOT_AVAILABLE_MSG =
 	"Geolocation is not available for this browser"
@@ -16,12 +16,14 @@ const GetPlaceFromGeocode = (
 ): Promise<IPlaceData> => {
 	const geocoder = new window.google.maps.Geocoder()
 
-	return geocoder.geocode(request).then(res => {
-		if (!res.results?.[0]) {
-			throw new Error("No geocode results found.")
-		}
-		return processResult(res.results[0])
-	})
+	return geocoder
+		.geocode(request)
+		.then((res: google.maps.GeocoderResponse) => {
+			if (!res.results?.[0]) {
+				throw new Error("No geocode results found.")
+			}
+			return processResult(res.results[0])
+		})
 }
 
 /**

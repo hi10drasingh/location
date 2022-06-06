@@ -1,6 +1,7 @@
-import { HTTPClient, ErrorHandler } from "../utils"
-import "./style.css"
-import "./icomoon/style.css"
+import { DroomResponse } from "interface"
+import { HTTPClient, ErrorHandler } from "utils"
+import "modal/style.css"
+import "modal/icomoon/style.css"
 
 /**
  * Get Modal Api response format.
@@ -48,7 +49,7 @@ const fetchHTML = () => {
  * @param {string} selector - Element selector for which click event will be bounded.
  * @returns {void}
  */
-const register = (selector: string): void => {
+const RegisterModal = (selector: string): void => {
 	const ele = document.querySelector(selector)
 
 	if (ele) {
@@ -62,6 +63,4 @@ const register = (selector: string): void => {
 	}
 }
 
-export default {
-	register
-}
+export default RegisterModal

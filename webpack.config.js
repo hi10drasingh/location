@@ -4,25 +4,42 @@ const path = require("path")
 
 const isProduction = process.env.NODE_ENV === "production"
 
+const TerserPlugin = require("terser-webpack-plugin")
+
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
+
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin")
+
 const config = {
-	entry: ["./src/index.ts"],
+	entry: {
+		"location-plugin": "./src/index.ts",
+		"location-plugin.min": "./src/index.ts"
+	},
+	watch: process.env.WATCH === "true",
 	devtool: "source-map",
 	output: {
-		path: path.resolve(__dirname, "dist"),
+		path: path.resolve(__dirname, "_bundles"),
+		filename: "[name].js",
 		library: {
 			type: "umd",
 			export: "default",
-			name: "LocationPlugin"
+			name: "LocationPlugin",
+			umdNamedDefine: true
 		}
 	},
 	devServer: {
 		open: true,
 		host: "localhost"
 	},
-	plugins: [
-		// Add your plugins here
-		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
-	],
+	plugins: [new ForkTsCheckerWebpackPlugin()],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				test: /\.min\.js$/i
+			})
+		]
+	},
 	module: {
 		rules: [
 			{
@@ -37,6 +54,7 @@ const config = {
 		]
 	},
 	resolve: {
+		plugins: [new TsconfigPathsPlugin()],
 		extensions: [".tsx", ".ts", ".js", ".jsx"]
 	}
 }

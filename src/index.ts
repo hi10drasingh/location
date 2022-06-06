@@ -1,7 +1,7 @@
-import { BindInput, UnbindInput } from "./input"
-import { Plugin, Config } from "./interface"
-import LoadDependencies from "./load"
-import { LocationDefaultConfig, LocationAttrSlug } from "./constant"
+import { BindInput, UnbindInput } from "input"
+import { Plugin, Config } from "interface"
+import LoadDependencies from "load"
+import { LocationDefaultConfig, LocationAttrSlug } from "constant"
 
 /**
  * Binds plugins to a element with given selector.
@@ -77,6 +77,6 @@ const PluginFunc = (): Plugin => {
 	}
 }
 
-const LocationPlugin = PluginFunc()
+const LocationPlugin: Plugin = PluginFunc()
 
 export default LocationPlugin

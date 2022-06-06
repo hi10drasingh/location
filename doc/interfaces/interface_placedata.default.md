@@ -1,12 +1,14 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
 
 # Interface: default
 
 [interface/placedata](../modules/interface_placedata.md).default
 
+Google Place Data format.
+
 ## Indexable
 
-▪ [key: `string`]: [`Nullable`](../modules/global.md#nullable)<`number`\> \| `string` \| [`Nullable`](../modules/global.md#nullable)<`string`\>
+▪ [key: `string`]: [`default`](../modules/interface_nullable.md#default)<`number`\> \| `string` \| [`default`](../modules/interface_nullable.md#default)<`string`\>
 
 ## Table of contents
 
@@ -25,11 +27,13 @@
 
 ### address
 
-• **address**: [`Nullable`](../modules/global.md#nullable)<`string`\>
+• **address**: [`default`](../modules/interface_nullable.md#default)<`string`\>
+
+Address of the place.
 
 #### Defined in
 
-[interface/placedata.ts:10](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L10)
+[src/interface/placedata.ts:42](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L42)
 
 ___
 
@@ -37,9 +41,11 @@ ___
 
 • **city**: `string`
 
+City of the place.
+
 #### Defined in
 
-[interface/placedata.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L5)
+[src/interface/placedata.ts:22](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L22)
 
 ___
 
@@ -47,56 +53,68 @@ ___
 
 • **country**: `string`
 
+Country of the place.
+
 #### Defined in
 
-[interface/placedata.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L9)
+[src/interface/placedata.ts:38](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L38)
 
 ___
 
 ### lat
 
-• **lat**: [`Nullable`](../modules/global.md#nullable)<`number`\>
+• **lat**: [`default`](../modules/interface_nullable.md#default)<`number`\>
+
+Latitude of the Place.
 
 #### Defined in
 
-[interface/placedata.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L3)
+[src/interface/placedata.ts:14](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L14)
 
 ___
 
 ### lng
 
-• **lng**: [`Nullable`](../modules/global.md#nullable)<`number`\>
+• **lng**: [`default`](../modules/interface_nullable.md#default)<`number`\>
+
+Longitute of the Place.
 
 #### Defined in
 
-[interface/placedata.ts:4](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L4)
+[src/interface/placedata.ts:18](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L18)
 
 ___
 
 ### pincode
 
-• **pincode**: [`Nullable`](../modules/global.md#nullable)<`string`\>
+• **pincode**: [`default`](../modules/interface_nullable.md#default)<`string`\>
+
+Pincode of the place.
 
 #### Defined in
 
-[interface/placedata.ts:7](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L7)
+[src/interface/placedata.ts:30](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L30)
 
 ___
 
 ### place\_id
 
-• **place\_id**: [`Nullable`](../modules/global.md#nullable)<`string`\>
+• **place\_id**: [`default`](../modules/interface_nullable.md#default)<`string`\>
+
+Google Place ID of the place.
 
 #### Defined in
 
-[interface/placedata.ts:8](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L8)
+[src/interface/placedata.ts:34](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L34)
 
 ___
 
 ### state
 
-• **state**: [`Nullable`](../modules/global.md#nullable)<`string`\>
+• **state**: [`default`](../modules/interface_nullable.md#default)<`string`\>
+
+	State of the place.
 
 #### Defined in
 
-[interface/placedata.ts:6](https://github.com/hitendrarao/location/blob/d401e71/src/interface/placedata.ts#L6)
+[src/interface/placedata.ts:26](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/placedata.ts#L26)

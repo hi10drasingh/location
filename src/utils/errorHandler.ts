@@ -5,7 +5,7 @@
  * @returns {void}
  */
 const error = (err: unknown): void => {
-    console.error(err) /* eslint-disable-line no-console */
+	console.error(err) /* eslint-disable-line no-console */
 }
 
 /**
@@ -15,7 +15,7 @@ const error = (err: unknown): void => {
  * @returns {void}
  */
 const info = (msg: unknown): void => {
-    console.info(msg) /* eslint-disable-line no-console */
+	console.info(msg) /* eslint-disable-line no-console */
 }
 
 /**
@@ -25,7 +25,7 @@ const info = (msg: unknown): void => {
  * @returns {void}
  */
 const warn = (msg: unknown): void => {
-    console.warn(msg) /* eslint-disable-line no-console */
+	console.warn(msg) /* eslint-disable-line no-console */
 }
 
 /**
@@ -35,7 +35,7 @@ const warn = (msg: unknown): void => {
  * @returns {void}
  */
 const log = (msg: unknown): void => {
-    console.log(msg) /* eslint-disable-line no-console */
+	console.log(msg) /* eslint-disable-line no-console */
 }
 
 export default { error, info, warn, log }

@@ -1,12 +1,12 @@
-import { ErrorHandler } from "../../utils"
-import { GetPlaceFromGeocode } from "../geocode"
+import { ErrorHandler } from "utils"
 import {
 	TriggerLocalChange,
 	TriggerGlobalChange,
 	IsGlobalLocation
-} from "../../location"
-import type IPlaceData from "../../interface"
-import "./style.css"
+} from "location"
+import type { IPlaceData } from "interface"
+import { GetPlaceFromGeocode } from "map/geocode"
+import "map/autocomplete/style.css"
 
 /**
  * Fetches predictions from google maps according to requests obj.

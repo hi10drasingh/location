@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / interface/input
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / interface/input
 
 # Module: interface/input
 
@@ -19,6 +19,8 @@
 
 ▸ (`selector`, `isGlobal`): `void`
 
+Bind as input element to location plugin.
+
 ##### Parameters
 
 | Name | Type |
@@ -32,23 +34,25 @@
 
 #### Defined in
 
-[interface/input.ts:1](https://github.com/hitendrarao/location/blob/d401e71/src/interface/input.ts#L1)
+[src/interface/input.ts:4](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/input.ts#L4)
 
 ___
 
 ### UnbindInputFunc
 
-Ƭ **UnbindInputFunc**: (`element`: `HTMLInputElement`) => `void`
+Ƭ **UnbindInputFunc**: (`element`: [`HTMLInputElement`](input._internal_.md#htmlinputelement)) => `void`
 
 #### Type declaration
 
 ▸ (`element`): `void`
 
+Unbind Input Element from plugin.
+
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `element` | `HTMLInputElement` |
+| `element` | [`HTMLInputElement`](input._internal_.md#htmlinputelement) |
 
 ##### Returns
 
@@ -56,4 +60,4 @@ ___
 
 #### Defined in
 
-[interface/input.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/interface/input.ts#L3)
+[src/interface/input.ts:9](https://github.com/hitendrarao/location/blob/90b33a2/src/interface/input.ts#L9)

@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / utils/storage/ls
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / utils/storage/ls
 
 # Module: utils/storage/ls
 
@@ -13,7 +13,7 @@
 
 ### get
 
-▸ **get**(`key`): [`Nullable`](global.md#nullable)<`string`\>
+▸ **get**(`key`): `unknown`
 
 Get Value of a key from Local Storage.
 
@@ -25,13 +25,13 @@ Get Value of a key from Local Storage.
 
 #### Returns
 
-[`Nullable`](global.md#nullable)<`string`\>
+`unknown`
 
 - LSValue.
 
 #### Defined in
 
-[utils/storage/ls.ts:62](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/ls.ts#L62)
+[src/utils/storage/ls.ts:73](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/storage/ls.ts#L73)
 
 ___
 
@@ -55,4 +55,4 @@ Set data in LocalStorage with given key.
 
 #### Defined in
 
-[utils/storage/ls.ts:46](https://github.com/hitendrarao/location/blob/d401e71/src/utils/storage/ls.ts#L46)
+[src/utils/storage/ls.ts:57](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/storage/ls.ts#L57)

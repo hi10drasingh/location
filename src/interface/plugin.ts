@@ -9,7 +9,7 @@ interface Config {
 	isGlobal: boolean
 }
 /**
- *
+ * Plugin Function Structure.
  */
 interface Plugin {
 	/**

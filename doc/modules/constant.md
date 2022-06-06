@@ -1,17 +1,23 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / constant
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / constant
 
 # Module: constant
 
 ## Table of contents
+
+### Namespaces
+
+- [&lt;internal\&gt;](constant._internal_.md)
 
 ### Variables
 
 - [LocationAttrSlug](constant.md#locationattrslug)
 - [LocationChangeEvent](constant.md#locationchangeevent)
 - [LocationDataAttrList](constant.md#locationdataattrlist)
+- [LocationDefaultConfig](constant.md#locationdefaultconfig)
 - [LocationDefaultData](constant.md#locationdefaultdata)
 - [LocationInputSelectorAttrName](constant.md#locationinputselectorattrname)
 - [LocationPluginTypes](constant.md#locationplugintypes)
+- [LocationPopularCityStateMap](constant.md#locationpopularcitystatemap)
 - [LocationTypeAttrName](constant.md#locationtypeattrname)
 
 ## Variables
@@ -22,7 +28,7 @@
 
 #### Defined in
 
-[constant/index.ts:3](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L3)
+[src/constant/index.ts:3](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L3)
 
 ___
 
@@ -32,30 +38,33 @@ ___
 
 #### Defined in
 
-[constant/index.ts:5](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L5)
+[src/constant/index.ts:5](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L5)
 
 ___
 
 ### LocationDataAttrList
 
-• `Const` **LocationDataAttrList**: `Object`
+• `Const` **LocationDataAttrList**: { [key in keyof default]: string }
+
+#### Defined in
+
+[src/constant/index.ts:26](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L26)
+
+___
+
+### LocationDefaultConfig
+
+• `Const` **LocationDefaultConfig**: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `address` | `string` |
-| `city` | `string` |
-| `country` | `string` |
-| `lat` | `string` |
-| `lng` | `string` |
-| `pincode` | `string` |
-| `placeId` | `string` |
-| `state` | `string` |
+| `isGlobal` | `boolean` |
 
 #### Defined in
 
-[constant/index.ts:26](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L26)
+[src/constant/index.ts:37](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L37)
 
 ___
 
@@ -65,7 +74,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:7](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L7)
+[src/constant/index.ts:7](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L7)
 
 ___
 
@@ -75,7 +84,7 @@ ___
 
 #### Defined in
 
-[constant/index.ts:19](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L19)
+[src/constant/index.ts:19](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L19)
 
 ___
 
@@ -92,7 +101,17 @@ ___
 
 #### Defined in
 
-[constant/index.ts:21](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L21)
+[src/constant/index.ts:21](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L21)
+
+___
+
+### LocationPopularCityStateMap
+
+• `Const` **LocationPopularCityStateMap**: [`Record`](constant._internal_.md#record)<`string`, `string`\>
+
+#### Defined in
+
+[src/constant/index.ts:41](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L41)
 
 ___
 
@@ -102,4 +121,4 @@ ___
 
 #### Defined in
 
-[constant/index.ts:18](https://github.com/hitendrarao/location/blob/d401e71/src/constant/index.ts#L18)
+[src/constant/index.ts:18](https://github.com/hitendrarao/location/blob/90b33a2/src/constant/index.ts#L18)

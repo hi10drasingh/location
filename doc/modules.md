@@ -1,18 +1,22 @@
-[location-plugin](README.md) / Exports
+[Droom Google Location Plugin - v1.0.4](README.md) / Exports
 
-# location-plugin
+# Droom Google Location Plugin - v1.0.4
 
 ## Table of contents
 
 ### Modules
 
 - [constant](modules/constant.md)
-- [global](modules/global.md)
+- [index](modules/index.md)
 - [input](modules/input.md)
 - [interface](modules/interface.md)
 - [interface/input](modules/interface_input.md)
+- [interface/nullable](modules/interface_nullable.md)
 - [interface/placedata](modules/interface_placedata.md)
 - [interface/plugin](modules/interface_plugin.md)
+- [interface/response](modules/interface_response.md)
+- [interface/storage](modules/interface_storage.md)
+- [interface/window](modules/interface_window.md)
 - [load](modules/load.md)
 - [location](modules/location.md)
 - [map](modules/map.md)
@@ -23,7 +27,6 @@
 - [persist](modules/persist.md)
 - [persist/store](modules/persist_store.md)
 - [persist/user](modules/persist_user.md)
-- [plugin](modules/plugin.md)
 - [suggestion](modules/suggestion.md)
 - [utils](modules/utils.md)
 - [utils/debounce](modules/utils_debounce.md)
@@ -33,5 +36,4 @@
 - [utils/loadresource](modules/utils_loadresource.md)
 - [utils/storage](modules/utils_storage.md)
 - [utils/storage/cookie](modules/utils_storage_cookie.md)
-- [utils/storage/interface](modules/utils_storage_interface.md)
 - [utils/storage/ls](modules/utils_storage_ls.md)

@@ -1,13 +1,13 @@
-import { LoadSuggestion } from "./suggestion"
+import { LoadSuggestion } from "suggestion"
 import {
 	LoadCacheStore,
 	LoadUserStore,
 	GetCacheData,
 	getUserLocation
-} from "./persist"
-import { TriggerGlobalChange } from "./location"
-import { ErrorHandler } from "./utils"
-import { GetCurrentLocation } from "./map"
+} from "persist"
+import { TriggerGlobalChange } from "location"
+import { ErrorHandler } from "utils"
+import { GetCurrentLocation } from "map"
 
 /**
  * Loads user location data from db.

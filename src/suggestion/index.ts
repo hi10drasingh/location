@@ -1,4 +1,4 @@
-import { HandlerAutoCompleteItemClick } from "../map"
+import { HandlerAutoCompleteItemClick } from "map"
 
 /**
  * Formatting match type.

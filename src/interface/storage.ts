@@ -1,3 +1,4 @@
+import Nullable from "interface/nullable"
 /**
  * Get value of key from cache store.
  */

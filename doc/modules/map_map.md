@@ -1,8 +1,12 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / map/map
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / map/map
 
 # Module: map/map
 
 ## Table of contents
+
+### Namespaces
+
+- [&lt;internal\&gt;](map_map._internal_.md)
 
 ### Type Aliases
 
@@ -16,11 +20,13 @@
 
 ### Result
 
-Ƭ **Result**: `google.maps.GeocoderResult` \| `google.maps.places.PlaceResult`
+Ƭ **Result**: [`GeocoderResult`](../interfaces/map_map._internal_.GeocoderResult.md) \| [`PlaceResult`](../interfaces/map_map._internal_.PlaceResult.md)
+
+Result format of geocoder or place detail api.
 
 #### Defined in
 
-[map/map.ts:4](https://github.com/hitendrarao/location/blob/d401e71/src/map/map.ts#L4)
+[src/map/map.ts:7](https://github.com/hitendrarao/location/blob/90b33a2/src/map/map.ts#L7)
 
 ## Functions
 
@@ -44,4 +50,4 @@ PlaceData.
 
 #### Defined in
 
-[map/map.ts:49](https://github.com/hitendrarao/location/blob/d401e71/src/map/map.ts#L49)
+[src/map/map.ts:52](https://github.com/hitendrarao/location/blob/90b33a2/src/map/map.ts#L52)

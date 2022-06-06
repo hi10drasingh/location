@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / utils/http
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / utils/http
 
 # Module: utils/http
 
@@ -26,8 +26,8 @@ Droom Wrapper for fetch api.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `input` | `RequestInfo` | Request defination. |
-| `init?` | `RequestInit` | Request init object. |
+| `input` | [`RequestInfo`](input._internal_.md#requestinfo) | Request defination. |
+| `init?` | [`RequestInit`](../interfaces/input._internal_.RequestInit.md) | Request init object. |
 
 #### Returns
 
@@ -37,4 +37,4 @@ Droom Wrapper for fetch api.
 
 #### Defined in
 
-[utils/http.ts:9](https://github.com/hitendrarao/location/blob/d401e71/src/utils/http.ts#L9)
+[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/90b33a2/src/utils/http.ts#L9)

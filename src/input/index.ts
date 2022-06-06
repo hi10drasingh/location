@@ -1,6 +1,6 @@
-import { Debounce, ErrorHandler } from "../utils"
-import { HideSuggestion, UpdateSuggestion } from "../suggestion"
-import { GetAutoCompletePredictions } from "../map"
+import { Debounce, ErrorHandler } from "utils"
+import { HideSuggestion, UpdateSuggestion } from "suggestion"
+import { GetAutoCompletePredictions } from "map"
 import {
 	LocationAttrSlug,
 	LocationChangeEvent,
@@ -8,10 +8,10 @@ import {
 	LocationInputSelectorAttrName,
 	LocationPluginTypes,
 	LocationDataAttrList
-} from "../constant"
-import IPlaceData, { BindInputFunc, UnbindInputFunc } from "../interface"
-import { IsGlobalLocation, TriggerLocalChange } from "../location"
-import { GetCacheData } from "../persist"
+} from "constant"
+import { IPlaceData, BindInputFunc, UnbindInputFunc } from "interface"
+import { IsGlobalLocation, TriggerLocalChange } from "location"
+import { GetCacheData } from "persist"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 

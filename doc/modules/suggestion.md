@@ -1,4 +1,4 @@
-[location-plugin](../README.md) / [Exports](../modules.md) / suggestion
+[Droom Google Location Plugin - v1.0.4](../README.md) / [Exports](../modules.md) / suggestion
 
 # Module: suggestion
 
@@ -25,7 +25,7 @@ Hides The Suggestions.
 
 #### Defined in
 
-[suggestion/index.ts:99](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L99)
+[src/suggestion/index.ts:105](https://github.com/hitendrarao/location/blob/90b33a2/src/suggestion/index.ts#L105)
 
 ___
 
@@ -41,7 +41,7 @@ Add suggestion html to document and apply events and attributes.
 
 #### Defined in
 
-[suggestion/index.ts:250](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L250)
+[src/suggestion/index.ts:256](https://github.com/hitendrarao/location/blob/90b33a2/src/suggestion/index.ts#L256)
 
 ___
 
@@ -57,7 +57,7 @@ Displays The Suggestions.
 
 #### Defined in
 
-[suggestion/index.ts:89](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L89)
+[src/suggestion/index.ts:95](https://github.com/hitendrarao/location/blob/90b33a2/src/suggestion/index.ts#L95)
 
 ___
 
@@ -71,7 +71,7 @@ Update the suggestion list according to new autocomplete predictions.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `predictions` | `AutocompletePrediction`[] | Autocomplete prediction from goole for typed location. |
+| `predictions` | [`AutocompletePrediction`](../interfaces/map_autocomplete._internal_.AutocompletePrediction.md)[] | Autocomplete prediction from goole for typed location. |
 | `selector` | `string` | Current Input Selector. |
 
 #### Returns
@@ -80,4 +80,4 @@ Update the suggestion list according to new autocomplete predictions.
 
 #### Defined in
 
-[suggestion/index.ts:298](https://github.com/hitendrarao/location/blob/d401e71/src/suggestion/index.ts#L298)
+[src/suggestion/index.ts:304](https://github.com/hitendrarao/location/blob/90b33a2/src/suggestion/index.ts#L304)
