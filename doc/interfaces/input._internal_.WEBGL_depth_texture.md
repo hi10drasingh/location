@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / WEBGL\_depth\_texture
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / WEBGL\_depth\_texture
 
 # Interface: WEBGL\_depth\_texture
 

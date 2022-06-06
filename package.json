@@ -21,11 +21,13 @@
 		"build:doc": "npx typedoc",
 		"type-check": "tsc --noEmit",
 		"type-check:watch": "npm run type-check -- --watch",
+		"copy-files:lib": "copyfiles -u 1 \"./src/**/*.html\" \"./src/**/*.css\" \"./src/**/*.txt\" \"./src/**/*.eot\" \"./src/**/*.svg\" \"./src/**/*.ttf\" \"./src/**/*.woff\" lib/",
+		"copy-files:lib-esm": "copyfiles -u 1 \"./src/**/*.html\" \"./src/**/*.css\" \"./src/**/*.txt\" \"./src/**/*.eot\" \"./src/**/*.svg\" \"./src/**/*.ttf\" \"./src/**/*.woff\" lib-esm/",
 		"clean": "npx shx rm -rf _bundles lib lib-esm",
 		"tsc": "tsc",
 		"tsc:es6": "tsc -m es6 --outDir lib-esm",
-		"build": "run-s clean tsc tsc:es6 build:prod build:doc",
-		"prepublish": "run-s lint build"
+		"build": "run-s lint clean tsc copy-files:lib tsc:es6 copy-files:lib-esm build:prod build:doc",
+		"prepublish": "build"
 	},
 	"verbose": true,
 	"engines": {
@@ -66,6 +68,7 @@
 		"@typescript-eslint/parser": "^5.27.0",
 		"@webpack-cli/generators": "^2.4.2",
 		"babel-loader": "^8.2.5",
+		"copyfiles": "^2.4.1",
 		"css-loader": "^6.7.1",
 		"eslint": "^8.17.0",
 		"eslint-config-airbnb-base": "^15.0.0",

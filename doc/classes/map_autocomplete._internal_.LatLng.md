@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [map/autocomplete](../modules/map_autocomplete.md) / [<internal\>](../modules/map_autocomplete._internal_.md) / LatLng
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / [map/autocomplete](../modules/map_autocomplete.md) / [<internal\>](../modules/map_autocomplete._internal_.md) / LatLng
 
 # Class: LatLng
 

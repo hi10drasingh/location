@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / utils/storage/cookie
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / utils/storage/cookie
 
 # Module: utils/storage/cookie
 
@@ -31,7 +31,7 @@ Get Value of a key from cookie store.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:11](https://github.com/hitendrarao/location/blob/0bcac8f/src/utils/storage/cookie.ts#L11)
+[src/utils/storage/cookie.ts:11](https://github.com/hitendrarao/location/blob/fe59d74/src/utils/storage/cookie.ts#L11)
 
 ___
 
@@ -55,4 +55,4 @@ Set cookie with given name and value for certain time in days.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:40](https://github.com/hitendrarao/location/blob/0bcac8f/src/utils/storage/cookie.ts#L40)
+[src/utils/storage/cookie.ts:40](https://github.com/hitendrarao/location/blob/fe59d74/src/utils/storage/cookie.ts#L40)

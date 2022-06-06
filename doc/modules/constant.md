@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / constant
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / constant
 
 # Module: constant
 
@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/constant/index.ts:3](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L3)
+[src/constant/index.ts:3](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L3)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:5](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L5)
+[src/constant/index.ts:5](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L5)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:26](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L26)
+[src/constant/index.ts:26](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L26)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:37](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L37)
+[src/constant/index.ts:37](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L37)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:7](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L7)
+[src/constant/index.ts:7](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L7)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:19](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L19)
+[src/constant/index.ts:19](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L19)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:21](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L21)
+[src/constant/index.ts:21](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L21)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:41](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L41)
+[src/constant/index.ts:41](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L41)
 
 ___
 
@@ -121,4 +121,4 @@ ___
 
 #### Defined in
 
-[src/constant/index.ts:18](https://github.com/hitendrarao/location/blob/0bcac8f/src/constant/index.ts#L18)
+[src/constant/index.ts:18](https://github.com/hitendrarao/location/blob/fe59d74/src/constant/index.ts#L18)

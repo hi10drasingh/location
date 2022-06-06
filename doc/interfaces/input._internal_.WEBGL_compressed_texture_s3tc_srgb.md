@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / WEBGL\_compressed\_texture\_s3tc\_srgb
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / WEBGL\_compressed\_texture\_s3tc\_srgb
 
 # Interface: WEBGL\_compressed\_texture\_s3tc\_srgb
 

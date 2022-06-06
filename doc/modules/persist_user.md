@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.6](../README.md) / [Exports](../modules.md) / persist/user
+[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / persist/user
 
 # Module: persist/user
 
@@ -24,7 +24,7 @@ Registers event listener to handle global location change.
 
 #### Defined in
 
-[src/persist/user.ts:77](https://github.com/hitendrarao/location/blob/0bcac8f/src/persist/user.ts#L77)
+[src/persist/user.ts:77](https://github.com/hitendrarao/location/blob/fe59d74/src/persist/user.ts#L77)
 
 ___
 
@@ -42,7 +42,7 @@ Fetched user location from api.
 
 #### Defined in
 
-[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/0bcac8f/src/persist/user.ts#L24)
+[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/fe59d74/src/persist/user.ts#L24)
 
 ___
 
@@ -64,4 +64,4 @@ Set user location to api.
 
 #### Defined in
 
-[src/persist/user.ts:41](https://github.com/hitendrarao/location/blob/0bcac8f/src/persist/user.ts#L41)
+[src/persist/user.ts:41](https://github.com/hitendrarao/location/blob/fe59d74/src/persist/user.ts#L41)
