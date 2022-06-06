@@ -27,7 +27,7 @@
 		"tsc": "tsc",
 		"tsc:es6": "tsc -m es6 --outDir lib-esm",
 		"build": "run-s lint clean tsc copy-files:lib tsc:es6 copy-files:lib-esm build:prod build:doc",
-		"prepublish": "build"
+		"prepublishOnly": "npm run build"
 	},
 	"verbose": true,
 	"engines": {

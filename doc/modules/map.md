@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / map
+[Droom Google Location Plugin - v1.0.8](../README.md) / [Exports](../modules.md) / map
 
 # Module: map
 

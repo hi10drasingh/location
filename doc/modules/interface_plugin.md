@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / interface/plugin
+[Droom Google Location Plugin - v1.0.8](../README.md) / [Exports](../modules.md) / interface/plugin
 
 # Module: interface/plugin
 

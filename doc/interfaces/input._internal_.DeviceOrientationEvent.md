@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.7](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / DeviceOrientationEvent
+[Droom Google Location Plugin - v1.0.8](../README.md) / [Exports](../modules.md) / [input](../modules/input.md) / [<internal\>](../modules/input._internal_.md) / DeviceOrientationEvent
 
 # Interface: DeviceOrientationEvent
 
