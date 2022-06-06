@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / utils/errorHandler
+[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / utils/errorHandler
 
 # Module: utils/errorHandler
 
@@ -25,4 +25,4 @@
 
 #### Defined in
 
-[src/utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/c9a9cea/src/utils/errorHandler.ts#L41)
+[src/utils/errorHandler.ts:41](https://github.com/hitendrarao/location/blob/d9af338/src/utils/errorHandler.ts#L41)

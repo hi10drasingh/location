@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / utils/deepequal
+[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / utils/deepequal
 
 # Module: utils/deepequal
 
@@ -26,7 +26,7 @@ Obj type contains string keys with any value.
 
 #### Defined in
 
-[src/utils/deepequal.ts:4](https://github.com/hitendrarao/location/blob/c9a9cea/src/utils/deepequal.ts#L4)
+[src/utils/deepequal.ts:4](https://github.com/hitendrarao/location/blob/d9af338/src/utils/deepequal.ts#L4)
 
 ## Functions
 
@@ -51,4 +51,4 @@ Check if two objects are exactaly equal.
 
 #### Defined in
 
-[src/utils/deepequal.ts:21](https://github.com/hitendrarao/location/blob/c9a9cea/src/utils/deepequal.ts#L21)
+[src/utils/deepequal.ts:22](https://github.com/hitendrarao/location/blob/d9af338/src/utils/deepequal.ts#L22)

@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / map/map
+[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / map/map
 
 # Module: map/map
 
@@ -26,7 +26,7 @@ Result format of geocoder or place detail api.
 
 #### Defined in
 
-[src/map/map.ts:7](https://github.com/hitendrarao/location/blob/c9a9cea/src/map/map.ts#L7)
+[src/map/map.ts:7](https://github.com/hitendrarao/location/blob/d9af338/src/map/map.ts#L7)
 
 ## Functions
 
@@ -50,4 +50,4 @@ PlaceData.
 
 #### Defined in
 
-[src/map/map.ts:52](https://github.com/hitendrarao/location/blob/c9a9cea/src/map/map.ts#L52)
+[src/map/map.ts:52](https://github.com/hitendrarao/location/blob/d9af338/src/map/map.ts#L52)

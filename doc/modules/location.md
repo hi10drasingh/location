@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / location
+[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / location
 
 # Module: location
 
@@ -32,7 +32,7 @@ Check if given input is registers as global not not.
 
 #### Defined in
 
-[src/location.ts:109](https://github.com/hitendrarao/location/blob/c9a9cea/src/location.ts#L109)
+[src/location.ts:109](https://github.com/hitendrarao/location/blob/d9af338/src/location.ts#L109)
 
 ___
 
@@ -54,7 +54,7 @@ Triggers Location change for all global inputs.
 
 #### Defined in
 
-[src/location.ts:77](https://github.com/hitendrarao/location/blob/c9a9cea/src/location.ts#L77)
+[src/location.ts:77](https://github.com/hitendrarao/location/blob/d9af338/src/location.ts#L77)
 
 ___
 
@@ -77,4 +77,4 @@ Trigger Location Change for local inputs.
 
 #### Defined in
 
-[src/location.ts:95](https://github.com/hitendrarao/location/blob/c9a9cea/src/location.ts#L95)
+[src/location.ts:95](https://github.com/hitendrarao/location/blob/d9af338/src/location.ts#L95)

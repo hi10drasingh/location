@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.9](../README.md) / [Exports](../modules.md) / persist/user
+[Droom Google Location Plugin - v1.0.10](../README.md) / [Exports](../modules.md) / persist/user
 
 # Module: persist/user
 
@@ -6,11 +6,29 @@
 
 ### Functions
 
+- [GetUserLocation](persist_user.md#getuserlocation)
 - [LoadUserStore](persist_user.md#loaduserstore)
-- [getUserLocation](persist_user.md#getuserlocation)
-- [setUserLocation](persist_user.md#setuserlocation)
+- [SetUserLocation](persist_user.md#setuserlocation)
 
 ## Functions
+
+### GetUserLocation
+
+▸ **GetUserLocation**(): `Promise`<[`default`](interface_nullable.md#default)<[`default`](../interfaces/interface_placedata.default.md)\>\>
+
+Fetched user location from api.
+
+#### Returns
+
+`Promise`<[`default`](interface_nullable.md#default)<[`default`](../interfaces/interface_placedata.default.md)\>\>
+
+- User location data.
+
+#### Defined in
+
+[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/d9af338/src/persist/user.ts#L24)
+
+___
 
 ### LoadUserStore
 
@@ -24,31 +42,13 @@ Registers event listener to handle global location change.
 
 #### Defined in
 
-[src/persist/user.ts:77](https://github.com/hitendrarao/location/blob/c9a9cea/src/persist/user.ts#L77)
+[src/persist/user.ts:80](https://github.com/hitendrarao/location/blob/d9af338/src/persist/user.ts#L80)
 
 ___
 
-### getUserLocation
+### SetUserLocation
 
-▸ **getUserLocation**(): `Promise`<``null`` \| [`default`](../interfaces/interface_placedata.default.md)\>
-
-Fetched user location from api.
-
-#### Returns
-
-`Promise`<``null`` \| [`default`](../interfaces/interface_placedata.default.md)\>
-
-- User location data.
-
-#### Defined in
-
-[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/c9a9cea/src/persist/user.ts#L24)
-
-___
-
-### setUserLocation
-
-▸ **setUserLocation**(`data`): `void`
+▸ **SetUserLocation**(`data`): `void`
 
 Set user location to api.
 
@@ -64,4 +64,4 @@ Set user location to api.
 
 #### Defined in
 
-[src/persist/user.ts:41](https://github.com/hitendrarao/location/blob/c9a9cea/src/persist/user.ts#L41)
+[src/persist/user.ts:44](https://github.com/hitendrarao/location/blob/d9af338/src/persist/user.ts#L44)
