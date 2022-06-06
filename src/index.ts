@@ -1,7 +1,7 @@
-import { BindInput, UnbindInput } from "input"
-import { Plugin, Config } from "interface"
-import LoadDependencies from "load"
-import { LocationDefaultConfig, LocationAttrSlug } from "constant"
+import LoadDependencies from "./load"
+import { LocationDefaultConfig, LocationAttrSlug } from "./constant"
+import { Plugin, Config } from "./interface"
+import { BindInput, UnbindInput } from "./input"
 
 /**
  * Binds plugins to a element with given selector.

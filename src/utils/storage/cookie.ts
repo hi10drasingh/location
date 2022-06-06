@@ -1,4 +1,4 @@
-import { IStoreGet, IStoreSet, Nullable, DroomWindow } from "interface"
+import { IStoreGet, IStoreSet, Nullable, DroomWindow } from "../../interface"
 
 const droomWindow = window as Window as DroomWindow
 

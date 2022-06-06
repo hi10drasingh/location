@@ -1,7 +1,7 @@
-import { DroomResponse } from "interface"
-import { HTTPClient, ErrorHandler } from "utils"
-import "modal/style.css"
-import "modal/icomoon/style.css"
+import { DroomResponse } from "../interface"
+import { HTTPClient, ErrorHandler } from "../utils"
+import "./style.css"
+import "./icomoon/style.css"
 
 /**
  * Get Modal Api response format.
@@ -40,7 +40,7 @@ const fetchHTML = () => {
 				document.body.insertAdjacentHTML("beforeend", res.data)
 			}
 		})
-		.catch(err => ErrorHandler.error(err))
+		.catch((err: unknown) => ErrorHandler.error(err))
 }
 
 /**

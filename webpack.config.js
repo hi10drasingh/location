@@ -8,8 +8,6 @@ const TerserPlugin = require("terser-webpack-plugin")
 
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin")
-
 const config = {
 	entry: {
 		"location-plugin": "./src/index.ts",
@@ -54,7 +52,6 @@ const config = {
 		]
 	},
 	resolve: {
-		plugins: [new TsconfigPathsPlugin()],
 		extensions: [".tsx", ".ts", ".js", ".jsx"]
 	}
 }

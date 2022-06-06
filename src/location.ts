@@ -1,11 +1,11 @@
-import { IPlaceData, Nullable } from "interface"
 import {
 	LocationChangeEvent,
 	LocationAttrSlug,
 	LocationTypeAttrName,
 	LocationPluginTypes,
 	LocationPopularCityStateMap
-} from "constant"
+} from "./constant"
+import { IPlaceData, Nullable } from "./interface"
 
 /**
  * List of all inputs which are registered as global.

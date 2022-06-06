@@ -1,4 +1,4 @@
-import Nullable from "interface/nullable"
+import Nullable from "./nullable"
 
 /**
  * Google Place Data format.

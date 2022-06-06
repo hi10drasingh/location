@@ -1,6 +1,3 @@
-import { Debounce, ErrorHandler } from "utils"
-import { HideSuggestion, UpdateSuggestion } from "suggestion"
-import { GetAutoCompletePredictions } from "map"
 import {
 	LocationAttrSlug,
 	LocationChangeEvent,
@@ -8,10 +5,13 @@ import {
 	LocationInputSelectorAttrName,
 	LocationPluginTypes,
 	LocationDataAttrList
-} from "constant"
-import { IPlaceData, BindInputFunc, UnbindInputFunc } from "interface"
-import { IsGlobalLocation, TriggerLocalChange } from "location"
-import { GetCacheData } from "persist"
+} from "../constant"
+import { IPlaceData, BindInputFunc, UnbindInputFunc } from "../interface"
+import { IsGlobalLocation, TriggerLocalChange } from "../location"
+import { GetCacheData } from "../persist"
+import { GetAutoCompletePredictions } from "../map"
+import { HideSuggestion, UpdateSuggestion } from "../suggestion"
+import { Debounce, ErrorHandler } from "../utils"
 
 const DEBOUCE_TIMEOUT = 300 // in milliseconds
 
@@ -87,7 +87,7 @@ const inputListener = (event: Event) => {
 					ErrorHandler.info(PREDICTIONS_NOT_FOUND_MSG)
 				}
 			})
-			.catch(err => ErrorHandler.error(err))
+			.catch((err: unknown) => ErrorHandler.error(err))
 	}
 }
 

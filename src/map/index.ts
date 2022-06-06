@@ -1,8 +1,8 @@
+import { GetCurrentLocation } from "./geocode"
 import {
 	GetAutoCompletePredictions,
 	HandlerAutoCompleteItemClick
-} from "map/autocomplete"
-import { GetCurrentLocation } from "map/geocode"
+} from "./autocomplete"
 
 export {
 	GetCurrentLocation,

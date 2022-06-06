@@ -1,4 +1,4 @@
-import { DroomWindow } from "interface"
+import { DroomWindow } from "../interface"
 
 const droomWindow = window as Window as DroomWindow
 

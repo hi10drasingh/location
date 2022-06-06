@@ -1,4 +1,4 @@
-import { IStoreGet, IStoreSet, Nullable } from "interface"
+import { IStoreGet, IStoreSet, Nullable } from "../../interface"
 
 /**
  * Local Storage Data Format.

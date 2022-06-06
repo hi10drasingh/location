@@ -1,6 +1,6 @@
-import { IPlaceData } from "interface"
-import { TriggerGlobalChange } from "location"
-import { processResult } from "map/map"
+import { IPlaceData } from "../interface"
+import { TriggerGlobalChange } from "../location"
+import { processResult } from "./map"
 
 const GEOLOCATION_NOT_AVAILABLE_MSG =
 	"Geolocation is not available for this browser"

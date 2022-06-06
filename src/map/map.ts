@@ -1,5 +1,5 @@
-import { IPlaceData } from "interface"
-import { LocationDefaultData } from "constant"
+import { IPlaceData } from "../interface"
+import { LocationDefaultData } from "../constant"
 
 /**
  * Result format of geocoder or place detail api.
