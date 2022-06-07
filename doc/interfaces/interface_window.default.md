@@ -239,7 +239,7 @@ Website Assets URL.
 
 #### Defined in
 
-[src/interface/window.ts:8](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/window.ts#L8)
+[src/interface/window.ts:8](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/window.ts#L8)
 
 ___
 
@@ -251,7 +251,7 @@ Website Assets Version.
 
 #### Defined in
 
-[src/interface/window.ts:12](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/window.ts#L12)
+[src/interface/window.ts:12](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/window.ts#L12)
 
 ___
 
@@ -263,7 +263,7 @@ Website user auth flag.
 
 #### Defined in
 
-[src/interface/window.ts:20](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/window.ts#L20)
+[src/interface/window.ts:20](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/window.ts#L20)
 
 ___
 
@@ -323,7 +323,7 @@ Website cookie domain.
 
 #### Defined in
 
-[src/interface/window.ts:24](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/window.ts#L24)
+[src/interface/window.ts:24](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/window.ts#L24)
 
 ___
 
@@ -597,7 +597,7 @@ Website Minification.
 
 #### Defined in
 
-[src/interface/window.ts:16](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/window.ts#L16)
+[src/interface/window.ts:16](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/window.ts#L16)
 
 ___
 

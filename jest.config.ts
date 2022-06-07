@@ -13,6 +13,12 @@ const config: Config.InitialOptions = {
 			"jest-transform-stub"
 	},
 	collectCoverage: true,
-	coverageReporters: ["json", "html"]
+	coverageReporters: ["json", "html"],
+	globals: {
+		"ts-jest": {
+			tsconfig: "./tsconfig.jest.json"
+		}
+	},
+	restoreMocks: true
 }
 export default config

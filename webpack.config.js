@@ -18,12 +18,9 @@ const config = {
 	output: {
 		path: path.resolve(__dirname, "_bundles"),
 		filename: "[name].js",
-		library: {
-			type: "umd",
-			export: "default",
-			name: "LocationPlugin",
-			umdNamedDefine: true
-		}
+		libraryTarget: "umd",
+		library: "LocationPlugin",
+		umdNamedDefine: true
 	},
 	devServer: {
 		open: true,
@@ -47,17 +44,7 @@ const config = {
 			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
-				use: [
-					"babel-loader",
-					{
-						loader: "ts-loader",
-						options: {
-							configFile: isProduction
-								? "tsconfig.production.json"
-								: "tsconfig.json"
-						}
-					}
-				]
+				use: ["babel-loader", "ts-loader"]
 			}
 		]
 	},

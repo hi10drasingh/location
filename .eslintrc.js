@@ -74,7 +74,11 @@ module.exports = {
 				google: "readonly"
 			},
 			parserOptions: {
-				project: "./tsconfig.json",
+				project: [
+					"./tsconfig.json" /* for lib */,
+					"./tsconfig.jest.json" /* for tests */,
+					"./tsconfig.pending.json" /* for unimplemented modules */
+				],
 				ecmaVersion: "latest"
 			},
 			rules: {

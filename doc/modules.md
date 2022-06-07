@@ -23,7 +23,6 @@
 - [map/autocomplete](modules/map_autocomplete.md)
 - [map/geocode](modules/map_geocode.md)
 - [map/map](modules/map_map.md)
-- [modal](modules/modal.md)
 - [persist](modules/persist.md)
 - [persist/store](modules/persist_store.md)
 - [persist/user](modules/persist_user.md)

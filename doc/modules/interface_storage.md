@@ -37,7 +37,7 @@ Get value of key from cache store.
 
 #### Defined in
 
-[src/interface/storage.ts:5](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/storage.ts#L5)
+[src/interface/storage.ts:5](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/storage.ts#L5)
 
 ___
 
@@ -65,4 +65,4 @@ Set value to cache store for given key with expiry in days.
 
 #### Defined in
 
-[src/interface/storage.ts:9](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/storage.ts#L9)
+[src/interface/storage.ts:9](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/storage.ts#L9)

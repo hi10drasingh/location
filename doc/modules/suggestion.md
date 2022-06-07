@@ -25,7 +25,7 @@ Hides The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:105](https://github.com/hitendrarao/location/blob/0eb4616/src/suggestion/index.ts#L105)
+[src/suggestion/index.ts:105](https://github.com/hitendrarao/location/blob/d0a2678/src/suggestion/index.ts#L105)
 
 ___
 
@@ -41,7 +41,7 @@ Add suggestion html to document and apply events and attributes.
 
 #### Defined in
 
-[src/suggestion/index.ts:256](https://github.com/hitendrarao/location/blob/0eb4616/src/suggestion/index.ts#L256)
+[src/suggestion/index.ts:256](https://github.com/hitendrarao/location/blob/d0a2678/src/suggestion/index.ts#L256)
 
 ___
 
@@ -57,7 +57,7 @@ Displays The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:95](https://github.com/hitendrarao/location/blob/0eb4616/src/suggestion/index.ts#L95)
+[src/suggestion/index.ts:95](https://github.com/hitendrarao/location/blob/d0a2678/src/suggestion/index.ts#L95)
 
 ___
 
@@ -80,4 +80,4 @@ Update the suggestion list according to new autocomplete predictions.
 
 #### Defined in
 
-[src/suggestion/index.ts:308](https://github.com/hitendrarao/location/blob/0eb4616/src/suggestion/index.ts#L308)
+[src/suggestion/index.ts:308](https://github.com/hitendrarao/location/blob/d0a2678/src/suggestion/index.ts#L308)
