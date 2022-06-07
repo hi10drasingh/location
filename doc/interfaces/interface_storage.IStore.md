@@ -21,7 +21,7 @@ Gets value from store.
 
 #### Defined in
 
-[src/interface/storage.ts:18](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/storage.ts#L18)
+[src/interface/storage.ts:18](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/storage.ts#L18)
 
 ___
 
@@ -33,4 +33,4 @@ Sets value to Store.
 
 #### Defined in
 
-[src/interface/storage.ts:22](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/storage.ts#L22)
+[src/interface/storage.ts:22](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/storage.ts#L22)

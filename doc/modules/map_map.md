@@ -26,7 +26,7 @@ Result format of geocoder or place detail api.
 
 #### Defined in
 
-[src/map/map.ts:7](https://github.com/hitendrarao/location/blob/d0a2678/src/map/map.ts#L7)
+[src/map/map.ts:7](https://github.com/hitendrarao/location/blob/18ede0d/src/map/map.ts#L7)
 
 ## Functions
 
@@ -50,4 +50,4 @@ PlaceData.
 
 #### Defined in
 
-[src/map/map.ts:52](https://github.com/hitendrarao/location/blob/d0a2678/src/map/map.ts#L52)
+[src/map/map.ts:52](https://github.com/hitendrarao/location/blob/18ede0d/src/map/map.ts#L52)

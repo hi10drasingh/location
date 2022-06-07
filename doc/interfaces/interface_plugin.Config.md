@@ -26,4 +26,4 @@ Is Input registed as global.
 
 #### Defined in
 
-[src/interface/plugin.ts:9](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/plugin.ts#L9)
+[src/interface/plugin.ts:9](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/plugin.ts#L9)

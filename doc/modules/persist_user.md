@@ -26,7 +26,7 @@ Fetched user location from api.
 
 #### Defined in
 
-[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/d0a2678/src/persist/user.ts#L24)
+[src/persist/user.ts:24](https://github.com/hitendrarao/location/blob/18ede0d/src/persist/user.ts#L24)
 
 ___
 
@@ -42,7 +42,7 @@ Registers event listener to handle global location change.
 
 #### Defined in
 
-[src/persist/user.ts:80](https://github.com/hitendrarao/location/blob/d0a2678/src/persist/user.ts#L80)
+[src/persist/user.ts:80](https://github.com/hitendrarao/location/blob/18ede0d/src/persist/user.ts#L80)
 
 ___
 
@@ -64,4 +64,4 @@ Set user location to api.
 
 #### Defined in
 
-[src/persist/user.ts:44](https://github.com/hitendrarao/location/blob/d0a2678/src/persist/user.ts#L44)
+[src/persist/user.ts:44](https://github.com/hitendrarao/location/blob/18ede0d/src/persist/user.ts#L44)

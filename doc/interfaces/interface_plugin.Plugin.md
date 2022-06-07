@@ -34,7 +34,7 @@ Bind an element with given config to plugin.
 
 #### Defined in
 
-[src/interface/plugin.ts:18](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/plugin.ts#L18)
+[src/interface/plugin.ts:18](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/plugin.ts#L18)
 
 ___
 
@@ -56,4 +56,4 @@ Bind an element from plugin.
 
 #### Defined in
 
-[src/interface/plugin.ts:22](https://github.com/hitendrarao/location/blob/d0a2678/src/interface/plugin.ts#L22)
+[src/interface/plugin.ts:22](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/plugin.ts#L22)
