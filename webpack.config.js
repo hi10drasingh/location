@@ -47,7 +47,17 @@ const config = {
 			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
-				use: ["babel-loader", "ts-loader"]
+				use: [
+					"babel-loader",
+					{
+						loader: "ts-loader",
+						options: {
+							configFile: isProduction
+								? "tsconfig.production.json"
+								: "tsconfig.json"
+						}
+					}
+				]
 			}
 		]
 	},
