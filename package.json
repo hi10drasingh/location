@@ -4,6 +4,7 @@
 	"description": "Universal Location Plugin",
 	"main": "index.js",
 	"scripts": {
+		"preinstall": "npx npm-force-resolutions",
 		"lint": "run-s lint:style lint:script",
 		"lint:style": "npx stylelint **/*.{css,scss,sass}",
 		"lint:style:fix": "npm run lint:style -- --fix",
@@ -108,5 +109,9 @@
 		"*.{css,scss,sass}": [
 			"stylelint --fix"
 		]
+	},
+	"resolutions": {
+		"glob-parent": "^6.0.1",
+		"ejs": "^3.1.7"
 	}
 }

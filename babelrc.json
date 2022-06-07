@@ -8,6 +8,9 @@
 			"@babel/preset-env",
 			{
 				"corejs": "3.22",
+				"targets": {
+					"node": "current"
+				},
 				"useBuiltIns": "entry"
 			}
 		]
