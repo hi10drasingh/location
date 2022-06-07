@@ -28,4 +28,4 @@ Register modal to on click for a selector.
 
 #### Defined in
 
-[src/modal/index.ts:52](https://github.com/hitendrarao/location/blob/31fbd1f/src/modal/index.ts#L52)
+[src/modal/index.ts:52](https://github.com/hitendrarao/location/blob/4dc7506/src/modal/index.ts#L52)

@@ -24,4 +24,4 @@ Else Get data from databases and then update global data.
 
 #### Defined in
 
-[src/load.ts:37](https://github.com/hitendrarao/location/blob/31fbd1f/src/load.ts#L37)
+[src/load.ts:37](https://github.com/hitendrarao/location/blob/4dc7506/src/load.ts#L37)

@@ -36,7 +36,7 @@ Bind Location Plugin to a input element.
 
 #### Defined in
 
-[src/input/index.ts:178](https://github.com/hitendrarao/location/blob/31fbd1f/src/input/index.ts#L178)
+[src/input/index.ts:178](https://github.com/hitendrarao/location/blob/4dc7506/src/input/index.ts#L178)
 
 ___
 
@@ -58,4 +58,4 @@ UnBind Location Plugin to a input element.
 
 #### Defined in
 
-[src/input/index.ts:228](https://github.com/hitendrarao/location/blob/31fbd1f/src/input/index.ts#L228)
+[src/input/index.ts:228](https://github.com/hitendrarao/location/blob/4dc7506/src/input/index.ts#L228)

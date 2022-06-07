@@ -31,7 +31,7 @@ Get Value of a key from cookie store.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:11](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/storage/cookie.ts#L11)
+[src/utils/storage/cookie.ts:11](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/storage/cookie.ts#L11)
 
 ___
 
@@ -55,4 +55,4 @@ Set cookie with given name and value for certain time in days.
 
 #### Defined in
 
-[src/utils/storage/cookie.ts:40](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/storage/cookie.ts#L40)
+[src/utils/storage/cookie.ts:40](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/storage/cookie.ts#L40)

@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/utils/loadresource.ts:5](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/loadresource.ts#L5)
+[src/utils/loadresource.ts:5](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/loadresource.ts#L5)
 
 ## Functions
 
@@ -52,4 +52,4 @@ Asynchronously loads resource.
 
 #### Defined in
 
-[src/utils/loadresource.ts:73](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/loadresource.ts#L73)
+[src/utils/loadresource.ts:73](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/loadresource.ts#L73)

@@ -24,7 +24,7 @@ Code [success] or [failed].
 
 #### Defined in
 
-[src/interface/response.ts:8](https://github.com/hitendrarao/location/blob/31fbd1f/src/interface/response.ts#L8)
+[src/interface/response.ts:8](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/response.ts#L8)
 
 ___
 
@@ -36,7 +36,7 @@ Api Data.
 
 #### Defined in
 
-[src/interface/response.ts:12](https://github.com/hitendrarao/location/blob/31fbd1f/src/interface/response.ts#L12)
+[src/interface/response.ts:12](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/response.ts#L12)
 
 ___
 
@@ -48,4 +48,4 @@ Array of Errors in case failure.
 
 #### Defined in
 
-[src/interface/response.ts:16](https://github.com/hitendrarao/location/blob/31fbd1f/src/interface/response.ts#L16)
+[src/interface/response.ts:16](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/response.ts#L16)

@@ -26,7 +26,7 @@ Obj type contains string keys with any value.
 
 #### Defined in
 
-[src/utils/deepequal.ts:4](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/deepequal.ts#L4)
+[src/utils/deepequal.ts:4](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/deepequal.ts#L4)
 
 ## Functions
 
@@ -51,4 +51,4 @@ Check if two objects are exactaly equal.
 
 #### Defined in
 
-[src/utils/deepequal.ts:22](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/deepequal.ts#L22)
+[src/utils/deepequal.ts:22](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/deepequal.ts#L22)

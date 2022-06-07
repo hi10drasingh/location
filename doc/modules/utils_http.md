@@ -37,4 +37,4 @@ Droom Wrapper for fetch api.
 
 #### Defined in
 
-[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/http.ts#L9)
+[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/http.ts#L9)

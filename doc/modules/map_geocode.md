@@ -25,7 +25,7 @@ Fetches current location of user via navigation and geocode api.
 
 #### Defined in
 
-[src/map/geocode.ts:31](https://github.com/hitendrarao/location/blob/31fbd1f/src/map/geocode.ts#L31)
+[src/map/geocode.ts:31](https://github.com/hitendrarao/location/blob/4dc7506/src/map/geocode.ts#L31)
 
 ___
 
@@ -49,4 +49,4 @@ Fetches and process the result from geocode to IPlaceData.
 
 #### Defined in
 
-[src/map/geocode.ts:14](https://github.com/hitendrarao/location/blob/31fbd1f/src/map/geocode.ts#L14)
+[src/map/geocode.ts:14](https://github.com/hitendrarao/location/blob/4dc7506/src/map/geocode.ts#L14)

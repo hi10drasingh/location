@@ -47,4 +47,4 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 
 #### Defined in
 
-[src/utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/31fbd1f/src/utils/debounce.ts#L10)
+[src/utils/debounce.ts:10](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/debounce.ts#L10)

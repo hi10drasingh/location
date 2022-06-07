@@ -35,7 +35,7 @@ Prediction Results.
 
 #### Defined in
 
-[src/map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/31fbd1f/src/map/autocomplete/index.ts#L17)
+[src/map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/4dc7506/src/map/autocomplete/index.ts#L17)
 
 ___
 
@@ -58,4 +58,4 @@ Event handler for suggestions elements result click.
 
 #### Defined in
 
-[src/map/autocomplete/index.ts:32](https://github.com/hitendrarao/location/blob/31fbd1f/src/map/autocomplete/index.ts#L32)
+[src/map/autocomplete/index.ts:32](https://github.com/hitendrarao/location/blob/4dc7506/src/map/autocomplete/index.ts#L32)
