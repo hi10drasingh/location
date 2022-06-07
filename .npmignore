@@ -6,7 +6,4 @@ src
 coverage
 tests
 index.html
-*.js
-*.ts
-tsconfig.*.json
 doc
