@@ -31,7 +31,7 @@ Get Value of a key from Local Storage.
 
 #### Defined in
 
-[src/utils/storage/ls.ts:73](https://github.com/hitendrarao/location/blob/bb6fa88/src/utils/storage/ls.ts#L73)
+[src/utils/storage/ls.ts:73](https://github.com/hitendrarao/location/blob/0eb4616/src/utils/storage/ls.ts#L73)
 
 ___
 
@@ -55,4 +55,4 @@ Set data in LocalStorage with given key.
 
 #### Defined in
 
-[src/utils/storage/ls.ts:57](https://github.com/hitendrarao/location/blob/bb6fa88/src/utils/storage/ls.ts#L57)
+[src/utils/storage/ls.ts:57](https://github.com/hitendrarao/location/blob/0eb4616/src/utils/storage/ls.ts#L57)

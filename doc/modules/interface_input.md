@@ -34,7 +34,7 @@ Bind as input element to location plugin.
 
 #### Defined in
 
-[src/interface/input.ts:4](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/input.ts#L4)
+[src/interface/input.ts:4](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/input.ts#L4)
 
 ___
 
@@ -60,4 +60,4 @@ Unbind Input Element from plugin.
 
 #### Defined in
 
-[src/interface/input.ts:9](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/input.ts#L9)
+[src/interface/input.ts:9](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/input.ts#L9)

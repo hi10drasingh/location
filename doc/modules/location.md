@@ -32,7 +32,7 @@ Check if given input is registers as global not not.
 
 #### Defined in
 
-[src/location.ts:109](https://github.com/hitendrarao/location/blob/bb6fa88/src/location.ts#L109)
+[src/location.ts:109](https://github.com/hitendrarao/location/blob/0eb4616/src/location.ts#L109)
 
 ___
 
@@ -54,7 +54,7 @@ Triggers Location change for all global inputs.
 
 #### Defined in
 
-[src/location.ts:77](https://github.com/hitendrarao/location/blob/bb6fa88/src/location.ts#L77)
+[src/location.ts:77](https://github.com/hitendrarao/location/blob/0eb4616/src/location.ts#L77)
 
 ___
 
@@ -77,4 +77,4 @@ Trigger Location Change for local inputs.
 
 #### Defined in
 
-[src/location.ts:95](https://github.com/hitendrarao/location/blob/bb6fa88/src/location.ts#L95)
+[src/location.ts:95](https://github.com/hitendrarao/location/blob/0eb4616/src/location.ts#L95)

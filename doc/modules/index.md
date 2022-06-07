@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/index.ts:80](https://github.com/hitendrarao/location/blob/bb6fa88/src/index.ts#L80)
+[src/index.ts:80](https://github.com/hitendrarao/location/blob/0eb4616/src/index.ts#L80)

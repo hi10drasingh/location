@@ -24,4 +24,4 @@ Nullable<T> type return type {T | null}.
 
 #### Defined in
 
-[src/interface/nullable.ts:7](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/nullable.ts#L7)
+[src/interface/nullable.ts:7](https://github.com/hitendrarao/location/blob/0eb4616/src/interface/nullable.ts#L7)
