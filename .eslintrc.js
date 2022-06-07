@@ -6,7 +6,8 @@ const rules = {
 	"jsdoc/require-description": 1,
 	"jsdoc/require-description-complete-sentence": 1,
 	"jsdoc/require-hyphen-before-param-description": 1,
-	"jsdoc/require-throws": 1
+	"jsdoc/require-throws": 1,
+	"import/no-extraneous-dependencies": ["error", { devDependencies: true }]
 }
 
 const extendPlugins = [
@@ -14,12 +15,13 @@ const extendPlugins = [
 	"eslint:recommended",
 	"plugin:jsdoc/recommended",
 	"plugin:compat/recommended",
+	"plugin:jest-dom/recommended",
 	"prettier" // Make sure this is the last
 ]
 
 module.exports = {
 	root: true,
-	plugins: ["jsdoc"],
+	plugins: ["jsdoc", "jest-dom"],
 	env: {
 		browser: true,
 		es2021: true
@@ -59,7 +61,7 @@ module.exports = {
 		{
 			files: ["**/*.ts", "**/*.tsx"],
 			parser: "@typescript-eslint/parser",
-			plugins: ["@typescript-eslint", "jsdoc"],
+			plugins: ["@typescript-eslint", "jsdoc", "jest-dom"],
 			extends: [
 				...extendPlugins,
 				"airbnb-typescript/base",

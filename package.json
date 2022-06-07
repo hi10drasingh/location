@@ -4,7 +4,7 @@
 	"description": "Universal Location Plugin",
 	"main": "index.js",
 	"scripts": {
-		"preinstall": "npx npm-force-resolutions",
+		"preinstall": "npx force-resolutions",
 		"lint": "run-s lint:style lint:script",
 		"lint:style": "npx stylelint **/*.{css,scss,sass}",
 		"lint:style:fix": "npm run lint:style -- --fix",
@@ -20,13 +20,13 @@
 		"watch": "webpack --watch",
 		"serve": "webpack serve",
 		"build:doc": "npx typedoc",
-		"type-check": "tsc --noEmit",
+		"type-check": "tsc --rootDir src --noEmit",
 		"type-check:watch": "npm run type-check -- --watch",
 		"copy-files:lib": "copyfiles -u 1 \"./src/**/*.html\" \"./src/**/*.css\" \"./src/**/*.txt\" \"./src/**/*.eot\" \"./src/**/*.svg\" \"./src/**/*.ttf\" \"./src/**/*.woff\" lib/",
 		"copy-files:lib-esm": "copyfiles -u 1 \"./src/**/*.html\" \"./src/**/*.css\" \"./src/**/*.txt\" \"./src/**/*.eot\" \"./src/**/*.svg\" \"./src/**/*.ttf\" \"./src/**/*.woff\" lib-esm/",
 		"clean": "npx shx rm -rf _bundles lib lib-esm",
-		"tsc": "tsc",
-		"tsc:es6": "tsc -m es6 --outDir lib-esm",
+		"tsc": "tsc --rootDir src",
+		"tsc:es6": "tsc -m es6 --rootDir src --outDir lib-esm",
 		"build": "run-s lint clean tsc copy-files:lib tsc:es6 copy-files:lib-esm build:prod build:doc",
 		"prepublishOnly": "npm run build"
 	},
@@ -62,6 +62,7 @@
 		"@babel/plugin-proposal-class-properties": "^7.17.12",
 		"@babel/plugin-proposal-object-rest-spread": "^7.18.0",
 		"@babel/preset-env": "^7.18.2",
+		"@testing-library/jest-dom": "^5.16.4",
 		"@types/jest": "^28.1.1",
 		"@types/node": "^17.0.40",
 		"@types/webpack": "^5.28.0",
@@ -77,10 +78,13 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-compat": "^4.0.2",
 		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jest-dom": "^4.0.2",
 		"eslint-plugin-jsdoc": "^39.3.2",
 		"fork-ts-checker-webpack-plugin": "^7.2.11",
 		"husky": "^8.0.1",
 		"jest": "^28.1.0",
+		"jest-environment-jsdom": "^28.1.0",
+		"jest-transform-stub": "^2.0.0",
 		"lint-staged": "^13.0.0",
 		"npm-run-all": "^4.1.5",
 		"prettier": "2.6.2",
@@ -91,6 +95,7 @@
 		"terser-webpack-plugin": "^5.3.3",
 		"ts-jest": "^28.0.4",
 		"ts-loader": "^9.3.0",
+		"ts-node": "^10.8.1",
 		"typedoc": "^0.22.17",
 		"typedoc-plugin-markdown": "^3.12.1",
 		"typedoc-plugin-missing-exports": "^0.22.6",
@@ -103,10 +108,10 @@
 		"@types/google.maps": "^3.49.2"
 	},
 	"lint-staged": {
-		"*.{js,jsx,ts,tsx}": [
+		"src/**/*.{js,jsx,ts,tsx}": [
 			"eslint --fix --max-warnings=0"
 		],
-		"*.{css,scss,sass}": [
+		"src/**/*.{css,scss,sass}": [
 			"stylelint --fix"
 		]
 	},
