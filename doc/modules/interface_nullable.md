@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / interface/nullable
+[Droom Google Location Plugin - v1.0.16](../README.md) / [Exports](../modules.md) / interface/nullable
 
 # Module: interface/nullable
 
@@ -24,4 +24,4 @@ Nullable<T> type return type {T | null}.
 
 #### Defined in
 
-[src/interface/nullable.ts:7](https://github.com/hitendrarao/location/blob/18ede0d/src/interface/nullable.ts#L7)
+[src/interface/nullable.ts:7](https://github.com/hitendrarao/location/blob/3787eba/src/interface/nullable.ts#L7)

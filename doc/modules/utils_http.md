@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / utils/http
+[Droom Google Location Plugin - v1.0.16](../README.md) / [Exports](../modules.md) / utils/http
 
 # Module: utils/http
 
@@ -37,4 +37,4 @@ Droom Wrapper for fetch api.
 
 #### Defined in
 
-[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/18ede0d/src/utils/http.ts#L9)
+[src/utils/http.ts:9](https://github.com/hitendrarao/location/blob/3787eba/src/utils/http.ts#L9)

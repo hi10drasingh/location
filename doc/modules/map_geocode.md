@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / map/geocode
+[Droom Google Location Plugin - v1.0.16](../README.md) / [Exports](../modules.md) / map/geocode
 
 # Module: map/geocode
 
@@ -25,7 +25,7 @@ Fetches current location of user via navigation and geocode api.
 
 #### Defined in
 
-[src/map/geocode.ts:31](https://github.com/hitendrarao/location/blob/18ede0d/src/map/geocode.ts#L31)
+[src/map/geocode.ts:31](https://github.com/hitendrarao/location/blob/3787eba/src/map/geocode.ts#L31)
 
 ___
 
@@ -49,4 +49,4 @@ Fetches and process the result from geocode to IPlaceData.
 
 #### Defined in
 
-[src/map/geocode.ts:14](https://github.com/hitendrarao/location/blob/18ede0d/src/map/geocode.ts#L14)
+[src/map/geocode.ts:14](https://github.com/hitendrarao/location/blob/3787eba/src/map/geocode.ts#L14)
