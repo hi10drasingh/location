@@ -28,7 +28,7 @@
 		"build:dev": "webpack --mode=development",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"build:doc": "npx typedoc --tsconfig tsconfig.docgen.json",
-		"build": "run-s lint compile build:prod build:doc fixmaps:*",
+		"build": "run-s compile build:prod build:doc fixmaps:*",
 		"prepublishOnly": "npm run build"
 	},
 	"verbose": true,
