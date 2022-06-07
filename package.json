@@ -107,9 +107,7 @@
 		"webpack-dev-server": "^4.9.1"
 	},
 	"dependencies": {
-		"@types/google.maps": "^3.49.2",
-		"glob": "^8.0.3",
-		"shelljs": "^0.8.5"
+		"@types/google.maps": "^3.49.2"
 	},
 	"lint-staged": {
 		"src/**/*.{js,jsx,ts,tsx}": [
