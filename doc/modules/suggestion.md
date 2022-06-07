@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / suggestion
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / suggestion
 
 # Module: suggestion
 
@@ -25,7 +25,7 @@ Hides The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:105](https://github.com/hitendrarao/location/blob/6485c4f/src/suggestion/index.ts#L105)
+[src/suggestion/index.ts:105](https://github.com/hitendrarao/location/blob/bb6fa88/src/suggestion/index.ts#L105)
 
 ___
 
@@ -41,7 +41,7 @@ Add suggestion html to document and apply events and attributes.
 
 #### Defined in
 
-[src/suggestion/index.ts:256](https://github.com/hitendrarao/location/blob/6485c4f/src/suggestion/index.ts#L256)
+[src/suggestion/index.ts:256](https://github.com/hitendrarao/location/blob/bb6fa88/src/suggestion/index.ts#L256)
 
 ___
 
@@ -57,7 +57,7 @@ Displays The Suggestions.
 
 #### Defined in
 
-[src/suggestion/index.ts:95](https://github.com/hitendrarao/location/blob/6485c4f/src/suggestion/index.ts#L95)
+[src/suggestion/index.ts:95](https://github.com/hitendrarao/location/blob/bb6fa88/src/suggestion/index.ts#L95)
 
 ___
 
@@ -80,4 +80,4 @@ Update the suggestion list according to new autocomplete predictions.
 
 #### Defined in
 
-[src/suggestion/index.ts:308](https://github.com/hitendrarao/location/blob/6485c4f/src/suggestion/index.ts#L308)
+[src/suggestion/index.ts:308](https://github.com/hitendrarao/location/blob/bb6fa88/src/suggestion/index.ts#L308)

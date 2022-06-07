@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / modal
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / modal
 
 # Module: modal
 
@@ -28,4 +28,4 @@ Register modal to on click for a selector.
 
 #### Defined in
 
-[src/modal/index.ts:52](https://github.com/hitendrarao/location/blob/6485c4f/src/modal/index.ts#L52)
+[src/modal/index.ts:52](https://github.com/hitendrarao/location/blob/bb6fa88/src/modal/index.ts#L52)

@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / [map/map](../modules/map_map.md) / [<internal\>](../modules/map_map._internal_.md) / BusinessStatus
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / [map/map](../modules/map_map.md) / [<internal\>](../modules/map_map._internal_.md) / BusinessStatus
 
 # Enumeration: BusinessStatus
 

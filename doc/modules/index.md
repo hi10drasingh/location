@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / index
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / index
 
 # Module: index
 
@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/index.ts:80](https://github.com/hitendrarao/location/blob/6485c4f/src/index.ts#L80)
+[src/index.ts:80](https://github.com/hitendrarao/location/blob/bb6fa88/src/index.ts#L80)

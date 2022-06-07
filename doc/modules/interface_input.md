@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / interface/input
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / interface/input
 
 # Module: interface/input
 
@@ -34,7 +34,7 @@ Bind as input element to location plugin.
 
 #### Defined in
 
-[src/interface/input.ts:4](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/input.ts#L4)
+[src/interface/input.ts:4](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/input.ts#L4)
 
 ___
 
@@ -60,4 +60,4 @@ Unbind Input Element from plugin.
 
 #### Defined in
 
-[src/interface/input.ts:9](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/input.ts#L9)
+[src/interface/input.ts:9](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/input.ts#L9)

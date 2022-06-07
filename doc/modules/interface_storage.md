@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / interface/storage
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / interface/storage
 
 # Module: interface/storage
 
@@ -37,7 +37,7 @@ Get value of key from cache store.
 
 #### Defined in
 
-[src/interface/storage.ts:5](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/storage.ts#L5)
+[src/interface/storage.ts:5](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/storage.ts#L5)
 
 ___
 
@@ -65,4 +65,4 @@ Set value to cache store for given key with expiry in days.
 
 #### Defined in
 
-[src/interface/storage.ts:9](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/storage.ts#L9)
+[src/interface/storage.ts:9](https://github.com/hitendrarao/location/blob/bb6fa88/src/interface/storage.ts#L9)

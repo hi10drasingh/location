@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / map/autocomplete
+[Droom Google Location Plugin - v1.0.15](../README.md) / [Exports](../modules.md) / map/autocomplete
 
 # Module: map/autocomplete
 
@@ -35,7 +35,7 @@ Prediction Results.
 
 #### Defined in
 
-[src/map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/6485c4f/src/map/autocomplete/index.ts#L17)
+[src/map/autocomplete/index.ts:17](https://github.com/hitendrarao/location/blob/bb6fa88/src/map/autocomplete/index.ts#L17)
 
 ___
 
@@ -58,4 +58,4 @@ Event handler for suggestions elements result click.
 
 #### Defined in
 
-[src/map/autocomplete/index.ts:32](https://github.com/hitendrarao/location/blob/6485c4f/src/map/autocomplete/index.ts#L32)
+[src/map/autocomplete/index.ts:32](https://github.com/hitendrarao/location/blob/bb6fa88/src/map/autocomplete/index.ts#L32)
