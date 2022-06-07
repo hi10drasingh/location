@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.11](../README.md) / [Exports](../modules.md) / utils/storage
+[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / utils/storage
 
 # Module: utils/storage
 

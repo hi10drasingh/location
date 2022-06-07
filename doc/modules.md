@@ -1,6 +1,6 @@
-[Droom Google Location Plugin - v1.0.11](README.md) / Exports
+[Droom Google Location Plugin - v1.0.13](README.md) / Exports
 
-# Droom Google Location Plugin - v1.0.11
+# Droom Google Location Plugin - v1.0.13
 
 ## Table of contents
 

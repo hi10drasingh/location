@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.11](../README.md) / [Exports](../modules.md) / load
+[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / load
 
 # Module: load
 
@@ -24,4 +24,4 @@ Else Get data from databases and then update global data.
 
 #### Defined in
 
-[src/load.ts:37](https://github.com/hitendrarao/location/blob/4dc7506/src/load.ts#L37)
+[src/load.ts:37](https://github.com/hitendrarao/location/blob/6485c4f/src/load.ts#L37)

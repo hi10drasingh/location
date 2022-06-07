@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.11](../README.md) / [Exports](../modules.md) / utils/loadresource
+[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / utils/loadresource
 
 # Module: utils/loadresource
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/utils/loadresource.ts:5](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/loadresource.ts#L5)
+[src/utils/loadresource.ts:5](https://github.com/hitendrarao/location/blob/6485c4f/src/utils/loadresource.ts#L5)
 
 ## Functions
 
@@ -52,4 +52,4 @@ Asynchronously loads resource.
 
 #### Defined in
 
-[src/utils/loadresource.ts:73](https://github.com/hitendrarao/location/blob/4dc7506/src/utils/loadresource.ts#L73)
+[src/utils/loadresource.ts:73](https://github.com/hitendrarao/location/blob/6485c4f/src/utils/loadresource.ts#L73)

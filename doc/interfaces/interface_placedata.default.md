@@ -1,4 +1,4 @@
-[Droom Google Location Plugin - v1.0.11](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
+[Droom Google Location Plugin - v1.0.13](../README.md) / [Exports](../modules.md) / [interface/placedata](../modules/interface_placedata.md) / default
 
 # Interface: default
 
@@ -33,7 +33,7 @@ Address of the place.
 
 #### Defined in
 
-[src/interface/placedata.ts:42](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L42)
+[src/interface/placedata.ts:42](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L42)
 
 ___
 
@@ -45,7 +45,7 @@ City of the place.
 
 #### Defined in
 
-[src/interface/placedata.ts:22](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L22)
+[src/interface/placedata.ts:22](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L22)
 
 ___
 
@@ -57,7 +57,7 @@ Country of the place.
 
 #### Defined in
 
-[src/interface/placedata.ts:38](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L38)
+[src/interface/placedata.ts:38](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L38)
 
 ___
 
@@ -69,7 +69,7 @@ Latitude of the Place.
 
 #### Defined in
 
-[src/interface/placedata.ts:14](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L14)
+[src/interface/placedata.ts:14](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L14)
 
 ___
 
@@ -81,7 +81,7 @@ Longitute of the Place.
 
 #### Defined in
 
-[src/interface/placedata.ts:18](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L18)
+[src/interface/placedata.ts:18](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L18)
 
 ___
 
@@ -93,7 +93,7 @@ Pincode of the place.
 
 #### Defined in
 
-[src/interface/placedata.ts:30](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L30)
+[src/interface/placedata.ts:30](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L30)
 
 ___
 
@@ -105,7 +105,7 @@ Google Place ID of the place.
 
 #### Defined in
 
-[src/interface/placedata.ts:34](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L34)
+[src/interface/placedata.ts:34](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L34)
 
 ___
 
@@ -117,4 +117,4 @@ ___
 
 #### Defined in
 
-[src/interface/placedata.ts:26](https://github.com/hitendrarao/location/blob/4dc7506/src/interface/placedata.ts#L26)
+[src/interface/placedata.ts:26](https://github.com/hitendrarao/location/blob/6485c4f/src/interface/placedata.ts#L26)
