@@ -6,7 +6,3 @@ src
 coverage
 tests
 index.html
-*.config.js
-typedoc.js
-babelrc.json
-jest*
