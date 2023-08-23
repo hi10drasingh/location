@@ -1,7 +1,7 @@
 {
 	"name": "location",
 	"version": "1.0.16",
-	"description": "Universal Location Plugin",
+	"description": "Universal Location Search Plugin",
 	"main": "lib/index.js",
 	"typings": "lib/index.d.ts",
 	"jsnext:main": "lib-esm/index.js",
@@ -38,7 +38,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/hitendrarao/location.git"
+		"url": "git+https://github.com/hi10drasingh/location.git"
 	},
 	"keywords": [
 		"Universal",
@@ -50,12 +50,12 @@
 		"Javascript",
 		"Plugin"
 	],
-	"author": "hitendra.rao@droom.in",
+	"author": "hi10drasingh@gmail.com",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/hitendrarao/location/issues"
+		"url": "https://github.com/hi10drasingh/location/issues"
 	},
-	"homepage": "https://github.com/hitendrarao/location#readme",
+	"homepage": "https://github.com/hi10drasingh/location#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.17.10",
 		"@babel/core": "^7.18.2",
